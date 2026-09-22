@@ -19,7 +19,7 @@ const OUTPUTS = [
 ]
 
 function Card({ from, delay, color }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   if (reduce) return null
   const [fx, fy] = from
   return (

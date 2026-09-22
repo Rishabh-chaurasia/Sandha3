@@ -228,7 +228,7 @@ export function Desk({ x = 0, y = 0, w = 160, screen = true, top = K.amber, legs
 
 /** Scattered geometric confetti in the palette (dots, rings, triangles, plus). */
 export function Confetti({ items, float = true }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   const paint = (t, c, r) => {
     if (t === 'ring') return <circle r={r} fill="none" stroke={c} strokeWidth="2.4" />
     if (t === 'tri') return <path d={`M0 ${-r}L${r} ${r}L${-r} ${r}Z`} fill={c} />

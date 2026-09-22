@@ -14,7 +14,7 @@ function areasFor(s) {
 }
 
 export default function Expertise() {
-  const reduce = useReducedMotion()
+  const reduce = false
   return (
     <>
       <Seo

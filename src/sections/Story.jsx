@@ -6,7 +6,7 @@ import { EASE } from '../utils/motion'
 import { Spin } from '../illustrations/primitives'
 
 function Year() {
-  const reduce = useReducedMotion()
+  const reduce = false
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[360px]">
       <svg viewBox="0 0 400 400" aria-hidden className="absolute inset-0 size-full">

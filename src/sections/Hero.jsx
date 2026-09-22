@@ -29,7 +29,7 @@ const DOTS = [
 
 export default function Hero() {
   const ref = useRef(null)
-  const reduce = useReducedMotion()
+  const reduce = false
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const yArt = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 90])
   const yBlob = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -60])

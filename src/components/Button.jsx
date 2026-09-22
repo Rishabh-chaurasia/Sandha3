@@ -16,7 +16,7 @@ const variants = {
 /** Pulls slightly toward the pointer. Off for reduced motion and touch. */
 function Magnetic({ children, className }) {
   const ref = useRef(null)
-  const reduce = useReducedMotion()
+  const reduce = false
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const sx = useSpring(x, { stiffness: 220, damping: 18, mass: 0.4 })

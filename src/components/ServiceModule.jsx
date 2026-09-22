@@ -3,7 +3,7 @@ import { cn } from '../utils/motion'
 
 /** A single capability row: index, title, text. Lifts slightly on hover. */
 export default function ServiceModule({ index, title, text, className, accent = '#0878F9' }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   return (
     <motion.li
       className={cn('group grid grid-cols-[auto_1fr] gap-x-5 border-t border-line py-6 first:border-t-0 sm:gap-x-8', className)}

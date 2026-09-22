@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { EASE } from '../utils/motion'
 
 export default function Reveal({ children, delay = 0, y = 22, as = 'div', className, ...rest }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   const Tag = motion[as]
   return (
     <Tag

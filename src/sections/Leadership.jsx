@@ -5,7 +5,7 @@ import { LEADERS } from '../data/company'
 const initials = (n) => n.split(' ').map((w) => w[0]).join('')
 
 export default function Leadership({ id = 'leadership' }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   return (
     <section id={id} className="bg-ultra section" aria-labelledby={`${id}-title`}>
       <div className="container-x">

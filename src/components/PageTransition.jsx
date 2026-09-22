@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { EASE } from '../utils/motion'
 
 export default function PageTransition({ children }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   return (
     <motion.main
       id="main"

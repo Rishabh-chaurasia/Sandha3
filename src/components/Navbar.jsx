@@ -16,7 +16,7 @@ function isActive(item, pathname) {
 function ServicesMenu({ pathname }) {
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
-  const reduce = useReducedMotion()
+  const reduce = false
 
   useEffect(() => setOpen(false), [pathname])
 
@@ -96,7 +96,7 @@ function NavLinkItem({ item, pathname, trailing }) {
 }
 
 function MobileMenu({ onClose, pathname }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   const [svc, setSvc] = useState(pathname.startsWith('/services'))
 
   useEffect(() => {

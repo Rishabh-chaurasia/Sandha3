@@ -18,7 +18,7 @@ function Field({ id, label, error, children }) {
 }
 
 function Success({ onReset }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   return (
     <motion.div
       key="ok" role="status"

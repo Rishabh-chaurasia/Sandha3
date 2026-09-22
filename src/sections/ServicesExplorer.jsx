@@ -14,7 +14,7 @@ function detailsFor(s) {
 
 export default function ServicesExplorer({ heading = true, id = 'services', compact = false }) {
   const [active, setActive] = useState(0)
-  const reduce = useReducedMotion()
+  const reduce = false
   const s = SERVICES[active]
 
   const focusTab = (i) => { setActive(i); document.getElementById(`svc-tab-${i}`)?.focus() }

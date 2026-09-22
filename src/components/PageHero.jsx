@@ -18,7 +18,7 @@ const TONES = {
 }
 
 export default function PageHero({ eyebrow, title, lead, crumbs = [], illustration, tone = 'ultra', children, wide = false }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   return (
     <section className={cn('relative isolate overflow-hidden pb-14 pt-[120px] sm:pb-20 sm:pt-[148px]', TONES[tone])}>
       {(tone === 'lines' || tone === 'plain') && <div aria-hidden className="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_60%_70%_at_80%_20%,#000,transparent)]" />}

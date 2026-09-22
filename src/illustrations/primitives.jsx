@@ -84,7 +84,7 @@ export function Defs() {
 }
 
 export function Stage({ viewBox, className = '', label, children, ...rest }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   return (
     <motion.svg
       viewBox={viewBox}
@@ -123,7 +123,7 @@ export function G({ children, v = 'pop', delay = 0, style, ...rest }) {
 }
 
 export function Float({ children, amp = 6, dur = 6, delay = 0 }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   return (
     <motion.g animate={reduce ? undefined : { y: [0, -amp, 0] }} transition={{ duration: dur, repeat: Infinity, ease: 'easeInOut', delay }}>
       {children}
@@ -133,7 +133,7 @@ export function Float({ children, amp = 6, dur = 6, delay = 0 }) {
 
 /** Slow rotation around its own centre. */
 export function Spin({ children, dur = 60, reverse = false }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   return (
     <motion.g
       animate={reduce ? undefined : { rotate: reverse ? -360 : 360 }}
@@ -147,7 +147,7 @@ export function Spin({ children, dur = 60, reverse = false }) {
 
 /** Expanding ring (signal ripple). */
 export function Ripple({ cx, cy, r = 30, color = C.cyan, delay = 0, dur = 2.8 }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   if (reduce) return null
   return (
     <motion.circle
@@ -162,7 +162,7 @@ export function Ripple({ cx, cy, r = 30, color = C.cyan, delay = 0, dur = 2.8 })
 
 /** Data packet travelling along a path (SVG SMIL). */
 export function Particle({ path, dur = 4, delay = 0, r = 4, color = C.cyan, reverse = false }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   if (reduce) return null
   return (
     <g>

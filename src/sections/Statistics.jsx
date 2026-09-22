@@ -12,7 +12,7 @@ const STYLE = [
 const ORDER = [0, 1, 3, 2] // 156+, 80+, 15, 20 arranged around the cluster
 
 function Bubble({ s, st, i }) {
-  const reduce = useReducedMotion()
+  const reduce = false
   return (
     <motion.div
       className={`relative grid aspect-square place-content-center rounded-full bg-white text-center shadow-bubble lg:absolute ${st.pos}`}
