@@ -35,7 +35,7 @@ export default function Hero() {
   const yBlob = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -60])
 
   return (
-    <section ref={ref} className="bg-hero relative isolate overflow-hidden pb-8 pt-16 sm:pb-10 sm:pt-20 lg:flex lg:min-h-0 lg:items-center" aria-labelledby="hero-title">
+    <section ref={ref} className="bg-hero relative isolate overflow-hidden pb-8 pt-[112px] sm:pb-10 sm:pt-[128px] lg:flex lg:min-h-0 lg:items-center lg:pt-20" aria-labelledby="hero-title">
       {/* dynamic background: grid, glows, curves, floating dots */}
       <div aria-hidden className="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_70%_60%_at_75%_30%,#000,transparent)]" />
       <motion.div aria-hidden style={{ y: yBlob }} className="pointer-events-none absolute -right-32 -top-24 -z-10 size-[340px] rounded-full bg-brand/20 blur-[90px] sm:-right-40 sm:-top-32 sm:size-[620px] sm:bg-brand/25 sm:blur-[110px]" />
