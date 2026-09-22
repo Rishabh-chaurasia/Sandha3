@@ -38,7 +38,7 @@ export default function CallCentreDetail() {
                           <span className={cn('grid size-11 shrink-0 place-items-center rounded-full border transition-colors', on ? 'border-brand bg-soft text-brand' : 'border-line text-muted')}>
                             <Icon aria-hidden className="size-5" />
                           </span>
-                          <span className="flex-1 text-xl font-semibold text-ink">{item.title}</span>
+                          <span className="flex-1 text-xl font-extrabold tracking-tight text-ink">{item.title}</span>
                           <span aria-hidden className={cn('text-2xl text-brand transition-transform duration-300', on && 'rotate-45')}>+</span>
                         </button>
                         <AnimatePresence initial={false}>
@@ -81,7 +81,7 @@ export default function CallCentreDetail() {
             ].map(({ title, Icon, items }, i) => (
               <Reveal key={title} delay={i * 0.1} className="rounded-[2rem] border border-line bg-white p-7 sm:p-9">
                 <span className="grid size-12 place-items-center rounded-full bg-soft text-brand"><Icon aria-hidden className="size-6" /></span>
-                <h3 className="mt-5 text-xl font-semibold text-ink">{title}</h3>
+                <h3 className="mt-5 text-xl font-extrabold tracking-tight text-ink">{title}</h3>
                 <ul className="mt-4 space-y-3 text-muted">
                   {items.map((t) => (
                     <li key={t} className="flex gap-3">

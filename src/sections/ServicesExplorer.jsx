@@ -40,10 +40,10 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
       <section id={id} className={cn('section relative isolate overflow-hidden bg-white', compact && 'py-8 lg:py-12')} aria-labelledby={heading ? 'services-title' : undefined} aria-label={heading ? undefined : 'Services'}>
         <div className="container-x">
           {heading && (
-            <div className="mb-6 text-center lg:mb-8">
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-muted">What we do</p>
-              <h2 id="services-title" className="mt-1 text-3xl font-black tracking-tight text-ink sm:text-4xl">Our services</h2>
-              <p className="mx-auto mt-2 max-w-xl text-xs leading-relaxed text-muted">Products and services that help your organisation work better.</p>
+            <div className="mb-6 lg:mb-8">
+              <SectionHeading label="What we do" id="services-title" title="Our services" size="lg">
+                <p>Products and services that help your organisation work better.</p>
+              </SectionHeading>
             </div>
           )}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -53,13 +53,15 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
               return (
                 <motion.article key={sv.slug} whileHover={reduce ? undefined : { y: -5 }} transition={{ duration: 0.25 }} className="group relative min-h-[164px] overflow-hidden rounded-xl p-4 shadow-sm ring-1 ring-black/[0.04]" style={{ backgroundColor: bg }}>
                   <div className="absolute -right-8 -top-8 z-0 size-32 rounded-full opacity-35 blur-2xl" style={{ backgroundColor: color }} />
-                  <div aria-hidden className="pointer-events-none absolute -bottom-3 -right-3 z-10 size-44 mix-blend-multiply transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: "url('/service-illustrations-v2.png')", backgroundPosition: `${(i % 3) * 50}% ${Math.floor(i / 3) * 100}%`, backgroundSize: '300% 200%', backgroundRepeat: 'no-repeat' }} />
+                  <div aria-hidden className="pointer-events-none absolute -bottom-3 -right-3 z-10 size-44 mix-blend-multiply [mask-image:radial-gradient(ellipse_at_center,#000_42%,transparent_78%)] transition-transform duration-500 group-hover:scale-110" style={{ backgroundColor: bg, backgroundImage: "url('/service-illustrations-v2.png')", backgroundPosition: `${(i % 3) * 50}% ${Math.floor(i / 3) * 100}%`, backgroundSize: '300% 200%', backgroundRepeat: 'no-repeat' }} />
                   <div className="relative z-20 flex h-full flex-col">
-                    <h3 className="max-w-[15rem] text-base font-black leading-tight tracking-tight text-ink">{sv.title}</h3>
-                    <p className="mt-1 max-w-[19rem] text-xs leading-snug text-ink/70">{sv.tagline}</p>
+                    <div className="max-w-[58%]">
+                    <h3 className="text-base font-black leading-tight tracking-tight text-ink">{sv.title}</h3>
+                    <p className="mt-1 text-xs leading-snug text-ink/70">{sv.tagline}</p>
                     <ul className="mt-2 space-y-0.5 text-[0.68rem] leading-snug text-ink/65">
                       {bullets.map((b) => <li key={b.title} className="flex gap-2"><span style={{ color }}>•</span><span>{b.title}</span></li>)}
                     </ul>
+                    </div>
                     <Link to={`/services/${sv.slug}`} aria-label={`Explore ${sv.title}`} className="absolute bottom-0 right-0 flex size-7 items-center justify-center rounded-full bg-white/80 text-ink shadow-sm transition group-hover:scale-110" style={{ color }}><ArrowUpRight className="size-3.5" /></Link>
                   </div>
                 </motion.article>
@@ -67,8 +69,8 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
             })}
             <motion.article whileHover={reduce ? undefined : { y: -5 }} className="group relative min-h-[164px] overflow-hidden rounded-xl p-4 shadow-sm ring-1 ring-black/[0.04]" style={{ backgroundColor: cardColors[5][0] }}>
               <div className="absolute -right-8 -top-8 z-0 size-32 rounded-full opacity-35 blur-2xl" style={{ backgroundColor: cardColors[5][1] }} />
-              <div aria-hidden className="pointer-events-none absolute -bottom-3 -right-3 z-10 size-44 mix-blend-multiply transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: "url('/service-illustrations-v2.png')", backgroundPosition: '100% 100%', backgroundSize: '300% 200%', backgroundRepeat: 'no-repeat' }} />
-              <div className="relative z-20 flex h-full flex-col"><h3 className="max-w-[15rem] text-base font-black leading-tight tracking-tight text-ink">Industry-Specific Solutions</h3><p className="mt-1 text-xs leading-snug text-ink/70">Tailored solutions for every industry.</p><ul className="mt-2 space-y-0.5 text-[0.68rem] text-ink/65"><li>• Domain expertise</li><li>• Measurable outcomes</li></ul><Link to="/contact" aria-label="Discuss an industry-specific solution" className="absolute bottom-0 right-0 flex size-7 items-center justify-center rounded-full bg-white/80 text-brand shadow-sm transition group-hover:scale-110" style={{ color: cardColors[5][1] }}><ArrowUpRight className="size-3.5" /></Link></div>
+              <div aria-hidden className="pointer-events-none absolute -bottom-3 -right-3 z-10 size-44 mix-blend-multiply [mask-image:radial-gradient(ellipse_at_center,#000_42%,transparent_78%)] transition-transform duration-500 group-hover:scale-110" style={{ backgroundColor: cardColors[5][0], backgroundImage: "url('/service-illustrations-v2.png')", backgroundPosition: '100% 100%', backgroundSize: '300% 200%', backgroundRepeat: 'no-repeat' }} />
+              <div className="relative z-20 flex h-full flex-col"><div className="max-w-[58%]"><h3 className="text-base font-black leading-tight tracking-tight text-ink">Industry-Specific Solutions</h3><p className="mt-1 text-xs leading-snug text-ink/70">Tailored solutions for every industry.</p><ul className="mt-2 space-y-0.5 text-[0.68rem] text-ink/65"><li>• Domain expertise</li><li>• Measurable outcomes</li></ul></div><Link to="/contact" aria-label="Discuss an industry-specific solution" className="absolute bottom-0 right-0 flex size-7 items-center justify-center rounded-full bg-white/80 text-brand shadow-sm transition group-hover:scale-110" style={{ color: cardColors[5][1] }}><ArrowUpRight className="size-3.5" /></Link></div>
             </motion.article>
           </div>
         </div>
@@ -133,14 +135,10 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
             >
               <div className="grid gap-4 lg:grid-cols-12 lg:gap-6">
                 <div className="lg:col-span-5">
-                  <h3 className="text-[clamp(2rem,4vw,3.35rem)] font-black leading-[.94] tracking-[-.045em] text-ink">
+                  <h3 className="text-[clamp(1.8rem,3.2vw,2.8rem)] font-black leading-[.96] tracking-[-.045em] text-ink">
                     <span style={{ background: `linear-gradient(100deg, ${s.accent}, ${s.accent2})`, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>{s.title}</span>
                   </h3>
-                  <p className="mt-2 text-base font-bold text-ink/80">{s.tagline}</p>
-                  <Link to={`/services/${s.slug}`} className="group mt-3 inline-flex items-center gap-2 text-sm font-extrabold text-brand-deep hover:text-brand">
-                    <span className="link-underline">Explore {s.title}</span>
-                    <ArrowUpRight aria-hidden className="size-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </Link>
+                  <p className="mt-2 text-sm font-bold text-ink/80">{s.tagline}</p>
                 </div>
                 <div className="lg:col-span-7">
                   <p className="text-base leading-relaxed text-muted">{s.summary}</p>
@@ -151,8 +149,12 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
                 className={cn('grid items-center gap-4 overflow-hidden rounded-[1.5rem] border border-white bg-white/70 shadow-lift backdrop-blur-sm', compact ? 'mt-6 p-5 sm:p-6' : 'mt-5 p-4 lg:grid-cols-12 lg:p-5')}
                 style={{ backgroundImage: `radial-gradient(760px 340px at 90% 0%, ${s.accent}26, transparent 70%), radial-gradient(600px 320px at 0% 100%, ${s.accent2}22, transparent 70%)` }}
               >
-                {!compact && <div className="lg:col-span-7">
+                {!compact && <div className="relative lg:col-span-7">
                   <AnimatedIllustration name={s.slug} className="mx-auto h-auto max-h-[300px] w-full" />
+                  <Link to={`/services/${s.slug}`} className="group absolute bottom-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-xs font-extrabold text-brand-deep shadow-sm ring-1 ring-line hover:text-brand">
+                    <span className="link-underline">Explore {s.title}</span>
+                    <ArrowUpRight aria-hidden className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </Link>
                 </div>}
                 <ul className={cn(compact ? 'grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3' : 'lg:col-span-5')}>
                   {detailsFor(s).map((d, i) => (

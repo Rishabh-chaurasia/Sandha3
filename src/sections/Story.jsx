@@ -45,6 +45,55 @@ function Year() {
 
 export default function Story({ id = 'story', variant = 'home' }) {
   const detail = variant === 'detail'
+  if (detail) {
+    return (
+      <section id={id} className="section bg-white py-10 lg:py-16" aria-labelledby={`${id}-title`}>
+        <div className="container-x">
+          <div className="grid items-stretch gap-6 lg:grid-cols-12">
+            <Reveal className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-deep via-electric to-purple p-7 text-white sm:p-10 lg:col-span-5">
+              <div aria-hidden className="absolute -right-20 -top-20 size-64 rounded-full border border-white/20" />
+              <div aria-hidden className="absolute -bottom-24 -left-16 size-60 rounded-full bg-cyan/20 blur-2xl" />
+              <div className="relative flex h-full flex-col justify-between">
+                <div>
+                  <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-white/75">Our foundation</p>
+                  <h2 id={`${id}-title`} className="mt-5 max-w-[12ch] text-[clamp(2.2rem,4vw,4rem)] leading-[.98] tracking-[-.05em]">Built for dependable service.</h2>
+                  <p className="mt-5 max-w-[34ch] text-base leading-relaxed text-white/80">A clear operating philosophy has guided Sandha &amp; Company from its first day of operations.</p>
+                </div>
+                <div className="mt-10 flex items-end justify-between border-t border-white/25 pt-5">
+                  <div><p className="text-5xl font-black tracking-[-.06em]">2008</p><p className="text-sm font-semibold text-white/70">Established in December</p></div>
+                  <span className="grid size-14 place-items-center rounded-full bg-white/15 text-2xl font-black">S&amp;C</span>
+                </div>
+              </div>
+            </Reveal>
+            <div className="lg:col-span-7">
+              <Reveal className="rounded-[2rem] border border-line bg-ultra p-7 sm:p-10">
+                <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-brand">How we work</p>
+                <h3 className="mt-3 max-w-[18ch] text-[clamp(1.8rem,3vw,3rem)] leading-tight tracking-[-.04em] text-ink">Practical thinking, responsible delivery.</h3>
+                <p className="mt-5 max-w-[58ch] text-lg leading-relaxed text-muted">We bring together people, processes and technology to make essential services more reliable and responsive.</p>
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {[
+                    ['01', 'Understand first', 'We begin with the client need and the outcome that matters.'],
+                    ['02', 'Build the right capability', 'Our teams combine specialist skills with practical technology.'],
+                    ['03', 'Deliver with care', 'Clear ownership and dependable service shape every engagement.'],
+                    ['04', 'Grow through trust', 'Long-term relationships guide how we improve and evolve.'],
+                  ].map(([n, title, text]) => (
+                    <div key={n} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-line/70">
+                      <span className="font-display text-sm font-black text-brand">{n}</span>
+                      <h4 className="mt-2 text-lg font-extrabold text-ink">{title}</h4>
+                      <p className="mt-1 text-sm leading-relaxed text-muted">{text}</p>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+              <Reveal delay={0.12} className="mt-6 border-l-4 border-cyan pl-5">
+                <p className="max-w-[60ch] text-lg font-bold text-ink/85">{COMPANY.philosophy}</p>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
   return (
     <section id={id} className={`section ${detail ? 'bg-ink text-white' : 'bg-w2p'} py-8 lg:py-12`} aria-labelledby={`${id}-title`}>
       <div className="container-x grid items-center gap-12 lg:grid-cols-12 lg:gap-8">

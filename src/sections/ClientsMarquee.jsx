@@ -8,9 +8,9 @@ function Logo({ c, hidden }) {
   return (
     <li aria-hidden={hidden || undefined} className="mx-5 shrink-0 sm:mx-8">
       <motion.div
-        whileHover={{ scale: 1.12, borderRadius: 999 }}
+        whileHover={{ width: 96, height: 96, scale: 1.08, borderRadius: '50%' }}
         animate={{ y: [0, -5, 0] }}
-        transition={{ y: { duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: hidden ? 0.7 : 0 }, scale: { type: 'spring', stiffness: 300, damping: 20 }, borderRadius: { duration: 0.35 } }}
+        transition={{ y: { duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: hidden ? 0.7 : 0 }, width: { type: 'spring', stiffness: 300, damping: 24 }, height: { type: 'spring', stiffness: 300, damping: 24 }, scale: { type: 'spring', stiffness: 300, damping: 20 }, borderRadius: { duration: 0.35 } }}
         className="flex h-24 w-44 items-center justify-center rounded-2xl border border-line bg-white px-5 opacity-90 transition-opacity duration-300 hover:opacity-100 sm:h-28 sm:w-52"
       >
         <OfficialImage

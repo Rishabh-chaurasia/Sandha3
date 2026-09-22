@@ -18,6 +18,7 @@ export default function Services() {
         eyebrow="SERVICES"
         title="Services for technology, workforce and customer operations"
         lead="Choose a service area or combine capabilities around the operational problem you need to solve."
+        illustration="services"
         crumbs={[{ label: 'Services' }]}
       />
 

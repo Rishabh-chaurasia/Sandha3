@@ -25,7 +25,7 @@ function Stack({ s }) {
           <Reveal key={a.title} delay={i * 0.05} className="grid gap-4 border-t border-line pt-8 sm:grid-cols-[auto_1fr] sm:gap-10">
             <span className="font-display text-sm font-extrabold tabular-nums text-brand">{String(i + 1).padStart(2, '0')}</span>
             <div>
-              <h2 className="text-[clamp(1.5rem,3vw,2.2rem)] font-semibold text-ink">{a.title}</h2>
+              <h2 className="text-[clamp(1.5rem,3vw,2.2rem)] font-extrabold tracking-tight text-ink">{a.title}</h2>
               <p className="mt-3 text-lg text-muted">{a.text}</p>
             </div>
           </Reveal>
@@ -63,7 +63,7 @@ function List({ s }) {
         <dl className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2">
           {s.areas.map((a, i) => (
             <Reveal key={a.title} delay={i * 0.06} className={i % 2 ? 'sm:mt-10' : ''}>
-              <dt className="flex items-start gap-3 text-xl font-semibold text-ink">
+              <dt className="flex items-start gap-3 text-xl font-extrabold tracking-tight text-ink">
                 <Check aria-hidden className="mt-1 size-5 shrink-0 text-cyan" />
                 {a.title}
               </dt>
@@ -144,11 +144,11 @@ export default function ServiceDetail() {
 
       <section className="bg-white py-16" aria-label="Other services">
         <div className="container-x">
-          <h2 className="text-sm font-semibold text-muted">Other services</h2>
+          <h2 className="text-sm font-extrabold uppercase tracking-[0.14em] text-muted">Other services</h2>
           <ul className="mt-5 flex flex-wrap gap-3">
             {others.map((o) => (
               <li key={o.slug}>
-                <Link to={`/services/${o.slug}`} className="group inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 font-semibold text-ink transition hover:border-brand hover:text-brand">
+                <Link to={`/services/${o.slug}`} className="group inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 font-extrabold text-ink transition hover:border-brand hover:text-brand">
                   {o.title}
                   <ArrowUpRight aria-hidden className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Link>

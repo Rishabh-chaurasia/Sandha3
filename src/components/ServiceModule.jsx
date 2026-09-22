@@ -14,7 +14,7 @@ export default function ServiceModule({ index, title, text, className, accent = 
         {String(index + 1).padStart(2, '0')}
       </span>
       <div>
-        <h3 className="text-xl font-semibold text-ink transition-colors group-hover:text-brand-deep">{title}</h3>
+        <h3 className="text-xl font-extrabold tracking-tight text-ink transition-colors group-hover:text-brand-deep">{title}</h3>
         {text && <p className="mt-1.5 max-w-[60ch] text-muted">{text}</p>}
       </div>
     </motion.li>

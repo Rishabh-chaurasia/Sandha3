@@ -13,6 +13,7 @@ const MAP = {
   clients: lazy(() => import('../illustrations/ClientsNetwork')),
   foundation: lazy(() => import('../illustrations/CompanyFoundation')),
   leadership: lazy(() => import('../illustrations/LeadershipCompass')),
+  services: lazy(() => import('../illustrations/ServicesOverview')),
   foundation: lazy(() => import('../illustrations/CompanyFoundation')),
   leadership: lazy(() => import('../illustrations/LeadershipCompass')),
   contact: lazy(() => import('../illustrations/ContactMap')),
