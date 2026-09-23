@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion'
-import { Search, Handshake, ShieldCheck } from 'lucide-react'
+import { Search, Handshake, ShieldCheck, UsersRound, BadgeCheck } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import PrincipleScene from '../illustrations/PrincipleScenes'
 import { PRINCIPLES, VALUES } from '../data/company'
@@ -9,6 +9,23 @@ const STAGES = [
   { Icon: Search, grad: 'from-brand to-cyan', glow: 'rgba(8,120,249,.55)', word: 'Understand' },
   { Icon: Handshake, grad: 'from-purple to-electric', glow: 'rgba(124,92,252,.55)', word: 'Partner' },
   { Icon: ShieldCheck, grad: 'from-mint to-cyan', glow: 'rgba(40,215,178,.55)', word: 'Trust' },
+]
+
+const VALUE_STYLES = [
+  {
+    Icon: UsersRound,
+    card: 'border-[#a8dcff] bg-gradient-to-br from-[#d9f1ff] via-[#eaf7ff] to-[#edf0ff] hover:border-[#5ab9f5]',
+    icon: 'from-[#0878f9] to-[#19c6e8]',
+    number: 'text-[#0878f9]',
+    glow: 'bg-[#8bd8ff]',
+  },
+  {
+    Icon: BadgeCheck,
+    card: 'border-[#d5b9ff] bg-gradient-to-br from-[#eae0ff] via-[#f4eaff] to-[#ffe8ef] hover:border-[#a784ed]',
+    icon: 'from-[#7255e9] to-[#e65bb6]',
+    number: 'text-[#7255e9]',
+    glow: 'bg-[#d7adff]',
+  },
 ]
 
 function Stage({ i, stage, p, last }) {
@@ -67,7 +84,7 @@ export default function Principles({ id = 'principles' }) {
   const p = reduce ? done : spring
 
   return (
-    <section id={id} className="section bg-p2w py-10 lg:py-16" aria-labelledby={`${id}-title`}>
+    <section id={id} className="section bg-p2w !pt-8 pb-10 lg:!pt-12 lg:pb-16" aria-labelledby={`${id}-title`}>
       <div className="container-x">
         <SectionHeading label="Our principles" id={`${id}-title`} size="md" title="Understand. Partner. Earn trust.">
           <p>Our success is tied to the success of our clients. Three commitments shape how we work with every one of them.</p>
@@ -77,14 +94,36 @@ export default function Principles({ id = 'principles' }) {
           {STAGES.map((st, i) => <Stage key={st.word} i={i} stage={st} p={p} last={i === STAGES.length - 1} />)}
         </ol>
 
-        <dl className="mt-12 grid gap-8 border-t border-line pt-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {VALUES.map((v) => (
-            <div key={v.title}>
-              <dt className="text-xl font-extrabold text-ink">{v.title}</dt>
-              <dd className="mt-2 max-w-[56ch] text-muted">{v.text}</dd>
+        <div className="mt-14 rounded-[2rem] bg-white/60 p-6 shadow-[0_20px_70px_rgba(80,90,180,0.1)] ring-1 ring-white/80 sm:p-8">
+          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line/70 pb-6">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand">How we work</p>
+              <h3 className="mt-2 text-[clamp(1.7rem,3vw,2.5rem)] font-extrabold tracking-tight text-ink">Built for consistent outcomes.</h3>
             </div>
-          ))}
-        </dl>
+            <span className="rounded-full bg-brand/10 px-3 py-1.5 text-xs font-extrabold text-brand-deep">Our operating principles</span>
+          </div>
+          <dl className="mt-6 grid gap-4 md:grid-cols-2">
+            {VALUES.map((v, i) => {
+              const style = VALUE_STYLES[i]
+              const Icon = style.Icon
+              return (
+                <div key={v.title} className={`group relative overflow-hidden rounded-[1.5rem] border p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(54,81,156,0.18)] sm:p-7 ${style.card}`}>
+                  <span aria-hidden className={`absolute -right-12 -top-16 size-44 rounded-full opacity-30 blur-2xl ${style.glow}`} />
+                  <div className="relative flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
+                    <span className={`grid size-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br text-white shadow-md transition-transform duration-300 group-hover:rotate-[-5deg] group-hover:scale-105 ${style.icon}`}>
+                      <Icon aria-hidden className="size-7" strokeWidth={1.9} />
+                    </span>
+                    <div className="min-w-0">
+                      <span aria-hidden className={`text-xs font-black tracking-[0.18em] ${style.number}`}>0{i + 1} / OUR VALUES</span>
+                      <dt className="mt-1 text-lg font-extrabold text-ink">{v.title}</dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-ink/75">{v.text}</dd>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </dl>
+        </div>
       </div>
     </section>
   )

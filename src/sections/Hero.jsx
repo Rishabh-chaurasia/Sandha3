@@ -13,13 +13,10 @@ const fadeV = {
   show: (d) => ({ opacity: 1, y: 0, transition: { duration: 0.7, delay: d, ease: EASE } }),
 }
 
-// Manual line breaks keep the gradient words on their own lines.
+// Manual line breaks keep the headline balanced across desktop and mobile.
 const LINES = [
-  [{ t: 'Technology', g: 'grad-text' }, { t: ',' }],
-  [{ t: 'Talent &' }],
-  [{ t: 'Business' }],
-  [{ t: 'Solutions —' }],
-  [{ t: 'Connected.', g: 'grad-text' }],
+  [{ t: 'Talent & Business' }],
+  [{ t: 'Technology' , g: 'grad-text' }],
 ]
 
 const DOTS = [
@@ -35,7 +32,7 @@ export default function Hero() {
   const yBlob = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -60])
 
   return (
-    <section ref={ref} className="bg-hero relative isolate overflow-hidden pb-8 pt-[112px] sm:pb-10 sm:pt-[128px] lg:flex lg:min-h-0 lg:items-center lg:pt-20" aria-labelledby="hero-title">
+    <section ref={ref} className="bg-hero relative isolate overflow-hidden pb-0 pt-[112px] sm:pb-0 sm:pt-[128px] lg:flex lg:min-h-0 lg:items-center lg:pt-24" aria-labelledby="hero-title">
       {/* dynamic background: grid, glows, curves, floating dots */}
       <div aria-hidden className="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_70%_60%_at_75%_30%,#000,transparent)]" />
       <motion.div aria-hidden style={{ y: yBlob }} className="pointer-events-none absolute -right-32 -top-24 -z-10 size-[340px] rounded-full bg-brand/20 blur-[90px] sm:-right-40 sm:-top-32 sm:size-[620px] sm:bg-brand/25 sm:blur-[110px]" />
@@ -54,13 +51,13 @@ export default function Hero() {
       <motion.div initial="hidden" animate="show" className="container-x w-full">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-6">
           <div className="relative z-10 lg:col-span-6">
-            <motion.p variants={fadeV} custom={0.05} className="inline-flex items-center gap-3 text-sm font-extrabold tracking-[0.22em] text-brand">
+            <motion.p variants={fadeV} custom={0.05} className="relative -top-1 inline-flex items-center gap-3 text-sm font-extrabold tracking-[0.22em] text-brand">
               <span aria-hidden className="h-[3px] w-9 rounded-full bg-gradient-to-r from-brand to-cyan" />
               SANDHA &amp; COMPANY
             </motion.p>
 
             <h1 id="hero-title" className="h-hero mt-6 text-ink">
-              <span className="sr-only">Technology, Talent &amp; Business Solutions — Connected.</span>
+              <span className="sr-only">Talent and business technology.</span>
               <span aria-hidden="true">
                 {LINES.map((line, i) => (
                   <span key={i} className="block overflow-hidden pb-[0.1em]">
@@ -72,7 +69,7 @@ export default function Hero() {
               </span>
             </h1>
 
-            <motion.p variants={fadeV} custom={0.85} className="lead mt-7 max-w-[46ch]">
+            <motion.p variants={fadeV} custom={0.85} className="lead mt-7 max-w-[46ch] font-display text-[1.08rem] tracking-[0.01em]">
               Delivering technology, consultancy, workforce and customer operations solutions designed around your business needs.
             </motion.p>
             <motion.div variants={fadeV} custom={1} className="mt-9 flex flex-wrap gap-3">

@@ -25,12 +25,12 @@ function Logo({ c, hidden }) {
 
 export default function ClientsMarquee({ heading = true }) {
   return (
-    <section className="section bg-b2w" aria-labelledby="clients-title" aria-label={heading ? undefined : 'Client logos'}>
+    <section className="section bg-b2w !pt-8 lg:!pt-12" aria-labelledby="clients-title" aria-label={heading ? undefined : 'Client logos'}>
       {heading && (
         <div className="container-x">
           <div className="flex flex-wrap items-end justify-between gap-5">
             <SectionHeading label="Our clients" id="clients-title" title="Trusted by businesses across industries.">
-              <p>Client relationships across power distribution and education.</p>
+              <p>Supporting organizations with reliable technology, talent, and operational solutions designed to create lasting business value.</p>
             </SectionHeading>
           </div>
         </div>
@@ -43,9 +43,6 @@ export default function ClientsMarquee({ heading = true }) {
         </ul>
       </Reveal>
 
-      <div className="container-x mt-8 flex flex-wrap items-center justify-between gap-4">
-        <p className="text-sm text-muted">{CLIENTS.length} clients: 7 in power and utilities, 1 in education.</p>
-      </div>
     </section>
   )
 }

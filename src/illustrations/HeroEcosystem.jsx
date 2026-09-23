@@ -14,11 +14,11 @@ export default function HeroEcosystem({ mobile = false, className = '' }) {
     { at: [120, 210], Icon: Cloud, label: 'Technology', color: K.blue },
     { at: [270, 82], Icon: Compass, label: 'Consulting', color: K.violet },
     { at: [590, 76], Icon: Server, label: 'Infrastructure', color: K.cyan },
-    { at: [672, 330], Icon: Headset, label: ['Customer', 'operations'], color: K.mint },
-    { at: [96, 470], Icon: Users, label: 'People', color: K.coral },
+    { at: [672, 330], Icon: Headset, label: ['Call', 'centre'], color: K.mint },
+    { at: [96, 470], Icon: Users, label: 'Manpower', color: K.coral },
   ]
   return (
-    <Stage viewBox="0 0 760 640" className={className} label="Business ecosystem: a platform with a dashboard and two colleagues, connected to technology, consulting, infrastructure, customer operations and people">
+    <Stage viewBox="0 0 760 640" className={className} label="Business ecosystem: a platform with a dashboard and two colleagues, connected to technology, consulting, infrastructure, call centre and manpower">
       <G v="fade" delay={0.05}>
         <circle cx="400" cy="340" r="270" fill={K.lav} opacity=".85" />
         <circle cx="560" cy="200" r="120" fill="#DDF3FF" opacity=".5" />
@@ -58,15 +58,10 @@ export default function HeroEcosystem({ mobile = false, className = '' }) {
       {/* floating nodes */}
       {nodes.map((n, i) => (
         <Float key={n.color} amp={4 + (i % 3) * 2} dur={5 + i} delay={i * 0.4}>
-          <Chip cx={n.at[0]} cy={n.at[1]} r={32} Icon={n.Icon} color={n.color} label={n.label} fs={18} delay={0.7 + i * 0.12} />
+          <Chip cx={n.at[0]} cy={n.at[1]} r={32} Icon={n.Icon} color={n.color} label={n.label} fs={15} delay={0.7 + i * 0.12} />
         </Float>
       ))}
 
-      <G delay={1.4}>
-        <rect x="296" y="548" width="188" height="40" rx="20" fill="url(#gBP)" />
-        <Settings x="312" y="558" size="20" color="#fff" strokeWidth={2} />
-        <Txt x="404" y="574" fs="16" w={800} fill="#fff">Your business</Txt>
-      </G>
     </Stage>
   )
 }
@@ -76,8 +71,8 @@ function HeroMobile({ className }) {
   const nodes = [
     { at: [64, 66], Icon: Cloud, label: 'Technology', color: K.blue },
     { at: [346, 66], Icon: Server, label: 'Infrastructure', color: K.cyan },
-    { at: [352, 372], Icon: Headset, label: 'Customers', color: K.mint },
-    { at: [64, 380], Icon: Users, label: 'People', color: K.coral },
+    { at: [352, 372], Icon: Headset, label: 'Call centre', color: K.mint },
+    { at: [64, 380], Icon: Users, label: 'Manpower', color: K.coral },
   ]
   return (
     <Stage viewBox="0 0 420 480" className={className} label="Business ecosystem connecting technology, infrastructure, people and customers around a central business platform">
@@ -97,7 +92,7 @@ function HeroMobile({ className }) {
       </G>
       {nodes.map((n, i) => (
         <Float key={n.label} amp={4} dur={5 + i} delay={i * 0.4}>
-          <Chip cx={n.at[0]} cy={n.at[1]} r={28} Icon={n.Icon} color={n.color} label={n.label} fs={19} delay={0.7 + i * 0.12} />
+          <Chip cx={n.at[0]} cy={n.at[1]} r={28} Icon={n.Icon} color={n.color} label={n.label} fs={16} delay={0.7 + i * 0.12} />
         </Float>
       ))}
     </Stage>

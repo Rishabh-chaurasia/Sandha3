@@ -37,7 +37,7 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
 
   if (compact) {
     return (
-      <section id={id} className={cn('section relative isolate overflow-hidden bg-white', compact && 'py-8 lg:py-12')} aria-labelledby={heading ? 'services-title' : undefined} aria-label={heading ? undefined : 'Services'}>
+      <section id={id} className={cn('section relative isolate overflow-hidden bg-white', compact && '!pt-8 pb-8 lg:!pt-12 lg:pb-12')} aria-labelledby={heading ? 'services-title' : undefined} aria-label={heading ? undefined : 'Services'}>
         <div className="container-x">
           {heading && (
             <div className="mb-6 lg:mb-8">
@@ -94,7 +94,7 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
 
         <div className={cn('grid items-start lg:grid-cols-[178px_minmax(0,1fr)] lg:gap-7', heading && 'mt-8')}>
         {/* numbered tab bar with a moving indicator */}
-        <div role="tablist" aria-label="Services" onKeyDown={onKey} className="-mx-5 flex snap-x gap-1 overflow-x-auto px-5 pb-1 sm:mx-0 sm:px-0 lg:mx-0 lg:block lg:overflow-visible">
+        <div role="tablist" aria-label="Services" onKeyDown={onKey} className="-mx-5 flex snap-x justify-start gap-1 overflow-x-auto px-5 pb-1 sm:mx-0 sm:px-0 lg:mx-0 lg:flex lg:flex-col lg:items-center lg:overflow-visible lg:pt-16">
           {SERVICES.map((sv, i) => {
             const on = i === active
             return (
@@ -106,7 +106,7 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
                 aria-controls="svc-panel"
                 tabIndex={on ? 0 : -1}
                 onClick={() => setActive(i)}
-                className={cn('group relative flex min-w-[9.5rem] shrink-0 snap-start flex-col items-start justify-start rounded-xl px-3 pb-3 pt-2 text-left transition-colors lg:mb-1 lg:min-w-0 lg:shrink lg:rounded-lg lg:px-3 lg:py-2.5', on && 'bg-soft font-black')}
+                className={cn('group relative flex min-w-[9.5rem] shrink-0 snap-start flex-col items-start justify-start rounded-xl px-3 pb-3 pt-2 text-left transition-colors lg:mb-1 lg:w-full lg:min-w-0 lg:shrink lg:items-center lg:rounded-lg lg:px-3 lg:py-2.5 lg:text-center', on && 'bg-soft font-black')}
               >
                 <span className="text-sm font-extrabold tabular-nums transition-colors" style={{ color: on ? sv.accent : '#9db0c6' }}>{sv.n}</span>
                 <span className={cn('mt-0.5 pr-2 text-base font-extrabold leading-tight tracking-tight transition-colors', on ? 'text-brand-deep font-black' : 'text-muted group-hover:text-ink')}>{sv.title}</span>
@@ -146,32 +146,32 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
               </div>
 
               <div
-                className={cn('grid items-center gap-4 overflow-hidden rounded-[1.5rem] border border-white bg-white/70 shadow-lift backdrop-blur-sm', compact ? 'mt-6 p-5 sm:p-6' : 'mt-5 p-4 lg:grid-cols-12 lg:p-5')}
+                className={cn('relative grid items-center gap-4 overflow-hidden rounded-[1.5rem] border border-white bg-white/70 shadow-lift backdrop-blur-sm', compact ? 'mt-6 p-5 sm:p-6' : 'mt-5 p-4 pb-16 lg:grid-cols-12 lg:p-5 lg:pb-16')}
                 style={{ backgroundImage: `radial-gradient(760px 340px at 90% 0%, ${s.accent}26, transparent 70%), radial-gradient(600px 320px at 0% 100%, ${s.accent2}22, transparent 70%)` }}
               >
                 {!compact && <div className="relative lg:col-span-7">
                   <AnimatedIllustration name={s.slug} className="mx-auto h-auto max-h-[300px] w-full" />
-                  <Link to={`/services/${s.slug}`} className="group absolute bottom-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-xs font-extrabold text-brand-deep shadow-sm ring-1 ring-line hover:text-brand">
-                    <span className="link-underline">Explore {s.title}</span>
-                    <ArrowUpRight aria-hidden className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </Link>
                 </div>}
-                <ul className={cn(compact ? 'grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3' : 'lg:col-span-5')}>
+                <ul className={cn(compact ? 'grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3' : 'lg:col-span-5', s.slug === 'call-centre' && 'grid grid-cols-2 gap-x-3')}>
                   {detailsFor(s).map((d, i) => (
                     <motion.li
                       key={d.title}
                       initial={reduce ? false : { opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }}
                       transition={{ type: 'spring', stiffness: 220, damping: 22, delay: 0.2 + i * 0.06 }}
-                      className="flex gap-3 border-t border-line/80 py-2.5 first:border-t-0"
+                      className={cn('flex gap-3 border-t border-line/80 py-2.5 first:border-t-0', s.slug === 'call-centre' && 'gap-2 py-2')}
                     >
                       <span aria-hidden className="mt-2 size-2.5 shrink-0 rounded-full" style={{ background: i % 2 ? s.accent2 : s.accent }} />
                       <div>
                         <h4 className="text-base font-extrabold leading-snug text-ink">{d.title}</h4>
-                        <p className="mt-0.5 line-clamp-2 text-sm leading-snug text-muted">{d.text}</p>
+                        {s.slug !== 'call-centre' && <p className="mt-0.5 line-clamp-2 text-sm leading-snug text-muted">{d.text}</p>}
                       </div>
                     </motion.li>
                   ))}
                 </ul>
+                {!compact && <Link to={`/services/${s.slug}`} className="group absolute bottom-4 right-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-extrabold text-brand-deep shadow-sm ring-1 ring-line hover:text-brand lg:right-5">
+                  <span className="link-underline">Explore {s.title}</span>
+                  <ArrowUpRight aria-hidden className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </Link>}
               </div>
             </motion.div>
           </AnimatePresence>

@@ -4,6 +4,14 @@ import Reveal from '../components/Reveal'
 import { COMPANY } from '../data/company'
 import { EASE } from '../utils/motion'
 import { Spin } from '../illustrations/primitives'
+import { Search, UsersRound, ClipboardCheck, TrendingUp } from 'lucide-react'
+
+const WORK_STEPS = [
+  { number: '01', title: 'Understand the need', text: 'We listen and define the outcome that matters.', Icon: Search },
+  { number: '02', title: 'Build the right team', text: 'We bring together the skills and tools needed.', Icon: UsersRound },
+  { number: '03', title: 'Deliver with care', text: 'Clear ownership and quality checks guide our work.', Icon: ClipboardCheck },
+  { number: '04', title: 'Improve together', text: 'We review results and strengthen the relationship.', Icon: TrendingUp },
+]
 
 function Year() {
   const reduce = false
@@ -47,55 +55,54 @@ export default function Story({ id = 'story', variant = 'home' }) {
   const detail = variant === 'detail'
   if (detail) {
     return (
-      <section id={id} className="section bg-white py-10 lg:py-16" aria-labelledby={`${id}-title`}>
+      <section id={id} className="section bg-white !py-10 lg:!py-14" aria-labelledby={`${id}-title`}>
         <div className="container-x">
-          <div className="grid items-stretch gap-6 lg:grid-cols-12">
-            <Reveal className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-deep via-electric to-purple p-7 text-white sm:p-10 lg:col-span-5">
-              <div aria-hidden className="absolute -right-20 -top-20 size-64 rounded-full border border-white/20" />
-              <div aria-hidden className="absolute -bottom-24 -left-16 size-60 rounded-full bg-cyan/20 blur-2xl" />
-              <div className="relative flex h-full flex-col justify-between">
-                <div>
-                  <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-white/75">Our foundation</p>
-                  <h2 id={`${id}-title`} className="mt-5 max-w-[12ch] text-[clamp(2.2rem,4vw,4rem)] leading-[.98] tracking-[-.05em]">Built for dependable service.</h2>
-                  <p className="mt-5 max-w-[34ch] text-base leading-relaxed text-white/80">A clear operating philosophy has guided Sandha &amp; Company from its first day of operations.</p>
-                </div>
-                <div className="mt-10 flex items-end justify-between border-t border-white/25 pt-5">
-                  <div><p className="text-5xl font-black tracking-[-.06em]">2008</p><p className="text-sm font-semibold text-white/70">Established in December</p></div>
-                  <span className="grid size-14 place-items-center rounded-full bg-white/15 text-2xl font-black">S&amp;C</span>
-                </div>
-              </div>
-            </Reveal>
-            <div className="lg:col-span-7">
-              <Reveal className="rounded-[2rem] border border-line bg-ultra p-7 sm:p-10">
-                <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-brand">How we work</p>
-                <h3 className="mt-3 max-w-[18ch] text-[clamp(1.8rem,3vw,3rem)] leading-tight tracking-[-.04em] text-ink">Practical thinking, responsible delivery.</h3>
-                <p className="mt-5 max-w-[58ch] text-lg leading-relaxed text-muted">We bring together people, processes and technology to make essential services more reliable and responsive.</p>
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  {[
-                    ['01', 'Understand first', 'We begin with the client need and the outcome that matters.'],
-                    ['02', 'Build the right capability', 'Our teams combine specialist skills with practical technology.'],
-                    ['03', 'Deliver with care', 'Clear ownership and dependable service shape every engagement.'],
-                    ['04', 'Grow through trust', 'Long-term relationships guide how we improve and evolve.'],
-                  ].map(([n, title, text]) => (
-                    <div key={n} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-line/70">
-                      <span className="font-display text-sm font-black text-brand">{n}</span>
-                      <h4 className="mt-2 text-lg font-extrabold text-ink">{title}</h4>
-                      <p className="mt-1 text-sm leading-relaxed text-muted">{text}</p>
-                    </div>
-                  ))}
-                </div>
-              </Reveal>
-              <Reveal delay={0.12} className="mt-6 border-l-4 border-cyan pl-5">
-                <p className="max-w-[60ch] text-lg font-bold text-ink/85">{COMPANY.philosophy}</p>
-              </Reveal>
+          <Reveal className="relative overflow-hidden rounded-[2rem] border-[5px] border-[#17191d] bg-[#fafafa] px-5 py-7 sm:px-9 sm:py-9 lg:rounded-[2.75rem] lg:px-12 lg:py-10">
+            <span aria-hidden className="absolute right-[13%] top-8 size-16 rounded-full bg-[#f0f1f2] sm:size-20" />
+            <span aria-hidden className="absolute bottom-[-2rem] left-1/2 size-16 -translate-x-1/2 rounded-full bg-[#f0f1f2]" />
+            <div className="relative z-10 min-h-[110px] sm:min-h-[135px] lg:min-h-[125px]">
+              <h2 id={`${id}-title`} className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[.9] tracking-[-.055em] text-[#111318]">
+                How we<br />work?
+              </h2>
             </div>
-          </div>
+            <div className="relative mt-5 lg:mt-0 lg:pb-4">
+              <svg aria-hidden="true" viewBox="0 0 1100 250" preserveAspectRatio="none" className="pointer-events-none absolute inset-x-0 top-0 hidden h-[250px] w-full lg:block">
+                <defs>
+                  <marker id="work-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7d838b" /></marker>
+                </defs>
+                <path d="M235 76 C285 76 290 170 350 170" fill="none" stroke="#9aa0a8" strokeWidth="2" strokeDasharray="2 8" strokeLinecap="round" markerEnd="url(#work-arrow)" />
+                <path d="M505 170 C565 170 565 76 625 76" fill="none" stroke="#9aa0a8" strokeWidth="2" strokeDasharray="2 8" strokeLinecap="round" markerEnd="url(#work-arrow)" />
+                <path d="M780 76 C840 76 840 170 900 170" fill="none" stroke="#9aa0a8" strokeWidth="2" strokeDasharray="2 8" strokeLinecap="round" markerEnd="url(#work-arrow)" />
+              </svg>
+              <ol className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5 lg:pt-1">
+                {WORK_STEPS.map(({ number, title, text, Icon }, index) => (
+                  <motion.li
+                    key={number}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.55, delay: index * 0.12, ease: EASE }}
+                    className={`flex min-h-[132px] items-center gap-4 rounded-2xl bg-white/75 p-4 shadow-sm lg:min-h-0 lg:flex-col lg:items-start lg:gap-3 lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none ${index % 2 ? 'lg:translate-y-[88px]' : ''}`}
+                  >
+                    <span className="grid size-[92px] shrink-0 place-items-center rounded-full border-[9px] border-[#f4b400] bg-[#e51c2a] text-white shadow-md sm:size-[104px] sm:border-[10px] lg:size-[86px] lg:border-[8px]">
+                      <Icon aria-hidden className="size-10 sm:size-12 lg:size-9" strokeWidth={1.8} />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-display text-2xl font-black leading-none text-[#181a1d]">{number}</span>
+                      <span className="mt-2 block text-base font-extrabold leading-tight text-[#181a1d] sm:text-lg lg:text-base">{title}</span>
+                      <span className="mt-1 block text-sm leading-snug text-[#5d6269]">{text}</span>
+                    </span>
+                  </motion.li>
+                ))}
+              </ol>
+            </div>
+          </Reveal>
         </div>
       </section>
     )
   }
   return (
-    <section id={id} className={`section ${detail ? 'bg-ink text-white' : 'bg-w2p'} py-8 lg:py-12`} aria-labelledby={`${id}-title`}>
+    <section id={id} className={`section ${detail ? 'bg-ink text-white' : 'bg-w2p -mt-8'} py-8 lg:py-12`} aria-labelledby={`${id}-title`}>
       <div className="container-x grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-7">
           <Reveal>
@@ -104,7 +111,7 @@ export default function Story({ id = 'story', variant = 'home' }) {
               {detail ? 'Our foundation' : 'About us'}
             </p>
             <h2 id={`${id}-title`} className={`text-[clamp(2rem,1rem+3vw,3.6rem)] leading-[1.02] tracking-[-0.04em] ${detail ? 'text-white' : 'text-ink'}`}>
-              {detail ? 'A practical foundation for dependable service.' : 'Built around people.'}
+              {detail ? 'A practical foundation for reliable service.' : 'Built around people.'}
               {!detail && <>
               <br />
               <span className="grad-text">Powered by technology.</span>

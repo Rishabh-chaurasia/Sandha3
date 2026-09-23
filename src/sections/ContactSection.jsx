@@ -7,8 +7,8 @@ import { COMPANY } from '../data/company'
 export default function ContactSection({ asH1 = false }) {
   const H = asH1 ? 'h1' : 'h2'
   return (
-    <section id="contact" className="section bg-mesh relative overflow-hidden py-6 lg:py-8" aria-labelledby="contact-title">
-      <div className="container-x grid gap-6 lg:grid-cols-12 lg:gap-7">
+    <section id="contact" className="section bg-mesh relative overflow-hidden !py-3 lg:!py-4" aria-labelledby="contact-title">
+      <div className="container-x grid gap-5 lg:grid-cols-12 lg:gap-6">
         <div className="lg:col-span-6">
           <Reveal>
             <H id="contact-title" className="h-sub text-ink text-balance">
@@ -20,7 +20,7 @@ export default function ContactSection({ asH1 = false }) {
           </Reveal>
 
           <Reveal delay={0.1} className="mt-4">
-            <AnimatedIllustration name="contact" className="h-auto w-full max-w-[300px]" />
+            <AnimatedIllustration name="contact" className="h-auto w-full max-w-[260px]" />
           </Reveal>
 
           <address className="mt-5 grid gap-4 not-italic sm:grid-cols-2">

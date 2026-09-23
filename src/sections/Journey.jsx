@@ -16,7 +16,7 @@ const STEPS = [
 export default function Journey({ id = 'journey' }) {
   const reduce = false
   return (
-    <section id={id} className="section relative overflow-hidden bg-white" aria-labelledby={`${id}-title`}>
+    <section id={id} className="section relative overflow-hidden bg-white !pt-8 lg:!pt-12" aria-labelledby={`${id}-title`}>
       <div className="container-x">
         <SectionHeading label="Our journey" id={`${id}-title`} title="Started in December 2008. Growing with our clients.">
           <p>Since {COMPANY.started}, our work has grown across technology, consulting, manpower, staffing and customer operations.</p>

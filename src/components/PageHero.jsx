@@ -17,10 +17,10 @@ const TONES = {
   soft: 'bg-w2b',
 }
 
-export default function PageHero({ eyebrow, title, lead, crumbs = [], illustration, tone = 'ultra', children, wide = false }) {
+export default function PageHero({ eyebrow, title, lead, crumbs = [], illustration, illustrationClassName = '', sectionClassName = '', tone = 'ultra', children, wide = false }) {
   const reduce = false
   return (
-    <section className={cn('relative isolate overflow-hidden pb-14 pt-[120px] sm:pb-20 sm:pt-[148px]', TONES[tone])}>
+    <section className={cn('relative isolate overflow-hidden pb-14 pt-[120px] sm:pb-20 sm:pt-[148px]', TONES[tone], sectionClassName)}>
       {(tone === 'lines' || tone === 'plain') && <div aria-hidden className="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_60%_70%_at_80%_20%,#000,transparent)]" />}
       <div className={cn('container-x grid items-center gap-10', illustration && !wide ? 'lg:grid-cols-12 lg:gap-8' : '')}>
         <div className={illustration && !wide ? 'lg:col-span-6' : 'max-w-4xl'}>
@@ -65,7 +65,7 @@ export default function PageHero({ eyebrow, title, lead, crumbs = [], illustrati
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
           >
-            <AnimatedIllustration name={illustration} className="h-auto w-full" />
+            <AnimatedIllustration name={illustration} className={cn('h-auto w-full', illustrationClassName)} />
           </motion.div>
         )}
       </div>

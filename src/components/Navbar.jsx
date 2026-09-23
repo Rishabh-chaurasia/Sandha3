@@ -50,24 +50,30 @@ function ServicesMenu({ pathname }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 6 }}
             transition={{ duration: 0.22, ease: EASE }}
-            className="absolute left-1/2 top-full z-50 w-[22rem] -translate-x-1/2 pt-4"
+            className="absolute left-1/2 top-full z-50 w-[30rem] -translate-x-1/2 pt-4"
           >
-            <ul className="rounded-3xl border border-line bg-white p-2 shadow-lift">
+            <div className="overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-[0_24px_60px_rgba(16,36,63,0.16)]">
+              <div className="bg-gradient-to-r from-brand/10 via-cyan/10 to-purple/10 px-5 py-4">
+                <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.2em] text-brand">Our capabilities</p>
+                <p className="mt-1 text-sm font-semibold text-ink/70">Technology, people and operational support.</p>
+              </div>
+            <ul className="grid grid-cols-2 gap-1 p-3">
               {SERVICES.map((s) => (
                 <li key={s.slug}>
                   <Link
                     to={`/services/${s.slug}`}
-                    className="group flex items-start gap-3 rounded-2xl px-4 py-3 transition hover:bg-soft"
+                    className="group flex min-h-[92px] flex-col items-start gap-2 rounded-2xl p-3 transition hover:-translate-y-0.5 hover:bg-soft hover:shadow-sm"
                   >
-                    <span className="mt-0.5 font-display text-sm font-extrabold text-brand">{s.n}</span>
+                    <span className="flex w-full items-center justify-between"><span className="grid size-7 place-items-center rounded-lg bg-brand/10 font-display text-xs font-extrabold text-brand">{s.n}</span><ArrowRight aria-hidden className="size-3.5 text-brand/50 transition-transform group-hover:translate-x-1 group-hover:text-brand" /></span>
                     <span>
-                      <span className="block font-semibold text-ink group-hover:text-brand-deep">{s.title}</span>
-                      <span className="block text-sm leading-snug text-muted">{s.tagline}</span>
+                      <span className="block text-sm font-extrabold text-ink group-hover:text-brand-deep">{s.title}</span>
+                      <span className="mt-0.5 block text-xs leading-snug text-muted">{s.tagline}</span>
                     </span>
                   </Link>
                 </li>
               ))}
             </ul>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -181,7 +187,7 @@ function MobileMenu({ onClose, pathname }) {
       </nav>
 
       <motion.div {...item(7)} className="space-y-4 border-t border-line px-6 py-6">
-        <Button to="/contact" className="w-full">Let&rsquo;s Talk</Button>
+        <Button to="#site-footer" className="w-full">Let&rsquo;s Talk</Button>
         <a href={COMPANY.phoneHref} className="flex items-center justify-center gap-2 text-sm font-semibold text-muted">
           <Phone aria-hidden className="size-4" /> {COMPANY.phone}
         </a>
@@ -224,7 +230,7 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <span className="hidden lg:inline-flex"><Button to="/contact" size="sm" magnetic>Let&rsquo;s Talk</Button></span>
+            <span className="hidden lg:inline-flex"><Button to="#site-footer" size="sm" magnetic>Let&rsquo;s Talk</Button></span>
             <button
               type="button"
               onClick={() => setMobileOpen(true)}

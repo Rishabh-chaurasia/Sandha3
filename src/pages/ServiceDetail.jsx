@@ -137,6 +137,7 @@ export default function ServiceDetail() {
         title={s.tagline}
         lead={s.summary}
         illustration={s.slug}
+        sectionClassName="min-h-[520px] flex items-center"
         crumbs={[{ label: 'Services', to: '/services' }, { label: s.title }]}
       />
 

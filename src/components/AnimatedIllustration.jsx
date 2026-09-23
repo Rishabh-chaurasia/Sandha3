@@ -10,17 +10,16 @@ const MAP = {
   staffing: lazy(() => import('../illustrations/StaffingMatch')),
   'call-centre': lazy(() => import('../illustrations/CallCentreNetwork')),
   compliance: lazy(() => import('../illustrations/ComplianceFlow')),
-  clients: lazy(() => import('../illustrations/ClientsNetwork')),
+  clients: lazy(() => import('../illustrations/ClientsPortfolio')),
   foundation: lazy(() => import('../illustrations/CompanyFoundation')),
-  leadership: lazy(() => import('../illustrations/LeadershipCompass')),
+  'foundation-blueprint': lazy(() => import('../illustrations/FoundationBlueprint')),
+  leadership: lazy(() => import('../illustrations/FounderEditorial')),
   services: lazy(() => import('../illustrations/ServicesOverview')),
-  foundation: lazy(() => import('../illustrations/CompanyFoundation')),
-  leadership: lazy(() => import('../illustrations/LeadershipCompass')),
   contact: lazy(() => import('../illustrations/ContactMap')),
 }
 
 // These ship their own mobile composition, so they keep their own label sizes.
-const HAS_MOBILE_LAYOUT = new Set(['hero', 'manpower'])
+const HAS_MOBILE_LAYOUT = new Set(['hero', 'manpower', 'services', 'clients'])
 
 export default function AnimatedIllustration({ name, className = 'w-full h-auto', ...rest }) {
   const Comp = MAP[name]

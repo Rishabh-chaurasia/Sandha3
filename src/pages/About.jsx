@@ -2,7 +2,6 @@ import Seo from '../components/Seo'
 import PageHero from '../components/PageHero'
 import Story from '../sections/Story'
 import Journey from '../sections/Journey'
-import Principles from '../sections/Principles'
 import Leadership from '../sections/Leadership'
 import MissionVision from '../sections/MissionVision'
 import CtaBand from '../components/CtaBand'
@@ -22,7 +21,8 @@ export default function About() {
         eyebrow="ABOUT COMPANY"
         title="A company built on understanding what clients actually need."
         lead={COMPANY.positioning}
-        illustration="foundation"
+        illustration="foundation-blueprint"
+        illustrationClassName="lg:-ml-5 lg:w-[calc(100%+2.5rem)]"
         crumbs={[{ label: 'About' }]}
       >
         <Button href="#journey" arrow={false} magnetic>Our journey</Button>
@@ -31,7 +31,6 @@ export default function About() {
       <MissionVision />
       <Story variant="detail" />
       <Journey />
-      <Principles />
       <Leadership />
       <CtaBand secondary={{ to: '/services', label: 'See our services' }} />
     </>

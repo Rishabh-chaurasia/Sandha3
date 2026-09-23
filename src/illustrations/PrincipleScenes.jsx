@@ -5,9 +5,9 @@ import { Figure, Confetti, Chip, K } from './figures'
 const BARS = [22, 38, 30, 52, 44]
 
 /** Small illustrated scenes for the three principles. */
-export default function PrincipleScene({ kind, className = '' }) {
+export default function PrincipleScene({ kind, className = '', wide = false }) {
   return (
-    <Stage viewBox="0 0 260 220" className={className} label={{ understand: 'A consultant studying a chart to understand client needs', partner: 'Two colleagues working together as partners', trust: 'A colleague celebrating beside a shield with a check mark, representing trust' }[kind]}>
+    <Stage viewBox="0 0 260 220" preserveAspectRatio={wide ? 'none' : undefined} className={className} label={{ understand: 'A consultant studying a chart to understand client needs', partner: 'Two colleagues working together as partners', trust: 'A colleague celebrating beside a shield with a check mark, representing trust' }[kind]}>
       <G v="fade"><circle cx="130" cy="112" r="96" fill={K.lav} /></G>
       {kind === 'understand' && (
         <>

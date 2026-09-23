@@ -74,14 +74,14 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="rounded-[2rem] bg-gradient-to-br from-brand/25 via-cyan/20 to-purple/25 p-[2px] shadow-lift">
-      <div className="rounded-[calc(2rem-2px)] bg-white p-6 sm:p-9">
+    <div className="rounded-[1.75rem] bg-gradient-to-br from-brand/25 via-cyan/20 to-purple/25 p-[2px] shadow-lift">
+      <div className="rounded-[calc(1.75rem-2px)] bg-white p-4 sm:p-5">
         <AnimatePresence mode="wait" initial={false}>
           {status === 'done' ? (
             <Success onReset={() => setStatus('idle')} />
           ) : (
-            <motion.form key="form" onSubmit={onSubmit} noValidate exit={{ opacity: 0, y: -10 }} className="space-y-5">
-              <div className="grid gap-5 sm:grid-cols-2">
+            <motion.form key="form" onSubmit={onSubmit} noValidate exit={{ opacity: 0, y: -10 }} className="space-y-3">
+              <div className="grid gap-3 sm:grid-cols-2">
                 <Field id="name" label="Name" error={errors.name}>
                   <input id="name" name="name" autoComplete="name" required aria-invalid={!!errors.name} aria-describedby={errors.name ? 'name-err' : undefined} />
                 </Field>
@@ -98,7 +98,7 @@ export default function ContactForm() {
                 </select>
               </Field>
               <Field id="message" label="Message" error={errors.message}>
-                <textarea id="message" name="message" rows={5} required aria-invalid={!!errors.message} aria-describedby={errors.message ? 'message-err' : undefined} />
+                <textarea id="message" name="message" rows={2} required aria-invalid={!!errors.message} aria-describedby={errors.message ? 'message-err' : undefined} />
               </Field>
 
               <motion.button

@@ -1,10 +1,9 @@
-import { ExternalLink, FileText } from 'lucide-react'
+import { FileText } from 'lucide-react'
 import Seo from '../components/Seo'
 import PageHero from '../components/PageHero'
-import Button from '../components/Button'
 import Reveal from '../components/Reveal'
 import CtaBand from '../components/CtaBand'
-import { COMPLIANCE_RECORDS, COMPANY } from '../data/company'
+import { COMPLIANCE_RECORDS } from '../data/company'
 
 const STAGES = [
   { t: 'Document', d: 'Wages registers, challans and statements are prepared each month for the deployment.' },
@@ -23,17 +22,18 @@ export default function Compliance() {
       />
       <PageHero
         tone="plain"
-        eyebrow="COMPLIANCE"
-        title="Statutory records, documented month by month."
-        lead="Compliance is part of the service, not an afterthought. Records for client deployments are prepared, verified and published for the period they cover."
+        sectionClassName="min-h-[100svh] flex items-center"
+        eyebrow="WE FOLLOW COMPLIANCE"
+        title="Compliance records, clearly documented every month."
+        lead="We prepare, verify and publish the statutory records required for client deployments, with clear documentation for every reporting period."
         illustration="compliance"
         crumbs={[{ label: 'Compliance' }]}
       />
 
-      <section className="bg-ultra section" aria-labelledby="records-title">
+      <section className="bg-ultra section !pb-8 lg:!pb-10" aria-labelledby="records-title">
         <div className="container-x">
           <Reveal>
-            <h2 id="records-title" className="max-w-[20ch] h-sub text-ink">What we publish</h2>
+            <h2 id="records-title" className="max-w-[24ch] h-sub text-ink">Monthly compliance records, clearly maintained.</h2>
           </Reveal>
           <ul className="mt-10 grid gap-px overflow-hidden rounded-[2rem] border border-line bg-line sm:grid-cols-2">
             {COMPLIANCE_RECORDS.map((r) => (
@@ -44,16 +44,10 @@ export default function Compliance() {
               </li>
             ))}
           </ul>
-          <Reveal className="mt-10">
-            <Button href={COMPANY.officialComplianceUrl} target="_blank" rel="noopener noreferrer" arrow={false}>
-              Official compliance records <ExternalLink aria-hidden className="size-4" />
-            </Button>
-            <p className="mt-3 text-sm text-muted">Records are hosted on our official site and are updated for each period.</p>
-          </Reveal>
         </div>
       </section>
 
-      <section className="bg-white section" aria-labelledby="process-title">
+      <section className="bg-white section !pt-7 lg:!pt-10" aria-labelledby="process-title">
         <div className="container-x">
           <Reveal>
             <h2 id="process-title" className="max-w-[20ch] h-sub text-ink">How a record moves</h2>

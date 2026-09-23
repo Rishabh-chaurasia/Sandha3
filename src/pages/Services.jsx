@@ -14,10 +14,11 @@ export default function Services() {
       />
       <PageHero
         tone="lines"
+        sectionClassName="pb-[4.5rem] sm:pb-24 lg:pb-28"
         align="center"
-        eyebrow="SERVICES"
+        eyebrow="OUR SERVICES"
         title="Services for technology, workforce and customer operations"
-        lead="Choose a service area or combine capabilities around the operational problem you need to solve."
+        lead="Our technology, consulting, workforce and customer operations services are designed around your priorities and delivered with practical expertise."
         illustration="services"
         crumbs={[{ label: 'Services' }]}
       />

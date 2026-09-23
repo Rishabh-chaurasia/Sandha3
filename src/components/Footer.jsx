@@ -20,12 +20,12 @@ const L = ({ to, children }) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-b2w">
+    <footer id="site-footer" className="scroll-mt-20 bg-b2w">
       <div className="line-grad" aria-hidden />
-      <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-12">
+      <div className="container-x grid gap-12 py-20 md:grid-cols-2 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <Logo className="h-10" />
-          <p className="mt-5 max-w-xs text-muted">{COMPANY.positioning}</p>
+          <Logo className="h-14" />
+          <p className="mt-6 max-w-md text-2xl leading-[1.55] text-muted sm:text-[1.8rem]">{COMPANY.positioning}</p>
           <p className="mt-4 text-sm font-bold text-brand-deep">Operating since {COMPANY.started}.</p>
         </div>
         <div className="lg:col-span-3 lg:col-start-5"><Col title="Services">{SERVICES.map((s) => <L key={s.slug} to={`/services/${s.slug}`}>{s.title}</L>)}</Col></div>

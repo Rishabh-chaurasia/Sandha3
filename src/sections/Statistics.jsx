@@ -4,10 +4,10 @@ import SectionHeading from '../components/SectionHeading'
 import { STATS } from '../data/company'
 
 const STYLE = [
-  { pos: 'lg:left-[2%] lg:top-[6%] lg:size-[300px]', color: '#0878F9', big: true, dot: '#19C6E8' },
+  { pos: 'lg:left-[2%] lg:top-[2%] lg:size-[300px]', color: '#0878F9', big: true, dot: '#19C6E8' },
   { pos: 'lg:left-[58%] lg:top-[0%] lg:size-[220px]', color: '#5B4CE6', dot: '#FF6B9A' },
   { pos: 'lg:left-[64%] lg:top-[46%] lg:size-[190px]', color: '#0FB48F', dot: '#FFC857' },
-  { pos: 'lg:left-[30%] lg:top-[64%] lg:size-[210px]', color: '#F0623C', dot: '#5B4CE6' },
+  { pos: 'lg:left-[30%] lg:top-[54%] lg:size-[210px]', color: '#F0623C', dot: '#5B4CE6' },
 ]
 const ORDER = [0, 1, 3, 2] // 156+, 80+, 15, 20 arranged around the cluster
 
@@ -15,7 +15,7 @@ function Bubble({ s, st, i }) {
   const reduce = false
   return (
     <motion.div
-      className={`relative grid aspect-square place-content-center rounded-full bg-white text-center shadow-bubble lg:absolute ${st.pos}`}
+      className={`relative grid aspect-square place-content-center rounded-full bg-white text-center shadow-bubble ${i === 0 ? '-mt-6' : ''} lg:absolute ${st.pos}`}
       initial={reduce ? false : { opacity: 0, scale: 0.6 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: '-60px' }}
@@ -34,13 +34,13 @@ function Bubble({ s, st, i }) {
 
 export default function Statistics() {
   return (
-    <section className="section relative isolate overflow-hidden bg-white" aria-labelledby="stats-title">
+    <section className="section relative isolate overflow-hidden bg-white !pb-10 md:!pb-12 lg:!pb-14" aria-labelledby="stats-title">
       <div aria-hidden className="pointer-events-none absolute -right-40 top-10 -z-10 size-[520px] rounded-full bg-lav" />
       <div className="container-x">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <SectionHeading label="By the numbers" id="stats-title" title="Experience you can count on.">
-              <p>Figures published by Sandha &amp; Company since operations began in December 2008.</p>
+              <p>A snapshot of the experience, scale and specialist capability we bring to every engagement.</p>
             </SectionHeading>
           </div>
           <div className="lg:col-span-7">

@@ -12,7 +12,7 @@ export const COMPANY = {
   positioning:
     'Sandha & Company helps domestic and commercial clients meet their workforce and service-delivery needs through practical, technology-enabled solutions.',
   philosophy:
-    'We listen carefully, recommend the right solution, and build long-term relationships through dependable service.',
+    'We listen carefully, recommend the right solution, and build long-term relationships through reliable service.',
   vision:
     'To be a global leader in sustainable innovation by 2030, transforming industries and improving lives through ethical, technology-driven solutions.',
   mission:
