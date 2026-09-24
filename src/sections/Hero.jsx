@@ -15,8 +15,8 @@ const fadeV = {
 
 // Manual line breaks keep the headline balanced across desktop and mobile.
 const LINES = [
-  [{ t: 'Talent & Business' }],
-  [{ t: 'Technology' , g: 'grad-text' }],
+  [{ t: 'People, Process' }],
+  [{ t: '& Technology', g: 'grad-text' }],
 ]
 
 const DOTS = [
@@ -57,7 +57,7 @@ export default function Hero() {
             </motion.p>
 
             <h1 id="hero-title" className="h-hero mt-6 text-ink">
-              <span className="sr-only">Talent and business technology.</span>
+              <span className="sr-only">People, process and technology.</span>
               <span aria-hidden="true">
                 {LINES.map((line, i) => (
                   <span key={i} className="block overflow-hidden pb-[0.1em]">
@@ -69,8 +69,8 @@ export default function Hero() {
               </span>
             </h1>
 
-            <motion.p variants={fadeV} custom={0.85} className="lead mt-7 max-w-[46ch] font-display text-[1.08rem] tracking-[0.01em]">
-              Delivering technology, consultancy, workforce and customer operations solutions designed around your business needs.
+            <motion.p variants={fadeV} custom={0.85} className="lead mt-7 max-w-[46ch] text-[1.08rem]">
+              Skilled manpower, IT systems and FRT (Fault Rectification Teams) work together to keep power and water services running for utilities across India.
             </motion.p>
             <motion.div variants={fadeV} custom={1} className="mt-9 flex flex-wrap gap-3">
               <Button to="/services" magnetic className="w-full sm:w-auto">Explore Our Services</Button>

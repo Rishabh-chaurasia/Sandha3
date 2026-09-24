@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Send } from 'lucide-react'
 import { COMPANY } from '../data/company'
-import { SERVICES } from '../data/services'
+import { ORDERED_SERVICES } from '../data/services'
 import { EASE } from '../utils/motion'
 
 const ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT // optional: Formspree / any JSON endpoint
@@ -33,7 +33,7 @@ function Success({ onReset }) {
       </svg>
       <h3 className="h-sub text-ink">Message ready.</h3>
       <p className="lead max-w-[42ch]">
-        {ENDPOINT ? 'Thanks. Your enquiry has been sent and we will reply soon.' : `Your email app should open with the enquiry ready to send. If it does not, write to ${COMPANY.email}.`}
+        Thanks. Your enquiry has been sent and we will reply soon.
       </p>
       <button type="button" onClick={onReset} className="link-underline font-extrabold text-brand-deep">Send another message</button>
     </motion.div>
@@ -55,6 +55,12 @@ export default function ContactForm() {
     setErrors(errs)
     if (Object.keys(errs).length) return
 
+    if (!ENDPOINT) {
+      const subject = encodeURIComponent(`Website enquiry: ${data.service || 'General'}`)
+      const body = encodeURIComponent(`Name: ${data.name}\nCompany: ${data.company || '-'}\nEmail: ${data.email}\nPhone: ${data.phone || '-'}\nService: ${data.service || '-'}\n\n${data.message}`)
+      window.location.href = `mailto:${COMPANY.email}?subject=${subject}&body=${body}`
+      return
+    }
     if (ENDPOINT) {
       setStatus('sending')
       try {
@@ -67,10 +73,6 @@ export default function ContactForm() {
       }
       return
     }
-    // No backend configured: open the visitor's email app with the enquiry prefilled.
-    const body = `Name: ${data.name}\nCompany: ${data.company || '-'}\nPhone: ${data.phone || '-'}\nService: ${data.service || '-'}\n\n${data.message}`
-    window.location.href = `mailto:${COMPANY.email}?subject=${encodeURIComponent('Website enquiry from ' + data.name)}&body=${encodeURIComponent(body)}`
-    setStatus('done')
   }
 
   return (
@@ -94,7 +96,7 @@ export default function ContactForm() {
               <Field id="service" label="Service">
                 <select id="service" name="service" defaultValue="">
                   <option value="">Not sure yet</option>
-                  {SERVICES.map((s) => <option key={s.slug} value={s.title}>{s.title}</option>)}
+                  {ORDERED_SERVICES.map((s) => <option key={s.slug} value={s.title}>{s.title}</option>)}
                 </select>
               </Field>
               <Field id="message" label="Message" error={errors.message}>
@@ -107,10 +109,11 @@ export default function ContactForm() {
                 whileTap={{ scale: 0.97 }}
                 className="btn-grad group inline-flex w-full items-center justify-center gap-2.5 rounded-full px-8 py-4 text-sm font-extrabold text-white shadow-[0_16px_32px_-14px_rgba(8,120,249,.85)] disabled:opacity-70 sm:w-auto"
               >
-                {status === 'sending' ? 'Sending…' : 'Send Message'}
+                {status === 'sending' ? 'Sending…' : ENDPOINT ? 'Send Message' : 'Open Email Draft'}
                 <Send aria-hidden className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-1" />
               </motion.button>
-              {status === 'error' && <p role="alert" className="text-sm font-semibold text-red-600">We could not send that. Please try again or write to {COMPANY.email}.</p>}
+              {!ENDPOINT && <p className="text-xs text-muted">This opens your email app with the message filled in. Please send it from there.</p>}
+              {status === 'error' && <p role="alert" className="text-sm font-semibold text-red-600">We could not send that. Please try again or call {COMPANY.phone}.</p>}
             </motion.form>
           )}
         </AnimatePresence>

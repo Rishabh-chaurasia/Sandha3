@@ -5,31 +5,36 @@ import PageHero from '../components/PageHero'
 import CtaBand from '../components/CtaBand'
 import Reveal from '../components/Reveal'
 import ServiceModule from '../components/ServiceModule'
-import { SERVICES } from '../data/services'
+import { SERVICES, ORDERED_SERVICES } from '../data/services'
 import CallCentreDetail from '../sections/CallCentreDetail'
+import FrtDetail from '../sections/FrtDetail'
 
 // Each service page gets its own hero background and body layout.
 const LAYOUT = {
-  'information-technology': { tone: 'lines', body: 'stack' },
-  consultancy: { tone: 'cyan', body: 'split' },
-  manpower: { tone: 'soft', body: 'list' },
-  staffing: { tone: 'rings', body: 'grid' },
-  'call-centre': { tone: 'dots', body: 'custom' },
+  'utility-operations': { tone: 'cyan', body: 'stack' },
+  'manpower-management': { tone: 'soft', body: 'stack' },
+  'contact-centre': { tone: 'dots', body: 'custom' },
+  'technology-services': { tone: 'lines', body: 'stack' },
+  'water-utility': { tone: 'rings', body: 'stack' },
 }
 
 function Stack({ s }) {
+  const shades = [
+    ['#e5f2ff', '#0878f9'], ['#e5faf4', '#0f9e93'], ['#f0ebff', '#7456e8'], ['#fff0df', '#e38630'], ['#ffe9ef', '#e2607e'],
+  ]
   return (
-    <section className="bg-white section">
-      <div className="container-x space-y-16">
-        {s.areas.map((a, i) => (
-          <Reveal key={a.title} delay={i * 0.05} className="grid gap-4 border-t border-line pt-8 sm:grid-cols-[auto_1fr] sm:gap-10">
-            <span className="font-display text-sm font-extrabold tabular-nums text-brand">{String(i + 1).padStart(2, '0')}</span>
+    <section className="bg-white section !py-8 lg:!py-12">
+        <div className="container-x space-y-6 lg:space-y-8">
+        {s.areas.map((a, i) => {
+          const [tint, accent] = shades[i % shades.length]
+          return <Reveal key={a.title} delay={i * 0.05} className="grid gap-4 rounded-2xl border p-6 shadow-sm transition hover:-translate-y-1 sm:grid-cols-[auto_1fr] sm:gap-10" style={{ backgroundColor: tint, borderColor: `${accent}35` }}>
+            <span className="grid size-12 place-items-center rounded-xl font-display text-sm font-extrabold tabular-nums text-white" style={{ backgroundColor: accent }}>{String(i + 1).padStart(2, '0')}</span>
             <div>
-              <h2 className="text-[clamp(1.5rem,3vw,2.2rem)] font-extrabold tracking-tight text-ink">{a.title}</h2>
-              <p className="mt-3 text-lg text-muted">{a.text}</p>
+              <h2 className="font-display text-[clamp(1.5rem,3vw,2.2rem)] font-extrabold tracking-tight text-ink">{a.title}</h2>
+              <p className="mt-2 text-lg leading-relaxed text-muted">{a.text}</p>
             </div>
           </Reveal>
-        ))}
+        })}
       </div>
     </section>
   )
@@ -121,7 +126,7 @@ export default function ServiceDetail() {
 
   const { tone, body } = LAYOUT[s.slug]
   const Body = BODIES[body]
-  const others = SERVICES.filter((x) => x.slug !== s.slug)
+  const others = ORDERED_SERVICES.filter((x) => x.slug !== s.slug)
 
   return (
     <>
@@ -137,13 +142,18 @@ export default function ServiceDetail() {
         title={s.tagline}
         lead={s.summary}
         illustration={s.slug}
-        sectionClassName="min-h-[520px] flex items-center"
+        photo={s.photo}
+        photoAlt={s.photoAlt}
+        photoClassName={s.slug === 'utility-operations' ? 'lg:translate-y-6' : ''}
+        illustrationClassName="max-h-[460px] object-contain"
+        sectionClassName="flex items-center min-h-[950px] lg:min-h-[720px]"
         crumbs={[{ label: 'Services', to: '/services' }, { label: s.title }]}
       />
 
       {Body ? <Body s={s} /> : <CallCentreDetail />}
+      {s.slug === 'utility-operations' && <FrtDetail />}
 
-      <section className="bg-white py-16" aria-label="Other services">
+      <section className="bg-white py-7 lg:py-10" aria-label="Other services">
         <div className="container-x">
           <h2 className="text-sm font-extrabold uppercase tracking-[0.14em] text-muted">Other services</h2>
           <ul className="mt-5 flex flex-wrap gap-3">
@@ -159,7 +169,7 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      <CtaBand title={`${s.title} support for your organisation`} text="Share the relevant details and our team will respond with a practical next step." />
+      <CtaBand title={`Discuss ${s.title} for your organisation`} text="Tell us your requirements and we can scope the right delivery model together." />
     </>
   )
 }

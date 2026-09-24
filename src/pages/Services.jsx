@@ -9,17 +9,19 @@ export default function Services() {
     <>
       <Seo
         title="Services | Sandha & Company"
-        description="Information technology, consultancy, manpower, staffing and call centre services from Sandha & Company."
+        description="FRT and line maintenance, power-sector manpower, call centres, information technology and water utility services from Sandha & Company."
         path="/services"
       />
       <PageHero
         tone="lines"
-        sectionClassName="pb-[4.5rem] sm:pb-24 lg:pb-28"
+        sectionClassName="!pb-8 !pt-[96px] sm:!pb-10 sm:!pt-[110px] lg:!py-[104px]"
         align="center"
         eyebrow="OUR SERVICES"
-        title="Services for technology, workforce and customer operations"
-        lead="Our technology, consulting, workforce and customer operations services are designed around your priorities and delivered with practical expertise."
+        title="Field teams, people and technology for utilities"
+        lead="Five services built around one job: registering a consumer complaint, getting a trained team to the fault and closing it on the ground."
         illustration="services"
+        illustrationClassName="!h-[460px] !w-full sm:!h-[520px]"
+        backgroundPhoto="/services-team-hero.png"
         crumbs={[{ label: 'Services' }]}
       />
 

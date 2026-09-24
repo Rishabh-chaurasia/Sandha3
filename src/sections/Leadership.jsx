@@ -10,7 +10,7 @@ export default function Leadership({ id = 'leadership' }) {
     <section id={id} className="bg-ultra section !pt-8 lg:!pt-12" aria-labelledby={`${id}-title`}>
       <div className="container-x">
         <SectionHeading label="Leadership" size="md" title={<span id={`${id}-title`}>Meet our management</span>} />
-        <ul className="mt-12 grid gap-x-12 gap-y-2 sm:grid-cols-2">
+        <ul className="mt-12 grid max-w-3xl gap-y-2">
           {LEADERS.map((l) => (
             <motion.li
               key={l.name}
@@ -27,11 +27,12 @@ export default function Leadership({ id = 'leadership' }) {
                   {initials(l.name)}
                 </span>
               )}
-              <span>
+              <span className="min-w-0">
                 {l.role.includes('Founder') ? (
                   <Link to="/founder" className="block text-2xl font-semibold text-ink transition hover:text-brand focus-visible:text-brand">{l.name}</Link>
                 ) : <span className="block text-2xl font-semibold text-ink">{l.name}</span>}
                 <span className="block text-muted">{l.role}</span>
+                {l.bio && <span className="mt-3 block max-w-[34rem] text-sm leading-relaxed text-muted">{l.bio}</span>}
               </span>
             </motion.li>
           ))}

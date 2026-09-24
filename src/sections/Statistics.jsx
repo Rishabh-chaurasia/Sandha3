@@ -1,57 +1,36 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Counter from '../components/Counter'
 import SectionHeading from '../components/SectionHeading'
 import { STATS } from '../data/company'
+import ClientsMarquee from './ClientsMarquee'
 
 const STYLE = [
-  { pos: 'lg:left-[2%] lg:top-[2%] lg:size-[300px]', color: '#0878F9', big: true, dot: '#19C6E8' },
-  { pos: 'lg:left-[58%] lg:top-[0%] lg:size-[220px]', color: '#5B4CE6', dot: '#FF6B9A' },
-  { pos: 'lg:left-[64%] lg:top-[46%] lg:size-[190px]', color: '#0FB48F', dot: '#FFC857' },
-  { pos: 'lg:left-[30%] lg:top-[54%] lg:size-[210px]', color: '#F0623C', dot: '#5B4CE6' },
+  { color: '#0878F9', surface: '#edf6ff' },
+  { color: '#5B4CE6', surface: '#f3f0ff' },
+  { color: '#0B9D83', surface: '#eafaf4' },
+  { color: '#DB6348', surface: '#fff3ed' },
 ]
-const ORDER = [0, 1, 3, 2] // 156+, 80+, 15, 20 arranged around the cluster
-
-function Bubble({ s, st, i }) {
-  const reduce = false
-  return (
-    <motion.div
-      className={`relative grid aspect-square place-content-center rounded-full bg-white text-center shadow-bubble ${i === 0 ? '-mt-6' : ''} lg:absolute ${st.pos}`}
-      initial={reduce ? false : { opacity: 0, scale: 0.6 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ type: 'spring', stiffness: 120, damping: 15, delay: 0.1 + i * 0.12 }}
-    >
-      <motion.div animate={reduce ? undefined : { y: [0, -8, 0] }} transition={{ duration: 5 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }} className="px-2">
-        <p className={`font-display font-extrabold leading-none tracking-[-0.04em] ${st.big ? 'text-[clamp(3.25rem,9vw,5.5rem)]' : 'text-[clamp(2.5rem,7vw,3.75rem)]'}`} style={{ color: st.color }}>
-          <Counter value={s.value} suffix={s.suffix} />
-        </p>
-        <p className="mt-2 text-[0.95rem] font-extrabold leading-tight text-ink">{s.label}{s.unit && <span className="font-semibold text-muted"> ({s.unit})</span>}</p>
-      </motion.div>
-      <span aria-hidden className="absolute -right-1 top-[14%] size-4 rounded-full" style={{ background: st.dot }} />
-    </motion.div>
-  )
-}
 
 export default function Statistics() {
   return (
-    <section className="section relative isolate overflow-hidden bg-white !pb-10 md:!pb-12 lg:!pb-14" aria-labelledby="stats-title">
+    <section className="section relative isolate overflow-hidden bg-white !py-8 md:!py-9 lg:!py-10" aria-labelledby="stats-title">
       <div aria-hidden className="pointer-events-none absolute -right-40 top-10 -z-10 size-[520px] rounded-full bg-lav" />
       <div className="container-x">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-5">
-            <SectionHeading label="By the numbers" id="stats-title" title="Experience you can count on.">
-              <p>A snapshot of the experience, scale and specialist capability we bring to every engagement.</p>
+        <div className="max-w-2xl">
+            <SectionHeading label="Utility experience" id="stats-title" title="Essential services, delivered at scale.">
+              <p>Field teams, vehicles and call centres serving electricity distribution companies across India.</p>
             </SectionHeading>
-          </div>
-          <div className="lg:col-span-7">
-            <div className="mx-auto grid max-w-[520px] grid-cols-2 gap-4 sm:gap-6 lg:relative lg:block lg:h-[520px] lg:max-w-none">
-              {ORDER.map((idx, i) => <Bubble key={STATS[idx].label} s={STATS[idx]} st={STYLE[i]} i={i} />)}
-              <span aria-hidden className="absolute left-0 top-[40%] hidden size-5 rounded-full bg-cyan lg:block" />
-              <span aria-hidden className="absolute right-[6%] top-[86%] hidden size-3 rounded-full bg-mint lg:block" />
-              <span aria-hidden className="absolute left-[54%] top-[38%] hidden size-3 rounded-full bg-pink lg:block" />
-            </div>
-          </div>
         </div>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="Company scale">
+          {STATS.slice(0, 4).map((stat, i) => (
+            <motion.div key={stat.label} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .09 }} className="flex min-h-[128px] flex-col rounded-2xl border border-line/70 p-3.5 shadow-sm sm:min-h-[144px] sm:p-4" style={{ backgroundColor: STYLE[i].surface }}>
+              <span className="text-xs font-semibold tracking-[.16em] text-muted">0{i + 1} / UTILITY REACH</span>
+              <span className="mt-auto font-display text-[clamp(2.6rem,4vw,3.6rem)] font-bold leading-none" style={{ color: STYLE[i].color }}><Counter value={stat.value} suffix={stat.suffix} /></span>
+              <span className="mt-2.5 max-w-[18ch] border-t border-ink/10 pt-2.5 text-sm font-semibold leading-snug text-ink">{stat.label}</span>
+            </motion.div>
+          ))}
+        </div>
+        <ClientsMarquee heading={false} />
       </div>
     </section>
   )

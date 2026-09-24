@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ChevronDown, Menu, X, ArrowRight, Phone } from 'lucide-react'
-import { NAV, SERVICES } from '../data/services'
+import { NAV, ORDERED_SERVICES } from '../data/services'
 import { COMPANY } from '../data/company'
 import { EASE, cn } from '../utils/motion'
 import Logo from './Logo'
@@ -58,11 +58,12 @@ function ServicesMenu({ pathname }) {
                 <p className="mt-1 text-sm font-semibold text-ink/70">Technology, people and operational support.</p>
               </div>
             <ul className="grid grid-cols-2 gap-1 p-3">
-              {SERVICES.map((s) => (
+              {ORDERED_SERVICES.map((s, i) => (
                 <li key={s.slug}>
                   <Link
                     to={`/services/${s.slug}`}
-                    className="group flex min-h-[92px] flex-col items-start gap-2 rounded-2xl p-3 transition hover:-translate-y-0.5 hover:bg-soft hover:shadow-sm"
+                    className="group flex min-h-[92px] flex-col items-start gap-2 rounded-2xl p-3 transition hover:-translate-y-0.5 hover:shadow-md"
+                    style={{ background: ['#e4f2ff', '#e5faf3', '#f0ebff', '#fff0df', '#ffe8ef'][i] }}
                   >
                     <span className="flex w-full items-center justify-between"><span className="grid size-7 place-items-center rounded-lg bg-brand/10 font-display text-xs font-extrabold text-brand">{s.n}</span><ArrowRight aria-hidden className="size-3.5 text-brand/50 transition-transform group-hover:translate-x-1 group-hover:text-brand" /></span>
                     <span>
@@ -88,7 +89,7 @@ function NavLinkItem({ item, pathname, trailing }) {
       to={item.to}
       aria-current={active ? 'page' : undefined}
       className={cn(
-        'relative px-3.5 py-2 text-[0.95rem] font-bold transition-colors',
+        'relative px-2.5 py-2 text-[0.86rem] font-bold transition-colors min-[1280px]:px-3.5 min-[1280px]:text-[0.95rem]',
         trailing && 'pr-5',
         active ? 'text-brand-deep' : 'text-ink/75 hover:text-brand',
       )}
@@ -160,7 +161,7 @@ function MobileMenu({ onClose, pathname }) {
                       transition={{ duration: 0.35, ease: EASE }}
                       className="overflow-hidden border-l-2 border-line pl-4"
                     >
-                      {SERVICES.map((s) => (
+                      {ORDERED_SERVICES.map((s) => (
                         <li key={s.slug}>
                           <Link to={`/services/${s.slug}`} className="block py-2.5 text-lg font-semibold text-muted active:text-brand">
                             {s.title}
@@ -215,28 +216,28 @@ export default function Navbar() {
       <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6">
         <div
           className={cn(
-            'mx-auto flex max-w-[1280px] items-center justify-between rounded-full px-4 transition-all duration-500 sm:px-8',
+            'mx-auto flex max-w-[var(--shell)] items-center justify-between gap-2 rounded-full px-4 transition-all duration-500 sm:px-6 min-[1280px]:px-8',
             scrolled
-              ? 'h-[60px] border border-line bg-white/92 shadow-nav backdrop-blur-md'
-              : 'h-[76px] border border-white/40 bg-white/35 backdrop-blur-[6px]',
+              ? 'h-[60px] border border-white/45 bg-white/45 shadow-nav backdrop-blur-md'
+              : 'h-[76px] border border-white/25 bg-white/10 backdrop-blur-[6px]',
           )}
         >
-          <Logo className={scrolled ? 'h-8' : 'h-10'} />
+          <Logo className={scrolled ? 'h-10' : 'h-12'} />
 
-          <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex">
+          <nav aria-label="Primary" className="hidden items-center gap-0.5 min-[1100px]:flex">
             {NAV.map((n) =>
               n.children ? <ServicesMenu key={n.to} pathname={pathname} /> : <NavLinkItem key={n.to} item={n} pathname={pathname} />,
             )}
           </nav>
 
           <div className="flex items-center gap-2">
-            <span className="hidden lg:inline-flex"><Button to="#site-footer" size="sm" magnetic>Let&rsquo;s Talk</Button></span>
+            <span className="hidden min-[1360px]:inline-flex"><Button to="#site-footer" size="sm" magnetic>Let&rsquo;s Talk</Button></span>
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
               aria-expanded={mobileOpen}
-              className="grid size-11 place-items-center rounded-full border border-line bg-white/80 text-ink lg:hidden"
+              className="grid size-11 place-items-center rounded-full border border-line bg-white/80 text-ink min-[1100px]:hidden"
             >
               <Menu aria-hidden className="size-5" />
             </button>

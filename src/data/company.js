@@ -2,54 +2,67 @@ export const SITE_URL = 'https://www.sandha-company.com'
 
 export const COMPANY = {
   name: 'Sandha & Company',
-  started: 'December 2008',
-  phone: '0124-4077166',
-  phoneHref: 'tel:+911244077166',
+  phone: '+91 124 448 8701',
+  phoneHref: 'tel:+911244488701',
   email: 'info@sandha-company.com',
-  address: ['99/277/2 Atul Kataria Marg,', 'Lane No. 4,', 'Gurgaon - 122001'],
-  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=28.4807173,77.0255268',
-  officialComplianceUrl: 'https://www.sandha-company.com/compliance.html',
+  address: ['601, Eros City Square,', 'Sector 49-50, Gurugram,', 'Haryana 122001'],
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=601%20Eros%20City%20Square%20Sector%2049-50%20Gurugram%20Haryana%20122001',
   positioning:
-    'Sandha & Company helps domestic and commercial clients meet their workforce and service-delivery needs through practical, technology-enabled solutions.',
+    'Sandha & Company partners with electricity distribution companies and utility providers across India. Our trained field teams, skilled manpower, responsive customer support and practical technology work together—from fault response and line maintenance to consumer services, metering, billing and operational systems—to keep essential services reliable, safe and connected.',
   philosophy:
-    'We listen carefully, recommend the right solution, and build long-term relationships through reliable service.',
+    'Our work combines trained people, clear processes and technology to improve utility service delivery.',
   vision:
-    'To be a global leader in sustainable innovation by 2030, transforming industries and improving lives through ethical, technology-driven solutions.',
+    'To be the global leader in sustainable innovation by 2030, transforming industries and improving lives through ethical, technology-driven solutions.',
   mission:
-    'We connect skilled people, smart processes, and modern technology to deliver better customer experiences for utilities and essential-service providers.',
+    'We connect skilled people, smart processes and modern technology to deliver world-class customer experiences for utilities and essential service providers.',
   founderMessage:
-    'Sandeep Sandha founded the company with a focus on innovation, quality and sustainable growth. His leadership brings together operational discipline, talent development and practical technology to create lasting value for clients and communities.',
+    'Sandeep Sandha leads the company with a focus on innovation, quality and sustainable growth. His leadership prioritises operational excellence, talent development and value for stakeholders.',
 }
 
-// Figures exactly as currently published on the official website.
+// Figures from the 2025 company profile and the client brief.
 export const STATS = [
-  { value: 156, suffix: '+', label: 'Happy Clients', grad: 'grad-text-b' },
-  { value: 80, suffix: '+', label: 'Projects Completed', grad: 'grad-text-p' },
-  { value: 20, suffix: '', label: 'Expert Consultants', grad: 'grad-text-m' },
-  { value: 15, suffix: '', label: 'Experience', unit: 'years', grad: 'grad-text-bp' },
+  { value: 11, suffix: '', label: 'DISCOMs served', grad: 'grad-text-b' },
+  { value: 24, suffix: 'k+', label: 'Personnel employed', grad: 'grad-text-p' },
+  { value: 20, suffix: 'm+', label: 'Consumers served', grad: 'grad-text-m' },
+  { value: 2, suffix: 'k+', label: 'FRT and breakdown specialists', grad: 'grad-text-bp' },
+  { value: 1000, suffix: '+', label: 'FRT vehicles and lifters', grad: 'grad-text-b' },
+  { value: 100, suffix: '+', label: 'Transformer replacement cranes', grad: 'grad-text-p' },
+  { value: 97, suffix: '%', label: 'Consumers satisfied with resolution', grad: 'grad-text-m' },
+  { value: 10, suffix: '+', label: 'Years of utility IT', grad: 'grad-text-bp' },
 ]
 
 export const PRINCIPLES = [
-  { key: 'understand', title: 'Understand client needs', text: 'We make it our business to understand what each client is trying to achieve.' },
-  { key: 'partner', title: 'Partner with clients', text: 'Our success is tied to the success of our clients, so we work as partners.' },
-  { key: 'trust', title: 'Earn client trust and confidence', text: 'Quality and a client-centric approach are how confidence is earned.' },
+  { key: 'understand', title: 'Customer focus', text: 'Adapt to the evolving needs of clients and consumers.' },
+  { key: 'partner', title: 'Collaboration', text: 'Build relationships across teams, clients and partners through clear communication.' },
+  { key: 'trust', title: 'Operational excellence', text: 'Use clear responsibilities and trained teams to deliver reliable service.' },
 ]
 
 export const VALUES = [
-  { title: 'Customer focus approach', text: 'Sandha & Company is a client-centric organisation. We make it our business to understand and help our clients achieve their business goals.' },
-  { title: 'Commitment to quality', text: 'While retaining competitive rates we never compromise the quality of our services. A dedicated quality assurance department monitors project activities.' },
+  { title: 'People first', text: 'Technology drives us, but people define us. We empower individuals and organisations to succeed together.' },
+  { title: 'Agility and excellence', text: 'We adapt quickly, deliver efficiently and continuously improve to meet changing client needs.' },
 ]
 
 export const LEADERS = [
-  { name: 'Sandeep Sandha', role: 'Founder and CEO' },
-  { name: 'Govind Verma', role: 'Director' },
+  {
+    name: 'Sandeep Sandha',
+    role: 'Founder and CEO',
+    bio: 'Sandeep Sandha leads the company’s work in innovation, quality and sustainable growth. His priorities include operational excellence, talent development and responsible business practices.',
+  },
+  {
+    name: 'Govind Kumar',
+    role: 'Director',
+    bio: 'Govind Kumar supports the company’s direction across service delivery, partnerships and operational growth.',
+  },
 ]
 
-export const CAPABILITIES = ['Technology', 'Consulting', 'Manpower', 'Staffing', 'Customer operations']
+export const CAPABILITIES = ['Manpower and staffing', 'Information technology', 'FRT and line maintenance', 'Call centre', 'Water utility services']
 
 export const COMPLIANCE_RECORDS = [
-  { title: 'Wages registers', text: 'Monthly wages registers for a client deployment.' },
-  { title: 'ESIC challans', text: 'Monthly ESIC contribution challans.' },
-  { title: 'EPFO challans', text: 'Monthly EPFO contribution challans.' },
-  { title: 'Salary bank statements', text: 'Bank statements evidencing salary payment.' },
+  { title: 'Quality management', text: 'The company profile lists ISO 9001:2015 certification and a Level 3 certification.' },
+  { title: 'Safety training', text: 'Every field worker is trained on the project EHS plan and issued personal protective equipment before deployment.' },
+  { title: 'ITI-qualified workforce', text: 'Technical staff hold the ITI certification required for work on live electrical networks.' },
+  { title: 'PF and ESI', text: 'Registrations, monthly contributions and statutory filings are handled for every employee we deploy.' },
+  { title: 'Accident insurance', text: 'Group accident cover is provided as specified in each work order, alongside statutory benefits.' },
+  { title: 'Payroll and employee records', text: 'Attendance, leave, salary inputs, deductions and employee documents are checked and kept ready for audit.' },
+  { title: 'Audit and reporting support', text: 'Statutory registers, challans, receipts and monthly reports are maintained for client reviews and inspections.' },
 ]

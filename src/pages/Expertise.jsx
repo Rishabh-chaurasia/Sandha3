@@ -19,14 +19,14 @@ export default function Expertise() {
     <>
       <Seo
         title="Expertise | Sandha & Company"
-        description="Everything Sandha & Company covers: software development, infrastructure, cyber security, technology consulting, staffing, payroll, verification, compliance and call centre operations."
+        description="Sandha & Company's utility field operations, contact centre, HRO and utility software capabilities."
         path="/expertise"
       />
       <PageHero
         tone="lines"
         eyebrow="EXPERTISE"
         title="Every capability, in one place."
-        lead="Explore the capabilities within our five services and see how technology, advice, and people work together."
+        lead="Explore the four service areas described in the 2025 company profile."
         crumbs={[{ label: 'Expertise' }]}
       />
 

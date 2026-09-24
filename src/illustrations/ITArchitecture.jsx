@@ -12,7 +12,7 @@ const LAYERS = [
 export default function ITArchitecture({ className = '' }) {
   const spine = 'M340 92V420'
   return (
-    <Stage viewBox="0 0 640 520" className={className} label="Layered technology architecture: cloud above applications, infrastructure, data and cyber security layers, with data packets flowing between them and a developer at work">
+    <Stage viewBox="0 0 640 520" className={className} preserveAspectRatio="xMidYMin meet" label="Layered technology architecture: cloud above applications, infrastructure, data and cyber security layers, with data packets flowing between them and a developer at work">
       <G v="fade"><circle cx="340" cy="270" r="230" fill={K.lav} /></G>
       <Confetti items={[['ring', 50, 60, 8, K.cyan], ['tri', 590, 90, 8, K.coral], ['plus', 610, 60, 8, K.violet], ['dot', 40, 300, 6, K.mint]]} />
 

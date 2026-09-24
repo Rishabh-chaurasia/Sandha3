@@ -10,7 +10,7 @@ const EDU = [250, 150, 24]
 
 export default function ClientsNetwork({ className = '' }) {
   return (
-    <Stage viewBox="0 0 520 410" className={className} label="Relationship map: Sandha and Company at the centre, connected to seven power and utility clients and one university">
+    <Stage viewBox="0 0 520 410" className={className} label="Relationship map: Sandha and Company at the centre, connected to its power and utility clients">
       <G v="fade"><circle cx="270" cy="205" r="220" fill={K.lav} /></G>
       <Confetti items={[['ring', 30, 60, 7, K.cyan], ['tri', 490, 230, 8, K.coral], ['plus', 60, 360, 7, K.violet]]} />
       {SATS.map(([x, y], i) => {

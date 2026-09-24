@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import { Mail, MapPin, Phone } from 'lucide-react'
-import { SERVICES } from '../data/services'
+import { ORDERED_SERVICES } from '../data/services'
 import { COMPANY } from '../data/company'
 import Logo from './Logo'
 
-const COMPANY_LINKS = [['About', '/about'], ['Compliance', '/compliance'], ['Clients', '/clients'], ['Privacy Policy', '/privacy-policy']]
+const COMPANY_LINKS = [['About', '/about'], ['Compliance', '/compliance'], ['Clients', '/clients']]
 
 function Col({ title, children }) {
   return (
@@ -21,16 +21,14 @@ const L = ({ to, children }) => (
 export default function Footer() {
   return (
     <footer id="site-footer" className="scroll-mt-20 bg-b2w">
-      <div className="line-grad" aria-hidden />
-      <div className="container-x grid gap-12 py-20 md:grid-cols-2 lg:grid-cols-12">
-        <div className="lg:col-span-4">
-          <Logo className="h-14" />
-          <p className="mt-6 max-w-md text-2xl leading-[1.55] text-muted sm:text-[1.8rem]">{COMPANY.positioning}</p>
-          <p className="mt-4 text-sm font-bold text-brand-deep">Operating since {COMPANY.started}.</p>
+      <div className="container-x">
+        <div className="grid gap-5 border-b border-line/80 py-12 lg:py-16">
+          <Logo className="h-10" />
+          <p className="max-w-4xl text-base leading-relaxed text-muted sm:text-lg">{COMPANY.positioning}</p>
         </div>
-        <div className="lg:col-span-3 lg:col-start-5"><Col title="Services">{SERVICES.map((s) => <L key={s.slug} to={`/services/${s.slug}`}>{s.title}</L>)}</Col></div>
-        <div className="lg:col-span-2"><Col title="Company">{COMPANY_LINKS.map(([t, to]) => <L key={to} to={to}>{t}</L>)}</Col></div>
-        <div className="lg:col-span-3">
+        <div className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.3fr_.8fr_1fr] lg:gap-16 lg:py-20">
+          <Col title="Services">{ORDERED_SERVICES.map((s) => <L key={s.slug} to={`/services/${s.slug}`}>{s.title}</L>)}</Col>
+          <Col title="Company">{COMPANY_LINKS.map(([t, to]) => <L key={to} to={to}>{t}</L>)}</Col>
           <Col title="Contact">
             <li className="flex gap-3"><MapPin aria-hidden className="mt-1 size-4 shrink-0 text-brand" /><address className="not-italic">{COMPANY.address.join(' ')}</address></li>
             <li className="flex gap-3"><Phone aria-hidden className="mt-1 size-4 shrink-0 text-brand" /><a href={COMPANY.phoneHref} className="hover:text-brand">{COMPANY.phone}</a></li>
@@ -41,7 +39,7 @@ export default function Footer() {
       <div className="border-t border-line">
         <div className="container-x flex flex-col gap-3 py-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {new Date().getFullYear()} Sandha &amp; Company. All rights reserved.</p>
-          <Link to="/privacy-policy" className="link-underline w-fit hover:text-brand">Privacy Policy</Link>
+          <Link to="/contact" className="link-underline w-fit hover:text-brand">Contact</Link>
         </div>
       </div>
     </footer>

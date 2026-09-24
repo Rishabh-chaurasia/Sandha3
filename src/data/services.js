@@ -1,128 +1,103 @@
+// Service scope combines the supplied company profile with the service brief provided by the user.
 export const SERVICES = [
   {
-    slug: 'information-technology',
-    n: '01',
-    title: 'Information Technology',
-    accent: '#0878F9',
-    accent2: '#7C5CFC',
-    tint: '#EAF6FF',
-    tagline: 'Support from planning through delivery.',
-    summary:
-      'A technology and development partner based in Gurugram, offering cross-platform app and software development to mid-market and small business clients.',
+    slug: 'utility-operations', n: '03', title: 'FRT & Line Maintenance', accent: '#0F9E93', accent2: '#19C6E8', tint: '#E4FAF6',
+    tagline: 'Fault rectification and live-line maintenance for DISCOMs',
+    summary: 'Our Fault Rectification Teams (FRT) keep electricity flowing. GPS-tracked vehicles, Hydra lifters and trained linemen attend no-current complaints, repair faults and maintain LT and HT lines, with every case tracked to consumer sign-off.',
     areas: [
-      { title: 'Software Development', text: 'Product development from initial strategy and planning to final deployment and after-delivery support. Custom skill sets put in place to turn a product idea into reality.' },
-      { title: 'Infrastructure', text: 'Reliable infrastructure solutions that improve performance, security, and long-term value.' },
-      { title: 'Cyber Security', text: 'A dedicated security practice area covering topics from data breaches to scams and online privacy.' },
+      { title: 'Fault Rectification Teams (FRT)', text: 'GPS-equipped light commercial vehicles with tools, a lineman, technician and driver, deployed 24/7 to resolve no-current complaints within two hours of registration.' },
+      { title: 'FRT and lifter fleet', text: 'A large fleet of FRT vehicles alongside Hydra lifters and transformer replacement cranes, deployed under DISCOM tenders across service areas.' },
+      { title: 'Live-line operation and maintenance', text: 'Operation and maintenance of low tension (LT, 440 V) and high tension (HT, 11 kV to 33 kV) lines, including sky-lift work on LT and HT networks.' },
+      { title: 'Safety on every job', text: 'Trained, ITI-qualified crews work with gloves, safety shoes, helmets, earthing rods and a defined shutdown procedure before touching any line.' },
+      { title: 'Vehicle tracking and escalation', text: 'A GPS/GIS vehicle tracking system finds the nearest FRT, consumers see the team approaching in real time, and out-of-scope cases are escalated to DISCOM officials.' },
     ],
-    seo: 'Software development, IT infrastructure and cyber security services from Sandha & Company, a technology and development partner in Gurugram.',
+    photo: '/photos/frt-lineman-pole.webp',
+    photoAlt: 'Lineman in safety gear working on an overhead distribution line',
+    seo: 'Fault rectification teams, FRT vehicles, Hydra lifters and LT/HT line maintenance for electricity distribution companies.',
   },
   {
-    slug: 'consultancy',
-    n: '02',
-    title: 'Consultancy',
-    accent: '#4D7CFE',
-    accent2: '#7C5CFC',
-    tint: '#F1EEFF',
-    tagline: 'Identify the technology opportunities that matter.',
-    summary:
-      'IT consulting and advisory that helps clients assess diverse technology strategies and align them with their core business and processes.',
+    slug: 'manpower-management', n: '01', title: 'Manpower & Staffing', accent: '#18A882', accent2: '#19C6E8', tint: '#E8FBF5',
+    tagline: 'Skilled power-sector workforce, recruited, trained and deployed',
+    summary: 'We recruit and deploy the technical workforce that utilities need, from linemen to junior engineers, and manage their payroll, statutory compliance and insurance for the full term of the work order.',
     areas: [
-      { title: 'Technology Consulting', text: 'Identifying and discovering technology opportunities a business might be missing.' },
-      { title: 'Technology Strategy', text: 'Assessing diverse technology strategies against what the business is trying to achieve.' },
-      { title: 'Technology Advisory', text: 'Ongoing IT advisory services for clients making technology decisions.' },
-      { title: 'Alignment with Business Processes', text: 'Aligning the chosen technology with core business and processes.' },
+      { title: 'Power-sector roles', text: 'Linemen, assistant linemen, junior engineers, technicians, helpers and drivers, recruited against the requirements set by the DISCOM or government department.' },
+      { title: 'ITI-certified and trained', text: 'Candidates hold the required ITI certification and receive practical and safety training before they are deployed on live networks.' },
+      { title: 'Circle-wide deployment', text: 'Staffing for entire circles, including a mix of technical and support roles deployed across three circles in Rajasthan.' },
+      { title: 'Payroll and statutory compliance', text: 'We run payroll and handle PF and ESI contributions, registrations and filings for every deployed employee.' },
+      { title: 'Insurance cover', text: 'Group accident insurance is provided as specified in the work order, alongside statutory benefits.' },
     ],
-    seo: 'Technology consulting, strategy and advisory from Sandha & Company, aligned with your core business processes.',
+    photo: '/photos/safety-briefing.webp',
+    photoAlt: 'Field technicians in helmets and safety vests at a briefing before deployment',
+    seo: 'Linemen, junior engineers and technical staffing for DISCOMs, with payroll, PF, ESI and insurance managed by Sandha & Company.',
   },
   {
-    slug: 'manpower',
-    n: '03',
-    title: 'Manpower',
-    accent: '#19C6E8',
-    accent2: '#28D7B2',
-    tint: '#E8FBFF',
-    tagline: 'Find the right people and support them after deployment.',
-    summary:
-      'High-impact, end-to-end temporary staffing solutions that help organisations build a competent workforce, with HR services around it.',
+    slug: 'contact-centre', n: '04', title: 'Call Centre', accent: '#E06B4B', accent2: '#7C5CFC', tint: '#FFF1EC',
+    tagline: '24/7 utility call centres, from the first call to confirmed closure',
+    summary: 'We set up and run centralised call centres for DISCOMs on a toll-free number. Every complaint is registered, dispatched to the field team, tracked and closed only after the consumer confirms it.',
     areas: [
-      { title: 'Flexi Staffing', text: 'Temporary workforce solutions that flex with your needs.' },
-      { title: 'Permanent Staffing', text: 'Permanent hires for roles that need long-term commitment.' },
-      { title: 'Payroll Processing', text: 'Payroll handled as part of the HR service.' },
-      { title: 'Background Checks & Verification', text: 'Verification of candidates before they are deployed.' },
-      { title: 'Compliance Management', text: 'Statutory compliance managed alongside the workforce.' },
+      { title: '24/7 toll-free call centre', text: 'Shift-wise teams answer calls within 60 seconds and allocate no-current complaints to the FRT within 90 seconds of registration.' },
+      { title: 'Omni-channel complaints', text: 'Consumers can register complaints by voice, email, chat or social media and receive a system-generated complaint number.' },
+      { title: 'Tracking and closure', text: 'Pending complaints are reviewed every 45 minutes, consumers receive SMS updates, and closure is confirmed with a callback.' },
+      { title: 'Inbound, outbound and back office', text: 'Customer service, collections, campaigns and non-voice work such as email, SMS, document handling and case follow-up.' },
     ],
-    seo: 'Flexi and permanent staffing, payroll processing, background verification and compliance management from Sandha & Company.',
+    seo: '24/7 toll-free and omni-channel utility call centres with complaint dispatch, tracking and consumer feedback.',
   },
   {
-    slug: 'staffing',
-    n: '04',
-    title: 'Staffing',
-    accent: '#7C5CFC',
-    accent2: '#0878F9',
-    tint: '#F1EEFF',
-    tagline: 'Flexible workforce support from first conversation to onboarding.',
-    summary:
-      'IT services along with permanent and temporary staff who know their fields, with the full hiring process handled end to end.',
+    slug: 'technology-services', n: '02', title: 'Information Technology', accent: '#0878F9', accent2: '#19C6E8', tint: '#EAF6FF',
+    tagline: 'The IT that runs our call centres and field operations',
+    summary: 'We build and run the technology behind every complaint: the call centre setup, servers and cloud data, and the software that takes a call, sends it to the field team and closes it.',
     areas: [
-      { title: 'Attracting Candidates', text: 'Reaching a highly qualified and productive pool of candidates.' },
-      { title: 'Screening', text: 'Checking skills and fit before anyone reaches your desk.' },
-      { title: 'Interviewing', text: 'Structured interviews for the roles you need to fill.' },
-      { title: 'Onboarding', text: 'Bringing new talent on board smoothly.' },
-      { title: 'Permanent / Temporary Staffing', text: 'Either engagement model, depending on the need.' },
+      { title: 'Call centre IT setup', text: 'Complete IT for call centres of 120 seats and more, including the server room, network, hardware and the IT staff who run it on our payroll.' },
+      { title: 'Servers and cloud data', text: 'On-site servers and cloud-hosted data so complaint, consumer and field records stay available and secure.' },
+      { title: 'Complaint management software', text: 'In-house software that registers the call, dispatches it to the FRT on a mobile app, records the fix and closes the complaint.' },
+      { title: 'Vehicle tracking and field apps', text: 'GPS/GIS vehicle tracking, mobile apps for field staff, mobile device management and MIS dashboards for utility managers.' },
     ],
-    seo: 'Permanent and temporary staffing from Sandha & Company: attracting, screening, interviewing and onboarding talent.',
+    seo: 'Call centre IT setup, servers, cloud data, complaint management software and vehicle tracking from Sandha & Company.',
   },
   {
-    slug: 'call-centre',
-    n: '05',
-    title: 'Call Centre',
-    accent: '#19C6E8',
-    accent2: '#7C5CFC',
-    tint: '#E8FBFF',
-    tagline: 'Every channel your customers use, one support operation.',
-    summary:
-      'A 24/7 customer operations service combining voice, digital support, complaint management, field response, and customer feedback for utilities and essential-service providers.',
+    slug: 'water-utility', n: '05', title: 'Water Utility Services', accent: '#4266C9', accent2: '#19C6E8', tint: '#ECF2FF',
+    tagline: 'Connections, metering, billing and field work for water utilities',
+    summary: 'For public health engineering departments we deliver the software and the field teams: new connections, metering, billing, collection, complaints and leak rectification.',
     areas: [
-      { title: 'Voice Services', text: 'Inbound and outbound customer service, complaint handling, campaigns, collections, order taking, activation support, and fraud management.' },
-      { title: 'Non-Voice Services', text: 'Back-office support across email, SMS, social media, and web chat.' },
-      { title: 'Fault Rectification', text: 'GPS-enabled field teams respond to electrical faults, record the work completed, and confirm closure with the consumer.' },
-      { title: 'Complaint Tracking', text: 'Teams track complaints, escalate out-of-scope cases, and send automatic status updates to consumers and client officials.' },
-      { title: 'Customer Feedback', text: 'Recorded interactions and post-resolution surveys help clients measure satisfaction and improve service quality.' },
-      { title: 'Utility Technology', text: 'Vehicle tracking, complaint workflows, mobile applications, dashboards, and consumer self-service tools support field and contact-centre operations.' },
-      { title: 'FRT Operations', text: 'GPS-enabled vehicles, trained field teams, complaint status updates, consumer confirmation and escalation support for electrical faults.' },
-      { title: 'Safety & EHS', text: 'Safety training, protective equipment and hazard controls support responsible field operations and a zero-incident culture.' },
-      { title: 'HRO Services', text: 'Address and credit verification, background checks, document pickup, collections support and referral case management.' },
-      { title: 'Water Utility Systems', text: 'Digital support for connections, metering, billing, collections, consumer portals, complaints, dashboards and field activities.' },
+      { title: 'New connections and consumer records', text: 'Online new connection applications through a mobile app or web portal, backed by a complete consumer information system.' },
+      { title: 'Metering, billing and collection', text: 'Manual and automated meter reading, spot billing apps, flexible billing cycles and multi-channel payment reconciliation.' },
+      { title: 'Complaints and leak rectification', text: 'A consumer complaint centre plus field teams and equipment that fix leaks and reduce water loss.' },
+      { title: 'Field surveys and meter replacement', text: 'Surveys to identify unauthorised connections, regular spot billing and replacement of defective meters.' },
+      { title: 'Portals, AMR and dashboards', text: 'Customer self-service portal, integration with automatic meter reading for non-revenue water insight, and MIS dashboards.' },
     ],
-    seo: 'Voice and non-voice call centre services from Sandha & Company: inbound, outbound, collections, back office, email, SMS, social media and webchat.',
+    seo: 'Water connection management, metering, billing, complaints and leak rectification for public health engineering departments.',
   },
 ]
+
+// Presentation order across navigation and the full services explorer.
+export const ORDERED_SERVICES = ['manpower-management', 'technology-services', 'utility-operations', 'contact-centre', 'water-utility']
+  .map((slug) => SERVICES.find((service) => service.slug === slug))
 
 export const CALL_GROUPS = [
   {
     parent: 'Voice',
     items: [
-      { key: 'voice', title: 'Voice', points: ['Inbound', 'Outbound', 'Order taking', 'Reservations / advisory services'] },
-      { key: 'support', title: 'Customer support', points: ['Customer service', 'Queries and complaints management', 'Activation services', 'Fraud management'] },
-      { key: 'collections', title: 'Collections', points: ['Collections', 'Skip tracing', 'Early, mid and late-stage customer service in B2B and B2C'] },
+      { key: 'voice', title: 'Inbound and outbound', points: ['Customer care', 'Service enquiries', 'Outbound campaigns'] },
+      { key: 'support', title: 'Product and technology support', points: ['Product questions', 'Technical help', 'Complaints and activation'] },
+      { key: 'collections', title: 'Collections and retention', points: ['Payment follow-up', 'Collections support', 'Customer retention'] },
     ],
   },
   {
     parent: 'Non-voice',
     items: [
-      { key: 'backoffice', title: 'Back office', points: ['Back office services'] },
-      { key: 'digital', title: 'Digital support', points: ['Email', 'SMS', 'Social media handling', 'Webchat'] },
+      { key: 'backoffice', title: 'Case follow-up', points: ['Case updates', 'Customer records', 'Closure confirmation'] },
+      { key: 'digital', title: 'Social and digital channels', points: ['Email', 'SMS', 'Social media management', 'Web chat and app channels'] },
     ],
   },
 ]
 
-export const SALES_NOTE = 'Sales campaigns including up-sell, cross-sell and adding new accounts.'
+export const SALES_NOTE = 'Alongside utility complaints, our teams handle customer service, sales campaigns, activation, collections and digital support.'
 
 export const FIELD_OPS = {
   fault: [
-    'Vehicles fitted with GPS, tools and trained manpower deployed 365 x 24 x 7',
+    'GPS-equipped light commercial vehicles with tools and trained field personnel operate 24/7',
     'Complaints received from the call centre; team visits the consumer location and rectifies the fault',
-    'Faults removed or rectified within 2 hours',
+    'No-current complaints resolved within two hours of registration',
     'Outage, rectification and material details collected and recorded',
   ],
   tracking: [
@@ -131,7 +106,21 @@ export const FIELD_OPS = {
     'Automatic SMS to the consumer on resolution or closure',
     'Automatic SMS and telephonic escalation to client officials for out-of-scope complaints',
   ],
-  lifecycle: ['Complaint received', 'Nearest team located', 'Fault rectified', 'Closure SMS sent'],
+  lifecycle: [
+    'Consumer calls the toll-free call centre',
+    'Complaint registered and number sent by SMS',
+    'Complaint pushed to the FRT mobile app',
+    'Consumer tracks the FRT vehicle live on GPS',
+    'Fault fixed and consumer signs off on the tab',
+    'Automatic SMS confirms closure',
+    'Control room calls back to verify',
+  ],
+  sla: [
+    { value: '60 sec', label: 'Call answering target' },
+    { value: '90 sec', label: 'Complaint allotted to FRT' },
+    { value: '45 min', label: 'Pending complaints reviewed' },
+    { value: '2 hrs', label: 'No-current complaint resolved' },
+  ],
 }
 
 export const NAV = [
@@ -143,3 +132,15 @@ export const NAV = [
   { label: 'Founder', to: '/founder' },
   { label: 'Contact', to: '/contact' },
 ]
+
+// Consumer feedback survey results from the company profile (3,429 completed surveys).
+export const FEEDBACK = {
+  surveys: 3429,
+  results: [
+    { value: 96.98, label: 'satisfied with how their complaint was resolved', detail: '2,379 of 2,453' },
+    { value: 84.75, label: 'complaints closed within the expected time', detail: '1,373 of 1,620' },
+    { value: 99.8, label: 'satisfied with call centre agent behaviour', detail: '1,518 of 1,521' },
+    { value: 99.05, label: 'satisfied with field team behaviour', detail: '1,246 of 1,258' },
+    { value: 99.68, label: 'confirmed the field team asked for no payment', detail: '1,245 of 1,249' },
+  ],
+}

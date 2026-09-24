@@ -6,7 +6,7 @@ export default function Contact() {
     <>
       <Seo
         title="Contact | Sandha & Company"
-        description="Contact Sandha & Company at 99/277/2 Atul Kataria Marg, Lane No. 4, Gurgaon - 122001. Phone 0124-4077166, email info@sandha-company.com."
+        description="Contact Sandha & Company at 601, Eros City Square, Sector 49-50, Gurugram, Haryana 122001. Phone +91 124 448 8701."
         path="/contact"
       />
       <div className="pt-[88px] sm:pt-[104px]" />

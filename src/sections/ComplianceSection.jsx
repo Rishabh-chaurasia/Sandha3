@@ -1,9 +1,8 @@
-import { ExternalLink, FileText, ShieldCheck, ScrollText, Landmark } from 'lucide-react'
-import AnimatedIllustration from '../components/AnimatedIllustration'
+import { FileText, ShieldCheck, ScrollText, Landmark } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import Button from '../components/Button'
 import Reveal from '../components/Reveal'
-import { COMPLIANCE_RECORDS, COMPANY } from '../data/company'
+import { COMPLIANCE_RECORDS } from '../data/company'
 
 const ICONS = [ScrollText, Landmark, ShieldCheck, FileText]
 const GRADS = ['from-brand to-cyan', 'from-purple to-electric', 'from-cyan to-mint', 'from-brand to-purple']
@@ -14,17 +13,14 @@ export default function ComplianceSection() {
       <div className="container-x">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
-            <SectionHeading label="Compliance" id="compliance-title" title="Documented, verified, on record.">
-              <p>We publish statutory compliance records openly, so clients can see how workforce obligations are handled, month by month.</p>
+            <SectionHeading label="Quality and safety" id="compliance-title" title="Standards for field operations.">
+              <p>Certified quality, statutory benefits for every worker and a strict EHS plan in the field.</p>
             </SectionHeading>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button to="/compliance" magnetic>How we document</Button>
-              <Button href={COMPANY.officialComplianceUrl} target="_blank" rel="noopener noreferrer" variant="secondary" arrow={false}>
-                Official records <ExternalLink aria-hidden className="size-4" />
-              </Button>
+              <Button to="/compliance" magnetic>Quality and safety</Button>
             </div>
           </div>
-          <Reveal className="lg:col-span-7"><AnimatedIllustration name="compliance" className="h-auto w-full" /></Reveal>
+          <Reveal className="lg:col-span-7 rounded-[2rem] border border-line bg-white p-8 text-ink shadow-sm"><p className="text-2xl font-extrabold">Quality, safety and worker support</p><p className="mt-3 text-muted">ISO 9001:2015 certification, ITI-qualified and trained field personnel, protective equipment, PF, ESI and accident insurance.</p></Reveal>
         </div>
 
         <ul className="mt-14 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-4">

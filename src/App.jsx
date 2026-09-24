@@ -14,7 +14,6 @@ const Compliance = lazy(() => import('./pages/Compliance'))
 const Clients = lazy(() => import('./pages/Clients'))
 const Founder = lazy(() => import('./pages/Founder'))
 const Contact = lazy(() => import('./pages/Contact'))
-const Privacy = lazy(() => import('./pages/Privacy'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
@@ -39,7 +38,7 @@ export default function App() {
               <Route path="/clients" element={<Clients />} />
               <Route path="/founder" element={<Founder />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/privacy-policy" element={<Privacy />} />
+              <Route path="/privacy-policy" element={<Navigate to="/contact" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </PageTransition>

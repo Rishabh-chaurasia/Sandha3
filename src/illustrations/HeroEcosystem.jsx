@@ -1,4 +1,4 @@
-import { Cloud, Server, Compass, Headset, Users, Settings } from 'lucide-react'
+import { Cloud, Zap, Compass, Headset, Users, Settings } from 'lucide-react'
 import { Stage, P, Dash, G, Float, Particle, Txt, curve } from './primitives'
 import { Figure, IsoBox, IsoPlatform, Plant, Confetti, Chip, DashboardFace, K } from './figures'
 
@@ -12,13 +12,13 @@ export default function HeroEcosystem({ mobile = false, className = '' }) {
   const hub = [390, 400]
   const nodes = [
     { at: [120, 210], Icon: Cloud, label: 'Technology', color: K.blue },
-    { at: [270, 82], Icon: Compass, label: 'Consulting', color: K.violet },
-    { at: [590, 76], Icon: Server, label: 'Infrastructure', color: K.cyan },
-    { at: [672, 330], Icon: Headset, label: ['Call', 'centre'], color: K.mint },
+    { at: [270, 82], Icon: Compass, label: 'Field response', color: K.violet },
+    { at: [590, 76], Icon: Zap, label: 'Line maintenance', color: K.cyan },
+    { at: [672, 330], Icon: Headset, label: 'Call Centre', color: K.mint },
     { at: [96, 470], Icon: Users, label: 'Manpower', color: K.coral },
   ]
   return (
-    <Stage viewBox="0 0 760 640" className={className} label="Business ecosystem: a platform with a dashboard and two colleagues, connected to technology, consulting, infrastructure, call centre and manpower">
+    <Stage viewBox="0 0 760 640" className={className} label="Connected technology, field response, line maintenance, call centre and manpower services">
       <G v="fade" delay={0.05}>
         <circle cx="400" cy="340" r="270" fill={K.lav} opacity=".85" />
         <circle cx="560" cy="200" r="120" fill="#DDF3FF" opacity=".5" />
@@ -70,12 +70,12 @@ function HeroMobile({ className }) {
   const hub = [210, 275]
   const nodes = [
     { at: [64, 66], Icon: Cloud, label: 'Technology', color: K.blue },
-    { at: [346, 66], Icon: Server, label: 'Infrastructure', color: K.cyan },
+    { at: [346, 66], Icon: Zap, label: 'Line work', color: K.cyan },
     { at: [352, 372], Icon: Headset, label: 'Call centre', color: K.mint },
-    { at: [64, 380], Icon: Users, label: 'Manpower', color: K.coral },
+    { at: [64, 380], Icon: Users, label: 'Field teams', color: K.coral },
   ]
   return (
-    <Stage viewBox="0 0 420 480" className={className} label="Business ecosystem connecting technology, infrastructure, people and customers around a central business platform">
+    <Stage viewBox="0 0 420 480" className={className} label="Connected technology, line maintenance, call centre and field teams">
       <G v="fade"><circle cx="210" cy="270" r="196" fill={K.lav} /></G>
       <Confetti items={[['ring', 26, 200, 7, K.cyan], ['tri', 394, 210, 8, K.coral], ['dot', 200, 22, 6, K.mint], ['plus', 210, 462, 7, K.violet]]} />
       {nodes.map((n, i) => {

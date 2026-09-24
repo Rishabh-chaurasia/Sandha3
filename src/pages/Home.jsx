@@ -4,22 +4,22 @@ import Statistics from '../sections/Statistics'
 import ServicesExplorer from '../sections/ServicesExplorer'
 import Story from '../sections/Story'
 import Principles from '../sections/Principles'
-import ClientsMarquee from '../sections/ClientsMarquee'
 import ContactSection from '../sections/ContactSection'
+import OnTheGround from '../sections/OnTheGround'
 
 export default function Home() {
   return (
     <>
       <Seo
-        title="Sandha & Company | IT, Consultancy, Staffing & Workforce Solutions"
-        description="Sandha & Company delivers technology, consultancy, manpower, staffing and customer operations solutions for businesses."
+        title="Sandha & Company | FRT, Manpower, Call Centre & IT for Utilities"
+        description="Sandha & Company provides fault rectification teams (FRT), LT and HT line maintenance, power-sector manpower, 24/7 call centres, IT and water utility services for DISCOMs and utilities."
         path="/"
       />
       <Hero />
       <Story />
-      <ClientsMarquee />
       <Statistics />
       <ServicesExplorer compact />
+      <OnTheGround />
       <Principles />
       <ContactSection />
     </>

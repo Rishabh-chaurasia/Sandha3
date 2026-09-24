@@ -1,5 +1,9 @@
 @import "tailwindcss";
-@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/manrope/wght.css";
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-sans/700.css";
 
 @theme {
   --color-brand: #0878f9;
@@ -21,8 +25,10 @@
   --color-pink: #ff6b9a;
   --color-violet: #5b4ce6;
   --color-lav: #efebff;
-  --font-display: "Manrope Variable", "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Manrope Variable", "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: Georgia, Cambria, "Times New Roman", serif;
+  /* The logo wordmark keeps its original typeface. */
+  --font-logo: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", sans-serif;
   --shadow-lift: 0 22px 50px -22px rgb(8 87 217 / 0.35);
   --shadow-bubble: 0 24px 60px -18px rgb(91 76 230 / 0.35);
   --shadow-nav: 0 12px 40px -14px rgb(16 36 63 / 0.2);
@@ -30,17 +36,20 @@
 
 @layer base {
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  /* Footer always sits at the bottom, even on tall screens with short pages. */
+  #root { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+  #root > main { flex: 1 0 auto; }
   body {
     margin: 0;
     background: #fff;
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-size: 1.0625rem;
-    line-height: 1.65;
+    line-height: 1.58;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.028em; line-height: 1.08; font-weight: 800; }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.035em; line-height: 1.13; font-weight: 700; }
   :focus-visible { outline: 3px solid var(--color-cyan); outline-offset: 3px; border-radius: 8px; }
   ::selection { background: #bfe0ff; }
   img, svg { max-width: 100%; }
@@ -48,7 +57,11 @@
 
 /* ---------- layout system ---------- */
 /* One container everywhere: 1280px, 32px gutters (20px on phones). */
-.container-x { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 20px; }
+:root { --shell: 1280px; }
+.container-x { width: 100%; max-width: var(--shell); margin-inline: auto; padding-inline: 20px; }
+/* Large monitors: widen the layout and scale rem-based type so pages don't look small. */
+@media (min-width: 1800px) { :root { --shell: 1440px; } html { font-size: 17px; } }
+@media (min-width: 2300px) { :root { --shell: 1680px; } html { font-size: 19px; } }
 @media (min-width: 640px) { .container-x { padding-inline: 32px; } }
 /* Vertical rhythm: 48-64 mobile, 64-80 tablet, 80-120 desktop. */
 .section { padding-block: 56px; }
@@ -56,12 +69,12 @@
 @media (min-width: 1100px) { .section { padding-block: 112px; } }
 /* Let an element run to the right edge of the viewport while staying on the grid on the left. */
 @media (min-width: 1024px) {
-  .bleed-r { margin-right: calc(-1 * (max(0px, (100vw - 1280px) / 2) + 32px)); }
+  .bleed-r { margin-right: calc(-1 * (max(0px, (100vw - var(--shell)) / 2) + 32px)); }
 }
 
 /* ---------- type ---------- */
-.h-hero { font-size: clamp(1.9rem, 0.9rem + 3vw, 3.9rem); line-height: 1.02; letter-spacing: -0.04em; }
-.h-section { font-size: clamp(2rem, 1.2rem + 2.6vw, 3.5rem); line-height: 1.06; letter-spacing: -0.035em; }
+.h-hero { font-size: clamp(1.9rem, 0.9rem + 3vw, 3.9rem); line-height: 1.08; letter-spacing: -0.045em; }
+.h-section { font-size: clamp(2rem, 1.2rem + 2.6vw, 3.5rem); line-height: 1.1; letter-spacing: -0.04em; }
 .h-sub { font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem); line-height: 1.12; }
 .lead { font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem); color: var(--color-muted); }
 
@@ -122,6 +135,11 @@
 /* floating dots in the hero */
 .float-dot { animation: floaty 7s ease-in-out infinite; }
 @keyframes floaty { 50% { transform: translateY(-14px); } }
+
+/* The five capability marks spin on deliberate hover or keyboard focus. */
+.journey-icon { transition: scale .2s ease; }
+.group:hover .journey-icon, .group:focus-visible .journey-icon { animation: journey-turn .9s linear infinite; scale: 1.12; }
+@keyframes journey-turn { to { transform: rotate(360deg); } }
 
 .marquee-track { animation: marquee 28s linear infinite; width: max-content; }
 @keyframes marquee { to { transform: translateX(-50%); } }

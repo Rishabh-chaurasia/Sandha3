@@ -94,28 +94,25 @@ export default function Principles({ id = 'principles' }) {
           {STAGES.map((st, i) => <Stage key={st.word} i={i} stage={st} p={p} last={i === STAGES.length - 1} />)}
         </ol>
 
-        <div className="mt-14 rounded-[2rem] bg-white/60 p-6 shadow-[0_20px_70px_rgba(80,90,180,0.1)] ring-1 ring-white/80 sm:p-8">
-          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line/70 pb-6">
-            <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand">How we work</p>
-              <h3 className="mt-2 text-[clamp(1.7rem,3vw,2.5rem)] font-extrabold tracking-tight text-ink">Built for consistent outcomes.</h3>
-            </div>
-            <span className="rounded-full bg-brand/10 px-3 py-1.5 text-xs font-extrabold text-brand-deep">Our operating principles</span>
+        <div className="mt-12 grid gap-5 rounded-[2rem] bg-white/65 p-5 shadow-[0_20px_70px_rgba(80,90,180,0.1)] ring-1 ring-white/80 sm:p-7 lg:grid-cols-12 lg:items-center lg:gap-8 lg:p-8">
+          <div className="lg:col-span-4">
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand">How we work</p>
+            <h3 className="mt-2 text-[clamp(1.7rem,3vw,2.35rem)] font-extrabold leading-tight tracking-tight text-ink">People first, in every step.</h3>
+            <p className="mt-3 max-w-[42ch] text-sm leading-relaxed text-muted">Our values shape how we support our teams, work with clients and deliver dependable outcomes.</p>
           </div>
-          <dl className="mt-6 grid gap-4 md:grid-cols-2">
-            {VALUES.map((v, i) => {
+          <dl className="grid gap-3 lg:col-span-8">
+            {VALUES.slice(0, 1).map((v, i) => {
               const style = VALUE_STYLES[i]
               const Icon = style.Icon
               return (
-                <div key={v.title} className={`group relative overflow-hidden rounded-[1.5rem] border p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(54,81,156,0.18)] sm:p-7 ${style.card}`}>
-                  <span aria-hidden className={`absolute -right-12 -top-16 size-44 rounded-full opacity-30 blur-2xl ${style.glow}`} />
-                  <div className="relative flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
-                    <span className={`grid size-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br text-white shadow-md transition-transform duration-300 group-hover:rotate-[-5deg] group-hover:scale-105 ${style.icon}`}>
-                      <Icon aria-hidden className="size-7" strokeWidth={1.9} />
+                <div key={v.title} className={`group relative overflow-hidden rounded-[1.5rem] border p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(54,81,156,0.18)] sm:p-5 ${style.card}`}>
+                  <span aria-hidden className={`absolute -right-12 -top-16 size-36 rounded-full opacity-30 blur-2xl ${style.glow}`} />
+                  <div className="relative flex items-start gap-3 sm:gap-4">
+                    <span className={`grid size-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br text-white shadow-md transition-transform duration-300 group-hover:rotate-[-5deg] group-hover:scale-105 ${style.icon}`}>
+                      <Icon aria-hidden className="size-6" strokeWidth={1.9} />
                     </span>
                     <div className="min-w-0">
-                      <span aria-hidden className={`text-xs font-black tracking-[0.18em] ${style.number}`}>0{i + 1} / OUR VALUES</span>
-                      <dt className="mt-1 text-lg font-extrabold text-ink">{v.title}</dt>
+                      <dt className="text-lg font-extrabold text-ink">{v.title}</dt>
                       <dd className="mt-2 text-sm leading-relaxed text-ink/75">{v.text}</dd>
                     </div>
                   </div>

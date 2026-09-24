@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { CarFront, Headphones, MessageSquareText, ShieldCheck } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
+import UtilityWorkflow from '../illustrations/UtilityWorkflow'
 
 const CAPABILITIES = [
   { Icon: CarFront, title: 'Vehicle tracking', text: 'GPS and GIS tools help teams locate the nearest field vehicle and monitor response progress.', card: 'from-[#dceeff] to-[#f2f9ff]', accent: '#0878f9' },
@@ -10,11 +11,9 @@ const CAPABILITIES = [
   { Icon: ShieldCheck, title: 'Safety and EHS', text: 'Training, protective equipment and hazard controls support safer field operations.', card: 'from-[#fff0c9] to-[#fffaf0]', accent: '#c68b00' },
 ]
 
-const FLOW = ['Complaint registered', 'Nearest team assigned', 'Field response tracked', 'Resolution confirmed']
-
 export default function UtilitiesCapabilities() {
   return (
-    <section className="section bg-white !pt-5 pb-10 lg:!pt-8 lg:pb-14" aria-labelledby="utilities-title">
+    <section className="section bg-white !pt-5 !pb-6 lg:!pt-8 lg:!pb-8" aria-labelledby="utilities-title">
       <div className="container-x">
         <SectionHeading label="Utility operations" id="utilities-title" title="Connected support from complaint to closure">
           <p>Capabilities drawn from our work with power and essential service providers.</p>
@@ -29,12 +28,7 @@ export default function UtilitiesCapabilities() {
             </Reveal>
           ))}
         </div>
-        <ol className="relative mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-          <svg aria-hidden="true" viewBox="0 0 1100 70" preserveAspectRatio="none" className="pointer-events-none absolute left-[8%] right-[8%] top-[-15px] hidden h-16 w-[84%] lg:block">
-            <path d="M0 34 C105 0 170 68 275 34 S445 0 550 34 S720 68 825 34 S995 0 1100 34" fill="none" stroke="#7c5cfc" strokeOpacity=".55" strokeWidth="2.5" strokeDasharray="3 8" strokeLinecap="round" />
-          </svg>
-          {FLOW.map((step, i) => <li key={step} className={`relative flex items-center gap-3 rounded-2xl border border-line bg-white px-4 py-3 text-sm font-bold text-ink shadow-sm ${i % 2 ? 'lg:translate-y-5' : ''}`}><span className="grid size-8 shrink-0 place-items-center rounded-full bg-brand text-xs text-white shadow-md">{i + 1}</span>{step}</li>)}
-        </ol>
+        <UtilityWorkflow />
       </div>
     </section>
   )

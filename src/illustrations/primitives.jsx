@@ -88,6 +88,7 @@ export function Stage({ viewBox, className = '', label, children, ...rest }) {
   return (
     <motion.svg
       viewBox={viewBox}
+      preserveAspectRatio={rest.preserveAspectRatio || 'xMidYMid meet'}
       role="img"
       aria-label={label}
       className={className}

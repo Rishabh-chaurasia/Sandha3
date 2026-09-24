@@ -1,4 +1,4 @@
-import { MessageSquare, Phone, Mail, MapPin, Building2 } from 'lucide-react'
+import { MessageSquare, Phone, MapPin, Building2 } from 'lucide-react'
 import { Stage, P, G, Float, Particle, Ripple, Txt, curve } from './primitives'
 import { Figure, Confetti, Chip, K } from './figures'
 
@@ -7,10 +7,10 @@ export default function ContactMap({ className = '' }) {
   const senders = [
     { Icon: MessageSquare, label: 'Message', at: [128, 70], color: K.violet },
     { Icon: Phone, label: 'Call', at: [222, 190], color: K.blue },
-    { Icon: Mail, label: 'Email', at: [176, 330], color: K.coral },
+    { Icon: MapPin, label: 'Visit', at: [176, 330], color: K.coral },
   ]
   return (
-    <Stage viewBox="0 0 640 500" className={className} label="Contact illustration: a colleague on the phone, with a message, a call and an email travelling to the Sandha and Company office in Gurgaon">
+    <Stage viewBox="0 0 640 500" className={className} label="Contact illustration showing a call and a visit to the Sandha and Company office in Gurugram">
       <G v="fade"><circle cx="400" cy="250" r="230" fill={K.lav} /></G>
       <Confetti items={[['ring', 40, 60, 8, K.cyan], ['tri', 600, 60, 9, K.coral], ['plus', 610, 400, 8, K.violet], ['dot', 30, 260, 6, K.mint]]} />
 

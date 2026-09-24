@@ -7,20 +7,20 @@ import { COMPANY } from '../data/company'
 export default function ContactSection({ asH1 = false }) {
   const H = asH1 ? 'h1' : 'h2'
   return (
-    <section id="contact" className="section bg-mesh relative overflow-hidden !py-3 lg:!py-4" aria-labelledby="contact-title">
-      <div className="container-x grid gap-5 lg:grid-cols-12 lg:gap-6">
+    <section id="contact" className="section bg-mesh relative overflow-hidden !py-10 md:!py-14 lg:!py-16" aria-labelledby="contact-title">
+      <div className="container-x grid gap-8 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-6">
           <Reveal>
             <H id="contact-title" className="h-sub text-ink text-balance">
               Let&rsquo;s Build What Your Business Needs <span className="grad-text">Next.</span>
             </H>
             <p className="lead mt-4 max-w-[52ch]">
-              Tell us what you are looking to solve and let&rsquo;s explore the right technology, workforce or business solution.
+              Tell us about your FRT, manpower, call centre, IT or water utility requirements.
             </p>
           </Reveal>
 
           <Reveal delay={0.1} className="mt-4">
-            <AnimatedIllustration name="contact" className="h-auto w-full max-w-[260px]" />
+            <AnimatedIllustration name="contact" className="h-auto w-full max-w-[320px]" />
           </Reveal>
 
           <address className="mt-5 grid gap-4 not-italic sm:grid-cols-2">

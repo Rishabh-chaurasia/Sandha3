@@ -4,6 +4,7 @@ import Reveal from '../components/Reveal'
 import { COMPANY } from '../data/company'
 import { EASE } from '../utils/motion'
 import { Spin } from '../illustrations/primitives'
+import FieldCapacityMetrics from './FieldCapacityMetrics'
 import { Search, UsersRound, ClipboardCheck, TrendingUp } from 'lucide-react'
 
 const WORK_STEPS = [
@@ -41,11 +42,11 @@ function Year() {
         viewport={{ once: true, margin: '-80px' }}
         transition={{ opacity: { duration: 0.8, ease: EASE }, scale: { duration: 4.5, repeat: Infinity, ease: 'easeInOut' } }}
       >
-        <p className="text-sm font-extrabold tracking-[0.2em] text-brand">ESTABLISHED</p>
+        <p className="text-sm font-extrabold tracking-[0.2em] text-brand">SERVING SINCE</p>
         <p className="grad-text font-display text-[clamp(4.5rem,12vw,7.5rem)] font-extrabold leading-none tracking-[-0.06em]">
           <Counter value={2008} from={1990} duration={2.2} />
         </p>
-        <p className="mt-1 text-sm font-bold text-muted">{COMPANY.started}</p>
+        <p className="mt-1 text-sm font-bold text-muted">Built on practical delivery</p>
       </motion.div>
     </div>
   )
@@ -55,24 +56,24 @@ export default function Story({ id = 'story', variant = 'home' }) {
   const detail = variant === 'detail'
   if (detail) {
     return (
-      <section id={id} className="section bg-white !py-10 lg:!py-14" aria-labelledby={`${id}-title`}>
+      <section id={id} className="section bg-white !py-12 lg:!py-16" aria-labelledby={`${id}-title`}>
         <div className="container-x">
-          <Reveal className="relative overflow-hidden rounded-[2rem] border-[5px] border-[#17191d] bg-[#fafafa] px-5 py-7 sm:px-9 sm:py-9 lg:rounded-[2.75rem] lg:px-12 lg:py-10">
+          <Reveal className="relative overflow-hidden rounded-[2rem] border-[5px] border-[#17191d] bg-[#fafafa] px-5 py-8 sm:px-10 sm:py-10 lg:rounded-[2.75rem] lg:px-14 lg:py-12">
             <span aria-hidden className="absolute right-[13%] top-8 size-16 rounded-full bg-[#f0f1f2] sm:size-20" />
             <span aria-hidden className="absolute bottom-[-2rem] left-1/2 size-16 -translate-x-1/2 rounded-full bg-[#f0f1f2]" />
-            <div className="relative z-10 min-h-[110px] sm:min-h-[135px] lg:min-h-[125px]">
+            <div className="relative z-10 min-h-[125px] sm:min-h-[150px] lg:min-h-[145px]">
               <h2 id={`${id}-title`} className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[.9] tracking-[-.055em] text-[#111318]">
                 How we<br />work?
               </h2>
             </div>
-            <div className="relative mt-5 lg:mt-0 lg:pb-4">
-              <svg aria-hidden="true" viewBox="0 0 1100 250" preserveAspectRatio="none" className="pointer-events-none absolute inset-x-0 top-0 hidden h-[250px] w-full lg:block">
+            <div className="relative mt-6 lg:mt-0 lg:pb-32">
+              <svg aria-hidden="true" viewBox="0 0 1100 270" preserveAspectRatio="none" className="pointer-events-none absolute inset-x-0 top-0 hidden h-[270px] w-full lg:block">
                 <defs>
                   <marker id="work-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7d838b" /></marker>
                 </defs>
-                <path d="M235 76 C285 76 290 170 350 170" fill="none" stroke="#9aa0a8" strokeWidth="2" strokeDasharray="2 8" strokeLinecap="round" markerEnd="url(#work-arrow)" />
-                <path d="M505 170 C565 170 565 76 625 76" fill="none" stroke="#9aa0a8" strokeWidth="2" strokeDasharray="2 8" strokeLinecap="round" markerEnd="url(#work-arrow)" />
-                <path d="M780 76 C840 76 840 170 900 170" fill="none" stroke="#9aa0a8" strokeWidth="2" strokeDasharray="2 8" strokeLinecap="round" markerEnd="url(#work-arrow)" />
+                <path d="M86 43 C165 43 190 131 275 131" fill="none" stroke="#8d96a3" strokeWidth="2.5" strokeDasharray="2 8" strokeLinecap="round" markerEnd="url(#work-arrow)" />
+                <path d="M361 131 C445 131 468 43 550 43" fill="none" stroke="#8d96a3" strokeWidth="2.5" strokeDasharray="2 8" strokeLinecap="round" markerEnd="url(#work-arrow)" />
+                <path d="M636 43 C720 43 744 131 825 131" fill="none" stroke="#8d96a3" strokeWidth="2.5" strokeDasharray="2 8" strokeLinecap="round" markerEnd="url(#work-arrow)" />
               </svg>
               <ol className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5 lg:pt-1">
                 {WORK_STEPS.map(({ number, title, text, Icon }, index) => (
@@ -102,8 +103,8 @@ export default function Story({ id = 'story', variant = 'home' }) {
     )
   }
   return (
-    <section id={id} className={`section ${detail ? 'bg-ink text-white' : 'bg-w2p -mt-8'} py-8 lg:py-12`} aria-labelledby={`${id}-title`}>
-      <div className="container-x grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
+    <section id={id} className="section bg-w2p !pt-3 !pb-2 sm:!pt-4 sm:!pb-2 lg:!pt-6 lg:!pb-2" aria-labelledby={`${id}-title`}>
+      <div className="container-x grid items-center gap-12 lg:min-h-0 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-7">
           <Reveal>
             <p className="mb-5 inline-flex items-center gap-3 text-sm font-extrabold uppercase tracking-[0.14em] text-brand">
@@ -111,17 +112,17 @@ export default function Story({ id = 'story', variant = 'home' }) {
               {detail ? 'Our foundation' : 'About us'}
             </p>
             <h2 id={`${id}-title`} className={`text-[clamp(2rem,1rem+3vw,3.6rem)] leading-[1.02] tracking-[-0.04em] ${detail ? 'text-white' : 'text-ink'}`}>
-              {detail ? 'A practical foundation for reliable service.' : 'Built around people.'}
+              {detail ? 'A practical foundation for reliable service.' : 'Built on experience.'}
               {!detail && <>
               <br />
-              <span className="grad-text">Powered by technology.</span>
+              <span className="grad-text">Growing since 2008.</span>
               </>}
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="mt-8 grid gap-6 sm:grid-cols-2">
             <p className={`lead ${detail ? 'text-white/70' : ''}`}>We bring together people, processes and technology to make essential services more reliable and responsive.</p>
             <p className={`lead ${detail ? 'text-white/70' : ''}`}>
-              Since {COMPANY.started}, our focus has remained practical: understand the need, build the right capability and deliver with care.
+              Our focus is practical: understand the need, build the right capability and deliver with care.
             </p>
           </Reveal>
           <Reveal delay={0.2} className="mt-8 border-l-4 border-cyan pl-5">
@@ -130,6 +131,7 @@ export default function Story({ id = 'story', variant = 'home' }) {
         </div>
         <Reveal delay={0.1} className="lg:col-span-5"><Year /></Reveal>
       </div>
+      <FieldCapacityMetrics />
     </section>
   )
 }
