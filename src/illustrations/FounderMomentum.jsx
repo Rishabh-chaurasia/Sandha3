@@ -9,7 +9,7 @@ const cards = [
 ]
 
 export default function FounderMomentum({ className = '' }) {
-  return <div className={`relative aspect-[1.15] overflow-hidden rounded-[2rem] border border-[#d9e7f3] bg-gradient-to-br from-[#eaf7ff] via-[#f4efff] to-[#e5faf2] p-5 shadow-lift sm:p-7 ${className}`} role="img" aria-label="Leadership principles of direction, people, delivery and progress">
+  return <div className={`relative min-h-[620px] overflow-hidden rounded-[2rem] border border-[#d9e7f3] bg-gradient-to-br from-[#eaf7ff] via-[#f4efff] to-[#e5faf2] p-5 shadow-lift sm:min-h-0 sm:aspect-[1.15] sm:p-7 ${className}`} role="img" aria-label="Leadership principles of direction, people, delivery and progress">
     <div aria-hidden className="absolute -right-16 -top-16 size-56 rounded-full bg-[#c7e9ff] blur-2xl" />
     <div aria-hidden className="absolute -bottom-20 -left-16 size-56 rounded-full bg-[#f7d9ff] blur-2xl" />
     <div className="relative flex items-end justify-between gap-3"><div><p className="text-[10px] font-black uppercase tracking-[.2em] text-brand">Leadership in practice</p><h2 className="mt-1 font-display text-xl font-bold text-ink sm:text-2xl">Principles that move work forward</h2></div><span className="mb-1 text-xs font-bold text-muted">01—04</span></div>

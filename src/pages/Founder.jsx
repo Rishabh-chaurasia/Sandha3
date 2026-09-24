@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import Seo from '../components/Seo'
 import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
@@ -7,6 +8,7 @@ import { UsersRound, Wrench, Handshake } from 'lucide-react'
 
 export default function Founder() {
   const founder = LEADERS.find((leader) => leader.role.includes('Founder')) || LEADERS[0]
+  const [showCasualPortrait, setShowCasualPortrait] = useState(false)
   return (
     <>
       <Seo title="Founder | Sandha & Company" description="Meet Sandeep Sandha, Founder and CEO of Sandha & Company." path="/founder" />
@@ -14,14 +16,14 @@ export default function Founder() {
       <section className="section bg-white py-10 lg:py-16" aria-labelledby="founder-title">
         <div className="container-x grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
-            <div tabIndex={0} role="group" aria-label="Sandeep Sandha portrait. Hover or focus to see a casual polo portrait." className="group relative mx-auto aspect-[4/5] max-w-[390px] overflow-hidden rounded-[2rem] bg-gradient-to-br from-soft via-white to-softpurple shadow-lift focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand">
+            <div tabIndex={0} role="button" aria-pressed={showCasualPortrait} aria-label="Sandeep Sandha portrait. Tap to switch between professional and casual portraits." onClick={() => setShowCasualPortrait((current) => !current)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setShowCasualPortrait((current) => !current) } }} className="group relative mx-auto aspect-[4/5] max-w-[390px] cursor-pointer overflow-hidden rounded-[2rem] bg-gradient-to-br from-soft via-white to-softpurple shadow-lift focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand">
               <motion.div aria-hidden animate={{ scale: [1, 1.06, 1] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} className="absolute -right-16 -top-16 size-64 rounded-full bg-gradient-to-br from-brand/25 to-cyan/20 blur-2xl" />
-              <img src="/founder-sandeep-sandha-professional.png" alt="Sandeep Sandha in a navy business suit" className="absolute inset-0 size-full object-cover object-[center_22%] transition-opacity duration-500 group-hover:opacity-0 group-focus-visible:opacity-0 motion-reduce:transition-none" />
-              <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-[#e8f3ff] via-[#dbeaff] to-[#c6dcfa] opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none" />
-              <div aria-hidden className="absolute -right-[22%] top-[4%] size-[85%] rounded-full border border-white/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100" />
-              <img src="/founder-sandeep-sandha-polo-smile.png" alt="" aria-hidden className="absolute inset-0 size-full scale-105 object-cover object-[center_22%] opacity-0 transition-[opacity,transform] duration-500 group-hover:scale-110 group-hover:opacity-100 group-focus-visible:scale-110 group-focus-visible:opacity-100 motion-reduce:transition-none" />
-              <div aria-hidden className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#162f58]/70 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none" />
-              <span className="absolute bottom-5 left-6 text-xs font-bold uppercase tracking-[0.18em] text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none">Sandeep Sandha</span>
+              <img src="/founder-sandeep-sandha-professional.png" alt="Sandeep Sandha in a navy business suit" className={`absolute inset-0 size-full object-cover object-[center_22%] transition-opacity duration-500 md:group-hover:opacity-0 md:group-focus-visible:opacity-0 motion-reduce:transition-none ${showCasualPortrait ? 'opacity-0' : ''}`} />
+              <div aria-hidden className={`absolute inset-0 bg-gradient-to-br from-[#e8f3ff] via-[#dbeaff] to-[#c6dcfa] opacity-0 transition-opacity duration-500 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 motion-reduce:transition-none ${showCasualPortrait ? 'opacity-100' : ''}`} />
+              <div aria-hidden className={`absolute -right-[22%] top-[4%] size-[85%] rounded-full border border-white/60 opacity-0 transition-opacity duration-500 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 ${showCasualPortrait ? 'opacity-100' : ''}`} />
+              <img src="/founder-sandeep-sandha-polo-smile.png" alt="" aria-hidden className={`absolute inset-0 size-full scale-105 object-cover object-[center_22%] opacity-0 transition-[opacity,transform] duration-500 md:group-hover:scale-110 md:group-hover:opacity-100 md:group-focus-visible:scale-110 md:group-focus-visible:opacity-100 motion-reduce:transition-none ${showCasualPortrait ? 'scale-110 opacity-100' : ''}`} />
+              <div aria-hidden className={`absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#162f58]/70 to-transparent opacity-0 transition-opacity duration-500 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 motion-reduce:transition-none ${showCasualPortrait ? 'opacity-100' : ''}`} />
+              <span className={`absolute bottom-5 left-6 text-xs font-bold uppercase tracking-[0.18em] text-white opacity-0 transition-opacity duration-500 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 motion-reduce:transition-none ${showCasualPortrait ? 'opacity-100' : ''}`}>Sandeep Sandha</span>
             </div>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-7">

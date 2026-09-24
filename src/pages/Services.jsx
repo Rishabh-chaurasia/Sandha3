@@ -22,6 +22,8 @@ export default function Services() {
         illustration="services"
         illustrationClassName="!h-[460px] !w-full sm:!h-[520px]"
         backgroundPhoto="/services-team-hero.png"
+        backgroundPhotoClassName="bg-[length:auto_100%] bg-right-bottom bg-no-repeat sm:bg-cover sm:bg-center"
+        backgroundOverlayClassName="bg-[linear-gradient(90deg,rgba(246,250,255,.76)_0%,rgba(246,250,255,.58)_48%,rgba(246,250,255,.12)_100%)] sm:bg-[linear-gradient(90deg,rgba(246,250,255,.84)_0%,rgba(246,250,255,.70)_34%,rgba(246,250,255,.30)_64%,rgba(246,250,255,.08)_100%)]"
         crumbs={[{ label: 'Services' }]}
       />
 

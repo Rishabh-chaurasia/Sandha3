@@ -18,15 +18,15 @@ const TONES = {
   soft: 'bg-w2b',
 }
 
-export default function PageHero({ eyebrow, title, lead, crumbs = [], illustration, illustrationClassName = '', sectionClassName = '', tone = 'ultra', children, wide = false, photo, photoAlt = '', photoClassName = '', backgroundPhoto }) {
+export default function PageHero({ eyebrow, title, lead, crumbs = [], illustration, illustrationClassName = '', sectionClassName = '', tone = 'ultra', children, wide = false, photo, photoAlt = '', photoClassName = '', backgroundPhoto, backgroundPhotoClassName = '', backgroundOverlayClassName = '' }) {
   const reduce = false
   const [photoFailed, setPhotoFailed] = useState(false)
   const showPhoto = photo && !photoFailed
   return (
     <section className={cn('relative isolate overflow-hidden pb-14 pt-[120px] sm:pb-20 sm:pt-[148px]', TONES[tone], sectionClassName)}>
       {backgroundPhoto && <>
-        <div aria-hidden className="absolute inset-0 -z-10 bg-cover bg-center" style={{ backgroundImage: `url(${backgroundPhoto})` }} />
-        <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(246,250,255,.84)_0%,rgba(246,250,255,.70)_34%,rgba(246,250,255,.30)_64%,rgba(246,250,255,.08)_100%)]" />
+        <div aria-hidden className={cn('absolute inset-0 -z-10 bg-cover bg-center', backgroundPhotoClassName)} style={{ backgroundImage: `url(${backgroundPhoto})` }} />
+        <div aria-hidden className={cn('absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(246,250,255,.84)_0%,rgba(246,250,255,.70)_34%,rgba(246,250,255,.30)_64%,rgba(246,250,255,.08)_100%)]', backgroundOverlayClassName)} />
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-white/10 via-transparent to-white/15" />
       </>}
       {(tone === 'lines' || tone === 'plain') && <div aria-hidden className="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_60%_70%_at_80%_20%,#000,transparent)]" />}
