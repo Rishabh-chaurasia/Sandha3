@@ -20,6 +20,8 @@ export default function Clients() {
         title="Trusted in essential service delivery"
         lead="FRT and maintenance work for 11 DISCOMs across India, reaching more than 20 million consumers."
         illustration="clients-impact"
+        sectionClassName="!pb-6 sm:!pb-6"
+        contentAlign="start"
         crumbs={[{ label: 'Clients' }]}
       />
 
@@ -34,7 +36,7 @@ export default function Clients() {
                 <span aria-hidden className="absolute right-4 top-3 font-display text-xs font-extrabold tracking-[0.16em] text-ink/35">{String(i + 1).padStart(2, '0')}</span>
                 <div className="flex h-20 items-center"><span className="font-display text-4xl font-black text-brand-deep">{c.short}</span></div>
                 <div>
-                  <h3 className="font-semibold leading-snug text-ink">{c.name}</h3>
+                  <h3 className="whitespace-nowrap text-[0.94rem] font-semibold leading-snug text-ink">{c.name}</h3>
                   <p className="mt-1 text-sm text-muted">{c.group}</p>
                 </div>
               </Reveal>

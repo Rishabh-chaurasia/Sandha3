@@ -141,6 +141,19 @@
 .group:hover .journey-icon, .group:focus-visible .journey-icon { animation: journey-turn .9s linear infinite; scale: 1.12; }
 @keyframes journey-turn { to { transform: rotate(360deg); } }
 
+/* Continuous motion for the About page's four-step process. */
+.work-flow-path { animation: work-flow-dash 1.25s linear infinite; }
+.work-flow-path-delay-1 { animation-delay: -.42s; }
+.work-flow-path-delay-2 { animation-delay: -.84s; }
+@keyframes work-flow-dash { to { stroke-dashoffset: -40; } }
+.work-flow-icon { animation: work-flow-bob 1.65s ease-in-out infinite; will-change: transform; }
+.work-flow-icon-1 { animation-delay: -.35s; }
+.work-flow-icon-2 { animation-delay: -.7s; }
+.work-flow-icon-3 { animation-delay: -1.05s; }
+@keyframes work-flow-bob {
+  50% { transform: translateY(-10px) scale(1.075); box-shadow: 0 15px 22px -12px rgb(229 28 42 / .85); }
+}
+
 .marquee-track { animation: marquee 28s linear infinite; width: max-content; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 

@@ -77,13 +77,13 @@ export default function ContactForm() {
 
   return (
     <div className="rounded-[1.75rem] bg-gradient-to-br from-brand/25 via-cyan/20 to-purple/25 p-[2px] shadow-lift">
-      <div className="rounded-[calc(1.75rem-2px)] bg-white p-4 sm:p-5">
+      <div className="rounded-[calc(1.75rem-2px)] bg-white p-3 sm:p-4">
         <AnimatePresence mode="wait" initial={false}>
           {status === 'done' ? (
             <Success onReset={() => setStatus('idle')} />
           ) : (
-            <motion.form key="form" onSubmit={onSubmit} noValidate exit={{ opacity: 0, y: -10 }} className="space-y-3">
-              <div className="grid gap-3 sm:grid-cols-2">
+            <motion.form key="form" onSubmit={onSubmit} noValidate exit={{ opacity: 0, y: -10 }} className="space-y-2.5">
+              <div className="grid gap-2.5 sm:grid-cols-2">
                 <Field id="name" label="Name" error={errors.name}>
                   <input id="name" name="name" autoComplete="name" required aria-invalid={!!errors.name} aria-describedby={errors.name ? 'name-err' : undefined} />
                 </Field>
@@ -107,7 +107,7 @@ export default function ContactForm() {
                 type="submit"
                 disabled={status === 'sending'}
                 whileTap={{ scale: 0.97 }}
-                className="btn-grad group inline-flex w-full items-center justify-center gap-2.5 rounded-full px-8 py-4 text-sm font-extrabold text-white shadow-[0_16px_32px_-14px_rgba(8,120,249,.85)] disabled:opacity-70 sm:w-auto"
+                className="btn-grad group inline-flex w-full items-center justify-center gap-2.5 rounded-full px-7 py-3 text-sm font-extrabold text-white shadow-[0_16px_32px_-14px_rgba(8,120,249,.85)] disabled:opacity-70 sm:w-auto"
               >
                 {status === 'sending' ? 'Sending…' : ENDPOINT ? 'Send Message' : 'Open Email Draft'}
                 <Send aria-hidden className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-1" />

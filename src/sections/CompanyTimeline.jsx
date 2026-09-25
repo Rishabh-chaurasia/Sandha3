@@ -14,7 +14,7 @@ export default function CompanyTimeline() {
   const reduce = useReducedMotion()
   return <section className="section bg-gradient-to-br from-[#eff7ff] via-white to-[#e8faf4] !py-12 lg:!py-16" aria-labelledby="company-timeline-title">
     <div className="container-x">
-      <Reveal><p className="text-xs font-black uppercase tracking-[.2em] text-brand">Our journey</p><h2 id="company-timeline-title" className="mt-3 h-sub text-ink">From skilled teams to connected utility services.</h2><p className="mt-3 max-w-[65ch] text-muted">Capabilities from the 2025 company profile, alongside the company’s published operating start date.</p></Reveal>
+      <Reveal><p className="flex items-center gap-3 text-xs font-black uppercase tracking-[.2em] text-brand"><span aria-hidden className="h-0.5 w-9 rounded-full bg-gradient-to-r from-brand to-cyan" />Our journey</p><h2 id="company-timeline-title" className="mt-3 h-sub text-ink">From skilled teams to connected utility services.</h2><p className="mt-3 max-w-[65ch] text-muted">Capabilities from the 2025 company profile, alongside the company’s published operating start date.</p></Reveal>
       <div className="relative mt-10">
         <motion.span aria-hidden className="absolute bottom-5 left-[19px] top-5 w-0.5 origin-top bg-gradient-to-b from-brand via-cyan to-mint lg:hidden" initial={reduce ? false : { scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ duration: 1.5 }} />
         <svg aria-hidden viewBox="0 0 100 1000" preserveAspectRatio="none" className="pointer-events-none absolute inset-y-0 left-1/2 hidden h-full w-[28%] -translate-x-1/2 lg:block">

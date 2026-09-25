@@ -14,7 +14,7 @@ export default function Services() {
       />
       <PageHero
         tone="lines"
-        sectionClassName="!pb-8 !pt-[96px] sm:!pb-10 sm:!pt-[110px] lg:!py-[104px]"
+        sectionClassName="min-h-[700px] !pb-8 !pt-[78px] sm:!pb-10 sm:!pt-[92px] lg:!py-[80px] lg:min-h-[700px]"
         align="center"
         eyebrow="OUR SERVICES"
         title="Field teams, people and technology for utilities"
@@ -22,8 +22,8 @@ export default function Services() {
         illustration="services"
         illustrationClassName="!h-[460px] !w-full sm:!h-[520px]"
         backgroundPhoto="/services-team-hero.png"
-        backgroundPhotoClassName="bg-[length:auto_100%] bg-right-bottom bg-no-repeat sm:bg-cover sm:bg-center"
-        backgroundOverlayClassName="bg-[linear-gradient(90deg,rgba(246,250,255,.76)_0%,rgba(246,250,255,.58)_48%,rgba(246,250,255,.12)_100%)] sm:bg-[linear-gradient(90deg,rgba(246,250,255,.84)_0%,rgba(246,250,255,.70)_34%,rgba(246,250,255,.30)_64%,rgba(246,250,255,.08)_100%)]"
+        mobileBackgroundPhoto="/services-team-hero-mobile.png"
+        backgroundOverlayClassName="bg-[linear-gradient(90deg,rgba(246,250,255,.82)_0%,rgba(246,250,255,.64)_54%,rgba(246,250,255,.20)_100%)] sm:bg-[linear-gradient(90deg,rgba(246,250,255,.84)_0%,rgba(246,250,255,.70)_34%,rgba(246,250,255,.30)_64%,rgba(246,250,255,.08)_100%)]"
         crumbs={[{ label: 'Services' }]}
       />
 

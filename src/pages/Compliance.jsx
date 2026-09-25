@@ -22,7 +22,7 @@ export default function Compliance() {
       />
       <PageHero
         tone="plain"
-        sectionClassName="min-h-[100svh] flex items-center"
+        sectionClassName="min-h-[680px] !pb-9 !pt-[96px] sm:!pb-10 sm:!pt-[108px] lg:!pb-[56px] lg:!pt-[100px] lg:min-h-[680px]"
         eyebrow="WE FOLLOW COMPLIANCE"
         title="Compliance records, clearly documented every month."
         lead="We maintain the statutory records required for client deployments and support safe, accountable field operations."

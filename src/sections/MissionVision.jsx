@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 export default function MissionVision() {
   return (
-    <section className="section bg-white !pt-6 pb-8 lg:!pt-10 lg:pb-12" aria-labelledby="mission-title">
+    <section className="section bg-white !pt-2 pb-8 lg:!pt-5 lg:pb-12" aria-labelledby="mission-title">
       <div className="container-x">
         <SectionHeading label="Our direction" id="mission-title" title="Clear goals for responsible growth.">
           <p>Our mission and vision guide how we support clients, develop our people, and improve essential services.</p>

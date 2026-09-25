@@ -6,8 +6,8 @@ const COLORS = ['#0878F9', '#5B4CE6', '#0B9D83', '#DB6348']
 
 export default function FieldCapacityMetrics() {
   return (
-    <div className="container-x mt-5 sm:mt-6 lg:mt-7" aria-label="Field capacity figures">
-        <p className="mb-4 text-sm font-semibold text-muted sm:mb-5">Vehicles, lifting equipment and experienced teams support reliable utility service delivery.</p>
+    <div className="container-x -mt-2 sm:-mt-3 lg:-mt-5" aria-label="Field capacity figures">
+        <p className="mb-3 text-sm font-semibold text-muted sm:mb-4">Vehicles, lifting equipment and experienced teams support reliable utility service delivery.</p>
         <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-4" aria-label="Additional company figures">
           {STATS.slice(4).map((stat, i) => (
             <motion.div key={stat.label} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .08 }} className="relative flex min-h-[112px] flex-col justify-between overflow-hidden rounded-xl border border-line bg-white/75 p-3 shadow-sm transition-shadow hover:shadow-lift sm:min-h-[122px] sm:p-4">

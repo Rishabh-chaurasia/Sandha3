@@ -9,8 +9,7 @@ export default function Contact() {
         description="Contact Sandha & Company at 601, Eros City Square, Sector 49-50, Gurugram, Haryana 122001. Phone +91 124 448 8701."
         path="/contact"
       />
-      <div className="pt-[88px] sm:pt-[104px]" />
-      <ContactSection asH1 />
+      <ContactSection asH1 pageTop />
     </>
   )
 }
