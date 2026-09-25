@@ -2,4 +2,8 @@ node_modules
 dist
 .env
 .DS_Store
-public/official
+# Client logos are public production assets and must be included in deployments.
+!public/official/
+!public/official/clients/
+!public/official/clients/*.png
+!public/official/clients/*.jpg
