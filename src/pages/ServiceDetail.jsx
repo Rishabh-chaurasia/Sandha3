@@ -146,7 +146,7 @@ export default function ServiceDetail() {
         photoAlt={s.photoAlt}
         photoClassName={s.slug === 'utility-operations' ? 'lg:translate-y-6' : ''}
         illustrationClassName="max-h-[460px] object-contain"
-        sectionClassName="min-h-[680px] !pb-9 !pt-[112px] sm:!pb-10 sm:!pt-[124px] lg:!pb-[56px] lg:!pt-[100px] lg:min-h-[680px]"
+        sectionClassName="min-h-[700px] !pb-11 !pt-[112px] sm:!pb-12 sm:!pt-[124px] lg:!pb-[72px] lg:!pt-[100px] lg:min-h-[700px]"
         crumbs={[{ label: 'Services', to: '/services' }, { label: s.title }]}
       />
 

@@ -14,7 +14,7 @@ export default function Services() {
       />
       <PageHero
         tone="lines"
-        sectionClassName="min-h-[700px] !pb-8 !pt-[78px] sm:!pb-10 sm:!pt-[92px] lg:!py-[80px] lg:min-h-[700px]"
+        sectionClassName="min-h-[720px] !pb-10 !pt-[78px] sm:!pb-12 sm:!pt-[92px] lg:!pb-[96px] lg:!pt-[80px] lg:min-h-[720px]"
         align="center"
         eyebrow="OUR SERVICES"
         title="Field teams, people and technology for utilities"
