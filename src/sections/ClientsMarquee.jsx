@@ -11,7 +11,7 @@ function Logo({ client, duplicate }) {
         transition={{ y: { duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: duplicate ? 0.7 : 0 }, width: { type: 'spring', stiffness: 300, damping: 24 }, height: { type: 'spring', stiffness: 300, damping: 24 }, scale: { type: 'spring', stiffness: 300, damping: 20 }, borderRadius: { duration: 0.35 } }}
         className="flex h-20 w-36 items-center justify-center rounded-2xl border border-line bg-white px-5 opacity-90 shadow-sm transition-opacity duration-300 hover:opacity-100 sm:h-24 sm:w-44"
       >
-        <OfficialImage local={client.local} remote={client.remote} alt={duplicate ? '' : client.name} className="max-h-12 max-w-full object-contain sm:max-h-14" fallback={<span className="text-sm font-extrabold text-brand-deep">{client.short}</span>} />
+        <OfficialImage local={client.local} remote={client.remote} alt={duplicate ? '' : client.name} loading="eager" fetchPriority="high" className="max-h-12 max-w-full object-contain sm:max-h-14" fallback={<span className="rounded-lg bg-soft px-3 py-2 text-sm font-extrabold text-brand-deep">{client.short}</span>} />
       </motion.div>
     </li>
   )
