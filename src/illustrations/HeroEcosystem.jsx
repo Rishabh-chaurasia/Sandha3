@@ -1,6 +1,88 @@
-import { Cloud, Zap, Compass, Headset, Users, Settings } from 'lucide-react'
-import { Stage, P, Dash, G, Float, Particle, Txt, curve } from './primitives'
-import { Figure, IsoBox, IsoPlatform, Plant, Confetti, Chip, DashboardFace, K } from './figures'
+import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
+import { Cloud, Zap, Compass, Headset, Users } from 'lucide-react'
+import { Stage, Dash, G, Float, Particle, curve } from './primitives'
+import { Confetti, Chip, K } from './figures'
+
+// Photos shown inside the centre circle. The first combines all services; the rest match the service nodes
+// around it. They rotate every few seconds, and clicking a node shows that service's photo.
+// Swap any file in public/photos/hero/ for the company's own photo; keep the names or update them here.
+const SLIDES = {
+  all: { src: "/photos/hero/all-services.webp", label: 'All our services' },
+  technology: { src: "/photos/hero/technology.webp", label: 'Technology' },
+  lifting: { src: "/photos/hero/lifting.webp", label: 'Lifting & Mounting' },
+  operations: { src: "/photos/hero/operations.webp", label: 'Operations & maintenance' },
+  support: { src: "/photos/hero/support.webp", label: 'Service Support' },
+  manpower: { src: "/photos/hero/manpower.webp", label: 'Manpower' },
+}
+const ORDER = Object.keys(SLIDES)
+const ROTATE_MS = 4000
+const PAUSE_AFTER_CLICK_MS = 10000
+
+function useSlides() {
+  const [active, setActive] = useState('all')
+  const pausedUntil = useRef(0)
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (Date.now() < pausedUntil.current) return
+      setActive((cur) => ORDER[(ORDER.indexOf(cur) + 1) % ORDER.length])
+    }, ROTATE_MS)
+    return () => clearInterval(id)
+  }, [])
+  const pick = (key) => { pausedUntil.current = Date.now() + PAUSE_AFTER_CLICK_MS; setActive(key) }
+  return [active, pick]
+}
+
+/** Circular photo that cross-fades between the service slides, with the current service named on a pill. */
+function PhotoCircle({ cx, cy, r, active, id, pillFs = 14 }) {
+  const size = r * 2.1
+  const label = SLIDES[active].label
+  const pillW = label.length * pillFs * 0.58 + 34
+  return (
+    <g>
+      <defs>
+        <clipPath id={`${id}-clip`}><circle cx={cx} cy={cy} r={r} /></clipPath>
+        <filter id={`${id}-shadow`} x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="18" stdDeviation="18" floodColor="#1f3a8a" floodOpacity=".22" /></filter>
+      </defs>
+      <circle cx={cx} cy={cy} r={r + 10} fill="#fff" filter={`url(#${id}-shadow)`} />
+      <g clipPath={`url(#${id}-clip)`}>
+        {ORDER.map((key) => (
+          <motion.image
+            key={key}
+            href={SLIDES[key].src}
+            x={cx - size / 2} y={cy - size / 2} width={size} height={size}
+            preserveAspectRatio="xMidYMid slice"
+            initial={false}
+            animate={{ opacity: key === active ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
+          />
+        ))}
+      </g>
+      <motion.g key={active} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+        <rect x={cx - pillW / 2} y={cy + r - pillFs * 3.3} width={pillW} height={pillFs * 2} rx={pillFs} fill="#fff" fillOpacity=".92" />
+        <text x={cx} y={cy + r - pillFs * 1.95} textAnchor="middle" fontSize={pillFs} fontWeight="800" fill="#0f2346" style={{ fontFamily: 'var(--font-sans)' }}>{label}</text>
+      </motion.g>
+    </g>
+  )
+}
+
+/** Service node that shows its photo in the circle when clicked (or activated from the keyboard). */
+function ServiceNode({ n, i, active, pick, r, fs, amp, delay }) {
+  const on = active === n.key
+  const choose = () => pick(n.key)
+  return (
+    <Float amp={amp} dur={5 + i} delay={i * 0.4}>
+      <g
+        role="button" tabIndex={0} aria-pressed={on} aria-label={`Show ${n.label} photo`}
+        onClick={choose} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose() } }}
+        style={{ cursor: 'pointer', outline: 'none' }}
+      >
+        <circle cx={n.at[0]} cy={n.at[1]} r={r + 7} fill="none" stroke={n.color} strokeWidth="3" style={{ opacity: on ? 1 : 0, transition: 'opacity .3s' }} />
+        <Chip cx={n.at[0]} cy={n.at[1]} r={r} Icon={n.Icon} color={n.color} label={n.label} fs={fs} delay={delay} />
+      </g>
+    </Float>
+  )
+}
 
 const CONF = [
   ['ring', 70, 60, 9, K.cyan], ['tri', 330, 30, 9, K.coral], ['plus', 620, 40, 9, K.violet], ['dot', 730, 220, 7, K.mint],
@@ -8,14 +90,15 @@ const CONF = [
 ]
 
 export default function HeroEcosystem({ mobile = false, className = '' }) {
-  if (mobile) return <HeroMobile className={className} />
+  const [active, pick] = useSlides()
+  if (mobile) return <HeroMobile className={className} active={active} pick={pick} />
   const hub = [390, 400]
   const nodes = [
-    { at: [120, 210], Icon: Cloud, label: 'Technology', color: K.blue },
-    { at: [270, 82], Icon: Compass, label: 'Lifting & Mounting', color: K.violet },
-    { at: [590, 76], Icon: Zap, label: 'Operations & maintenance', color: K.cyan },
-    { at: [672, 330], Icon: Headset, label: 'Service Support', color: K.mint },
-    { at: [96, 470], Icon: Users, label: 'Manpower', color: K.coral },
+    { key: 'technology', at: [120, 210], Icon: Cloud, label: 'Technology', color: K.blue },
+    { key: 'lifting', at: [270, 82], Icon: Compass, label: 'Lifting & Mounting', color: K.violet },
+    { key: 'operations', at: [590, 76], Icon: Zap, label: 'Operations & maintenance', color: K.cyan },
+    { key: 'support', at: [680, 330], Icon: Headset, label: 'Service Support', color: K.mint },
+    { key: 'manpower', at: [96, 470], Icon: Users, label: 'Manpower', color: K.coral },
   ]
   return (
     <Stage viewBox="0 0 760 640" className={className} label="Connected technology, field response, line maintenance, call centre and manpower services">
@@ -36,43 +119,30 @@ export default function HeroEcosystem({ mobile = false, className = '' }) {
         )
       })}
 
-      {/* the platform */}
+      {/* service photos in the centre circle */}
       <G v="rise" delay={0.2}>
         <Float amp={5} dur={7}>
-          <IsoPlatform cx={390} cy={300} a={230} b={230} h={20} />
-          {/* back wall with dashboard */}
-          <IsoBox cx={390} cy={306} a={200} b={10} h={128} top="#fff" left="#fff" right={K.violetSoft} leftContent={<g transform="translate(0 0)"><DashboardFace w={200} h={128} /></g>} />
-          {/* stacked cubes and server */}
-          <IsoBox cx={252} cy={376} a={46} b={46} h={46} top="#fff" left={K.sky} right="#7FB8F5" topContent={<circle cx="23" cy="23" r="9" fill={K.blue} />} />
-          <IsoBox cx={252} cy={330} a={46} b={46} h={30} top={K.amber} left="#F1B93A" right="#D9A02A" />
-          <IsoBox cx={318} cy={352} a={40} b={40} h={78} top="#fff" left={K.violetSoft} right="#8E84F0"
-            leftContent={<g>{[0, 1, 2].map((i) => <g key={i}><rect x="6" y={8 + i * 22} width="28" height="14" rx="3" fill="#fff" /><circle cx="12" cy={15 + i * 22} r="2.2" fill={K.mint} /><rect x="18" y={13 + i * 22} width="12" height="4" rx="2" fill={K.violetSoft} /></g>)}</g>} />
-          <Plant x={478} y={352} s={0.7} />
-          {/* people */}
-          <Figure x={396} y={352} s={0.52} pose="point" top={K.violet} bottom={K.navy} skin="b" item="badge" />
-          <Figure x={448} y={362} s={0.52} pose="hold" top={K.coral} bottom={K.navy} skin="c" style="long" hair="black" dress item="tablet" />
-          <Figure x={356} y={386} s={0.5} pose="stand" top={K.cyan} bottom={K.violetDeep} skin="a" hair="brown" item="glasses" />
+          <PhotoCircle cx={400} cy={330} r={185} active={active} id="hero-photo" />
         </Float>
       </G>
 
       {/* floating nodes */}
       {nodes.map((n, i) => (
-        <Float key={n.color} amp={4 + (i % 3) * 2} dur={5 + i} delay={i * 0.4}>
-          <Chip cx={n.at[0]} cy={n.at[1]} r={32} Icon={n.Icon} color={n.color} label={n.label} fs={n.fs || 15} delay={0.7 + i * 0.12} />
-        </Float>
+        <ServiceNode key={n.key} n={n} i={i} active={active} pick={pick} r={32} fs={15} amp={4 + (i % 3) * 2} delay={0.7 + i * 0.12} />
       ))}
 
     </Stage>
   )
 }
 
-function HeroMobile({ className }) {
-  const hub = [210, 275]
+function HeroMobile({ className, active, pick }) {
+  const hub = [210, 230]
   const nodes = [
-    { at: [64, 66], Icon: Cloud, label: 'Technology', color: K.blue },
-    { at: [315, 66], Icon: Zap, label: 'Operations & maintenance', color: K.cyan },
-    { at: [352, 372], Icon: Headset, label: 'Service Support', color: K.mint },
-    { at: [85, 380], Icon: Users, label: 'Lifting & Mounting', color: K.coral },
+    { key: 'technology', at: [64, 66], Icon: Cloud, label: 'Technology', color: K.blue },
+    { key: 'operations', at: [315, 66], Icon: Zap, label: 'Operations & maintenance', color: K.cyan },
+    { key: 'support', at: [352, 330], Icon: Headset, label: 'Service Support', color: K.mint },
+    { key: 'manpower', at: [210, 362], Icon: Users, label: 'Manpower', color: K.coral },
+    { key: 'lifting', at: [68, 330], Icon: Compass, label: 'Lifting & Mounting', color: K.violet },
   ]
   return (
     <Stage viewBox="0 0 420 480" className={className} label="Connected technology, line maintenance, call centre and field teams">
@@ -84,16 +154,11 @@ function HeroMobile({ className }) {
       })}
       <G v="rise" delay={0.2}>
         <Float amp={4} dur={7}>
-          <IsoPlatform cx={210} cy={200} a={150} b={150} h={14} />
-          <IsoBox cx={210} cy={205} a={134} b={8} h={92} top="#fff" left="#fff" right={K.violetSoft} leftContent={<DashboardFace w={134} h={92} />} />
-          <Figure x={198} y={196} s={0.4} pose="point" top={K.violet} skin="b" item="badge" />
-          <Figure x={236} y={204} s={0.4} pose="hold" top={K.coral} skin="c" style="long" dress item="tablet" />
+          <PhotoCircle cx={210} cy={222} r={102} active={active} id="hero-photo-m" pillFs={10} />
         </Float>
       </G>
       {nodes.map((n, i) => (
-        <Float key={n.label} amp={4} dur={5 + i} delay={i * 0.4}>
-          <Chip cx={n.at[0]} cy={n.at[1]} r={28} Icon={n.Icon} color={n.color} label={n.label} fs={n.fs || 16} delay={0.7 + i * 0.12} />
-        </Float>
+        <ServiceNode key={n.key} n={n} i={i} active={active} pick={pick} r={28} fs={16} amp={4} delay={0.7 + i * 0.12} />
       ))}
     </Stage>
   )

@@ -10,7 +10,7 @@ const STEPS = [
   { title: 'Support services', text: 'Connecting consumers and clients, from complaint to field work', Icon: Headset, grad: 'from-cyan to-mint' },
   { title: 'Water utility', text: 'Connections, metering, billing, repair and maintenance', Icon: Droplets, grad: 'from-brand to-cyan' },
   { title: 'Trolley mounted lifters', text: 'Vehicle-mounted platforms for safe work at height', Icon: Forklift, grad: 'from-electric to-purple' },
-  { title: 'Sky lifters', text: 'Boom-mounted buckets for high-reach HT line work', Icon: Truck, grad: 'from-cyan to-mint' },
+  { title: 'Sky lifters', text: 'Boom-mounted buckets for high-reach line work', Icon: Truck, grad: 'from-cyan to-mint' },
   { title: 'Operations & maintenance', text: 'Grid and substation upkeep, AMC and MRBD', Icon: Settings2, grad: 'from-purple to-brand' },
 ]
 

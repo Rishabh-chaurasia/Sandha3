@@ -18,7 +18,7 @@ export const ORG_LD = {
   telephone: '+91-124-448-8701',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '601, Eros City Square, Sector 49-50',
+    streetAddress: '99/277/2, Lane No. 4, Atul Kataria Marg, Opp. Utsav Garden',
     addressLocality: 'Gurugram',
     postalCode: '122001',
     addressCountry: 'IN',

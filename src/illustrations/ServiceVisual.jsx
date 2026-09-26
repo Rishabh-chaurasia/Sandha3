@@ -93,8 +93,8 @@ function LifterVisual() {
 }
 
 function SkyVisual() {
-  const points = [['Position truck', Truck], ['Extend boom', ArrowUpFromLine], ['Work at HT height', Zap], ['Safe descent', ShieldCheck]]
-  return <Shell tint="#fff0e8" label="Sky lifter: position the truck, extend the boom, work at HT height and come down safely">
+  const points = [['Position truck', Truck], ['Extend boom', ArrowUpFromLine], ['Work at height', Zap], ['Safe descent', ShieldCheck]]
+  return <Shell tint="#fff0e8" label="Sky lifter: position the truck, extend the boom, work at height and come down safely">
     <ol className="mx-auto grid max-w-md grid-cols-2 gap-3">
       {points.map(([label, Icon], i) => <motion.li key={label} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .12 }} whileHover={{ y: -5 }} className="rounded-2xl border border-[#f6d2bf] bg-white p-4 shadow-md">
         <span className="grid size-10 place-items-center rounded-xl bg-[#e0662f] text-white"><Icon className="size-5" /></span>

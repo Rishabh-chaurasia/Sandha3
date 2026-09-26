@@ -5,7 +5,7 @@ export const SERVICES = [
     tagline: 'Fault rectification and line maintenance for DISCOMs',
     summary: 'Our Fault Rectification Teams (FRT) keep electricity flowing. GPS-tracked vehicles, Hydra and trolley-mounted lifters and trained linemen attend no-current complaints, repair line and technical faults and maintain LT and HT lines, with every case tracked to consumer sign-off.',
     areas: [
-      { title: 'Fault Rectification Teams (FRT)', text: 'GPS-equipped light commercial vehicles with tools, a lineman, technician and driver, deployed 24/7 to resolve no-current complaints within two hours of registration.' , short: '24/7 GPS-tracked crews fixing no-current faults in 2 hours.' },
+      { title: 'Fault Rectification Teams (FRT)', text: 'GPS-equipped light commercial vehicles with tools, a lineman, technician and driver, deployed 24/7 to attend and resolve no-current complaints.' , short: '24/7 GPS-tracked crews fixing no-current faults.' },
       { title: 'FRT and lifter', text: 'FRT vehicles alongside Hydra lifters, trolley-mounted lifters, sky lifters and transformer replacement cranes, deployed under DISCOM tenders.' , short: 'FRT vehicles, Hydra, trolley and sky lifters, and cranes.' },
       { title: 'LT and HT line maintenance', text: 'Maintenance of low tension (LT, 440 V) and high tension (HT, 11 kV to 33 kV) lines after a proper shutdown, including sky-lift and trolley-mounted lifter work.' , short: 'LT (440 V) and HT (11–33 kV) lines, after proper shutdown.' },
       { title: 'Operations and maintenance', text: 'Grid and substation maintenance, AMC, line projects up to 33 kV and MRBD are delivered through our Operations & Maintenance service.' , short: 'Grid, substation, AMC and MRBD work under our O&M service.' },
@@ -37,10 +37,10 @@ export const SERVICES = [
     tagline: '24/7 utility call centres, from the first call to confirmed closure',
     summary: 'Centralised 24/7 call centres for DISCOMs. Every complaint is registered, sent to the field team and closed only after the consumer confirms it.',
     areas: [
-      { title: '24/7 toll-free call centre', text: 'Calls answered within 60 seconds; no-current complaints reach the FRT within 90 seconds.' , short: 'Calls answered in 60 sec; FRT alerted in 90 sec.' },
+      { title: '24/7 toll-free call centre', text: 'Every call is answered and registered, and no-current complaints are sent straight to the nearest FRT.' , short: 'Every call registered and sent to the nearest FRT.' },
       { title: 'Omni-channel complaints', text: 'Voice, email, chat or social media, each with a system-generated complaint number.' , short: 'Voice, email, chat and social media, with a complaint number.' },
-      { title: 'Tracking and resolution', text: 'Pending complaints reviewed every 45 minutes, SMS updates, and a callback to confirm resolution.' , short: 'Reviewed every 45 min, SMS updates and a callback.' },
-      { title: 'Inbound, outbound and back office', text: 'Customer service, collections, campaigns and non-voice case follow-up.' , short: 'Customer service, collections, campaigns and follow-up.' },
+      { title: 'Tracking and resolution', text: 'Pending complaints are reviewed regularly, consumers get SMS updates, and our call centre calls back to confirm resolution.' , short: 'Regular reviews, SMS updates and a callback.' },
+      { title: 'Inbound, outbound and back office', text: 'Customer service, complaint registration, outbound calls and non-voice case follow-up.' , short: 'Customer service, complaints, outbound calls and follow-up.' },
     ],
     seo: '24/7 toll-free and omni-channel utility call centres with complaint dispatch, tracking and consumer feedback.',
   },
@@ -88,17 +88,17 @@ export const SERVICES = [
   {
     slug: 'sky-lifters', n: '07', title: 'Sky Lifters', accent: '#E0662F', accent2: '#0878F9', tint: '#FFF0E8',
     tagline: 'Boom-mounted sky lifts for high-reach line work',
-    summary: 'Truck-mounted sky lifters with a telescopic boom and insulated bucket lift crews safely to HT lines, tall poles and transformer structures, reaching heights and angles that ladders and platforms cannot.',
+    summary: 'Truck-mounted sky lifters with a telescopic boom and insulated bucket lift crews safely to overhead lines, tall poles and transformer structures, reaching heights and angles that ladders and platforms cannot.',
     areas: [
-      { title: 'Telescopic boom and bucket', text: 'A truck-mounted boom raises an enclosed bucket so crews can work beside HT lines and tall structures.' , short: 'Truck-mounted boom with an enclosed crew bucket.' },
-      { title: 'High-reach HT line work', text: 'Used for maintenance on high tension lines, tall poles and transformer structures after a proper shutdown.' , short: 'HT lines, tall poles and transformer structures.' },
+      { title: 'Telescopic boom and bucket', text: 'A truck-mounted boom raises an enclosed bucket so crews can work beside overhead lines and tall structures.' , short: 'Truck-mounted boom with an enclosed crew bucket.' },
+      { title: 'High-reach line work', text: 'Used for maintenance on LT and HT lines, tall poles and transformer structures after a proper shutdown.' , short: 'LT and HT lines, tall poles and transformer structures.' },
       { title: 'Different from trolley-mounted lifters', text: 'Sky lifters give extra height and outreach; trolley-mounted lifters suit narrow lanes and pole-top work.' , short: 'More height and reach than trolley-mounted lifters.' },
       { title: 'Trained operators and crews', text: 'Operated by trained staff with harnesses, helmets and the same safety procedure used on all our line work.' , short: 'Trained staff with harnesses, helmets and safety drills.' },
     ],
     photo: '/photos/frt-sky-lift.webp',
     photoAlt: 'Technician in a sky-lift bucket beside a high tension line',
     art: '/sky-lifter-illustration.png',
-    seo: 'Truck-mounted sky lifters with telescopic boom and bucket for HT line and high-reach work by Sandha & Company.',
+    seo: 'Truck-mounted sky lifters with telescopic boom and bucket for high-reach line work by Sandha & Company.',
   },
   {
     slug: 'operations-maintenance', n: '08', title: 'Operations & Maintenance', accent: '#7C5CFC', accent2: '#0878F9', tint: '#F1EEFF',
@@ -129,7 +129,6 @@ export const CALL_GROUPS = [
     items: [
       { key: 'voice', title: 'Inbound and outbound', points: ['Customer care', 'Service enquiries', 'Outbound campaigns'] },
       { key: 'support', title: 'Product and technology support', points: ['Product questions', 'Technical help', 'Complaints and activation'] },
-      { key: 'collections', title: 'Collections and retention', points: ['Payment follow-up', 'Collections support', 'Customer retention'] },
     ],
   },
   {
@@ -141,13 +140,13 @@ export const CALL_GROUPS = [
   },
 ]
 
-export const SALES_NOTE = 'Alongside utility complaints, our teams handle customer service, sales campaigns, activation, collections and digital support.'
+export const SALES_NOTE = 'Alongside utility complaints, our teams handle customer service, complaint registration, outbound calls and digital support.'
 
 export const FIELD_OPS = {
   fault: [
     'GPS-equipped light commercial vehicles with tools and trained field personnel operate 24/7',
     'Complaints received from the call centre; team visits the consumer location and rectifies the fault',
-    'No-current complaints resolved within two hours of registration',
+    'No-current complaints attended and resolved on the ground',
     'Outage, rectification and material details collected and recorded',
   ],
   tracking: [
@@ -165,12 +164,6 @@ export const FIELD_OPS = {
     'FRT updates the status and takes the consumer’s signature',
     'Automated SMS sends the status to the consumer’s mobile',
     'Control room calls the consumer to verify the resolution',
-  ],
-  sla: [
-    { value: '60 sec', label: 'Call answering target' },
-    { value: '90 sec', label: 'Complaint allotted to FRT' },
-    { value: '45 min', label: 'Pending complaints reviewed' },
-    { value: '2 hrs', label: 'No-current complaint resolved' },
   ],
 }
 

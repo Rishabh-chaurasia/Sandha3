@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Phone, Headset, Wallet, Archive, MonitorSmartphone, Truck, Radar } from 'lucide-react'
+import { Phone, Headset, Archive, MonitorSmartphone, Truck, Radar } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { CALL_GROUPS, SALES_NOTE, FIELD_OPS, FEEDBACK } from '../data/services'
 import { EASE, cn } from '../utils/motion'
 
-const ICONS = { voice: Phone, support: Headset, collections: Wallet, backoffice: Archive, digital: MonitorSmartphone }
+const ICONS = { voice: Phone, support: Headset, backoffice: Archive, digital: MonitorSmartphone }
 
 export default function CallCentreDetail() {
   const [open, setOpen] = useState('voice')
@@ -19,16 +19,7 @@ export default function CallCentreDetail() {
             <p className="mt-4 max-w-[60ch] text-lg leading-relaxed text-muted">{SALES_NOTE}</p>
           </Reveal>
 
-          <dl className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
-            {FIELD_OPS.sla.map((item, i) => (
-              <div key={item.label} className={`flex flex-col gap-2 rounded-2xl border border-white p-5 ${['bg-gradient-to-br from-[#e7f3ff] to-white','bg-gradient-to-br from-[#e5faf1] to-white','bg-gradient-to-br from-[#fff2df] to-white','bg-gradient-to-br from-[#f0eaff] to-white'][i]}`}>
-                <dt className="text-sm font-bold text-muted">{item.label}</dt>
-                <dd className={`order-first font-display text-[clamp(1.8rem,4vw,2.6rem)] font-bold leading-none tracking-tight ${['text-brand-deep','text-[#0f9e73]','text-[#ca7900]','text-[#7456e8]'][i]}`}>{item.value}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <div className="mt-12 space-y-12">
+          <div className="mt-10 space-y-12">
             {CALL_GROUPS.map((g) => (
               <div key={g.parent}>
                 <h3 className={`text-sm font-bold tracking-[0.18em] ${g.parent === 'Voice' ? 'text-brand' : 'text-purple'}`}>{g.parent.toUpperCase()}</h3>
@@ -123,7 +114,7 @@ export default function CallCentreDetail() {
           <Reveal>
             <p className="text-xs font-black uppercase tracking-[.2em] text-brand">Consumer feedback</p>
             <h2 id="cc-feedback" className="mt-3 max-w-[24ch] h-sub text-ink">Every call recorded. Every closure checked.</h2>
-            <p className="mt-4 max-w-[60ch] text-lg leading-relaxed text-muted">After a complaint is resolved, consumers get a callback about the call centre and the field team. Results from {FEEDBACK.surveys.toLocaleString('en-IN')} completed surveys:</p>
+            <p className="mt-4 max-w-[60ch] text-lg leading-relaxed text-muted">After a complaint is resolved, our call centre calls the consumer back to confirm the resolution and take feedback on the call centre and the field team. Results from {FEEDBACK.surveys.toLocaleString('en-IN')} completed surveys:</p>
           </Reveal>
           <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {FEEDBACK.results.map((r, i) => (

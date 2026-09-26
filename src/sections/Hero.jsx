@@ -70,7 +70,7 @@ export default function Hero() {
             </h1>
 
             <motion.p variants={fadeV} custom={0.85} className="lead mt-7 max-w-[46ch] text-[1.08rem]">
-              Skilled manpower, IT systems and FRT (Fault Rectification Teams) work together to keep power and water services running for utilities across India.
+              Skilled manpower, IT systems and FRT (Fault Rectification Teams) work together to keep utility services running across India.
             </motion.p>
             <motion.div variants={fadeV} custom={1} className="mt-9 flex flex-wrap gap-3">
               <Button to="/services" magnetic className="w-full sm:w-auto">Explore Our Services</Button>

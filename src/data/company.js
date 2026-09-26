@@ -5,8 +5,8 @@ export const COMPANY = {
   phone: '+91 124 448 8701',
   phoneHref: 'tel:+911244488701',
   email: 'info@sandha-company.com',
-  address: ['601, Eros City Square,', 'Sector 49-50, Gurugram,', 'Haryana 122001'],
-  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=601%20Eros%20City%20Square%20Sector%2049-50%20Gurugram%20Haryana%20122001',
+  address: ['99/277/2, Lane No. 4, Atul Kataria Marg,', 'Opp. Utsav Garden, Gurugram,', 'Haryana 122001'],
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=99%2F277%2F2%20Atul%20Kataria%20Marg%20Gurugram%20Haryana%20122001',
   positioning:
     'Sandha & Company partners with electricity distribution companies and utility providers across India. Our trained field teams, skilled manpower, responsive customer support and practical technology work together—from fault response and line maintenance to consumer services, metering, billing and operational systems—to keep essential services reliable, safe and connected.',
   philosophy:
