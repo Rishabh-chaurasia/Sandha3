@@ -48,7 +48,7 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
   }
 
   const displayedServices = compact
-    ? [ORDERED_SERVICES[0], ORDERED_SERVICES[2], ORDERED_SERVICES[1], ORDERED_SERVICES[3], ORDERED_SERVICES[4], ORDERED_SERVICES[5], ORDERED_SERVICES[6]]
+    ? [ORDERED_SERVICES[0], ORDERED_SERVICES[2], ORDERED_SERVICES[1], ORDERED_SERVICES[3], ORDERED_SERVICES[4], ORDERED_SERVICES[5], ORDERED_SERVICES[6], ORDERED_SERVICES[7]]
     : ORDERED_SERVICES
   const cardColors = [
     ['#DDF6EA', '#18A882'],
@@ -58,10 +58,11 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
     ['#E8EFFF', '#4266C9'],
     ['#FFF0D8', '#C9861A'],
     ['#FFE9DE', '#E0662F'],
+    ['#EEE9FF', '#7C5CFC'],
   ]
   const spritePositions = { 'manpower-management': '100% 0%', 'technology-services': '0% 0%', 'contact-centre': '50% 100%' }
-  // 2 + 3 + 2 cards per row on desktop.
-  const cardSpan = ['lg:col-span-3', 'lg:col-span-3', 'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-3', 'sm:col-span-2 lg:col-span-3']
+  // 2 + 3 + 3 cards per row on desktop.
+  const cardSpan = ['lg:col-span-3', 'lg:col-span-3', 'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-2']
 
   if (compact) {
     return (

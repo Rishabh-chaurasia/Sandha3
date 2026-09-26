@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { Cpu, Truck, Users, Headset, Droplets, Forklift } from 'lucide-react'
+import { Cpu, Truck, Users, Headset, Droplets, Forklift, Settings2 } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import { EASE } from '../utils/motion'
 
@@ -11,6 +11,7 @@ const STEPS = [
   { title: 'Water utility', text: 'Connections, metering, billing, repair and maintenance', Icon: Droplets, grad: 'from-brand to-cyan' },
   { title: 'Trolley mounted lifters', text: 'Vehicle-mounted platforms for safe work at height', Icon: Forklift, grad: 'from-electric to-purple' },
   { title: 'Sky lifters', text: 'Boom-mounted buckets for high-reach HT line work', Icon: Truck, grad: 'from-cyan to-mint' },
+  { title: 'Operations & maintenance', text: 'Grid and substation upkeep, AMC and MRBD', Icon: Settings2, grad: 'from-purple to-brand' },
 ]
 
 export default function Journey({ id = 'journey' }) {

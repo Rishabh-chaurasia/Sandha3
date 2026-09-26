@@ -18,7 +18,7 @@ const TONES = {
   soft: 'bg-w2b',
 }
 
-export default function PageHero({ eyebrow, title, lead, crumbs = [], illustration, illustrationClassName = '', sectionClassName = '', tone = 'ultra', children, wide = false, photo, photoAlt = '', photoClassName = '', backgroundPhoto, mobileBackgroundPhoto = '', backgroundPhotoClassName = '', backgroundOverlayClassName = '', contentAlign = 'center' }) {
+export default function PageHero({ eyebrow, title, lead, crumbs = [], illustration, illustrationClassName = '', sectionClassName = '', tone = 'ultra', children, wide = false, photo, photoAlt = '', photoClassName = '', backgroundPhoto, mobileBackgroundPhoto = '', backgroundPhotoClassName = '', backgroundOverlayClassName = '', contentAlign = 'center', leadClassName = '' }) {
   const reduce = false
   const [photoFailed, setPhotoFailed] = useState(false)
   const showPhoto = photo && !photoFailed
@@ -59,7 +59,7 @@ export default function PageHero({ eyebrow, title, lead, crumbs = [], illustrati
               initial={reduce ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: EASE }}
-              className="lead mt-6 max-w-[56ch]"
+              className={`lead mt-6 max-w-[56ch] ${leadClassName}`}
             >
               {lead}
             </motion.p>

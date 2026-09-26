@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { BadgeCheck, Handshake, Sparkles, Zap } from 'lucide-react'
 
 const steps = [
-  { title: 'Clients first', detail: 'We build every team around our clients’ service commitments.', Icon: BadgeCheck, color: '#0878f9', tint: '#e2f3ff' },
+  { title: 'Clients first', detail: 'We build every team around our client’s service commitments.', Icon: BadgeCheck, color: '#0878f9', tint: '#e2f3ff' },
   { title: 'Collaboration & growth', detail: 'Respectful relationships help teams and clients grow.', Icon: Handshake, color: '#6857d8', tint: '#eee9ff' },
   { title: 'Innovation at the core', detail: 'Technology improves manpower solutions and service delivery.', Icon: Sparkles, color: '#0caa96', tint: '#e0f8f1' },
   { title: 'Agility & excellence', detail: 'We adapt quickly, deliver efficiently and keep improving.', Icon: Zap, color: '#e97547', tint: '#fff0e8' },

@@ -63,7 +63,7 @@ function ServicesMenu({ pathname }) {
                   <Link
                     to={`/services/${s.slug}`}
                     className="group flex min-h-[92px] flex-col items-start gap-2 rounded-2xl p-3 transition hover:-translate-y-0.5 hover:shadow-md"
-                    style={{ background: ['#e4f2ff', '#e5faf3', '#f0ebff', '#fff0df', '#ffe8ef', '#fff6e6', '#fff0e8'][i] }}
+                    style={{ background: ['#e4f2ff', '#e5faf3', '#f0ebff', '#fff0df', '#ffe8ef', '#fff6e6', '#fff0e8', '#f1eeff'][i] }}
                   >
                     <span className="flex w-full items-center justify-between"><span className="grid size-7 place-items-center rounded-lg bg-brand/10 font-display text-xs font-extrabold text-brand">{s.n}</span><ArrowRight aria-hidden className="size-3.5 text-brand/50 transition-transform group-hover:translate-x-1 group-hover:text-brand" /></span>
                     <span>

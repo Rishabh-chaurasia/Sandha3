@@ -3,7 +3,7 @@ import { UsersRound, Cpu, Truck, Headset, Droplets } from 'lucide-react'
 import Reveal from '../components/Reveal'
 
 const milestones = [
-  { label: 'December 2008', title: 'Operations begin', text: 'Sandha & Company formally started operations, building its work around client needs and trained people.', Icon: UsersRound, color: '#0878f9', tint: '#e6f3ff' },
+  { label: 'December 2008', title: 'Operations begin', text: 'Sandha & Company formally started operations, building its work around clients need and trained people.', Icon: UsersRound, color: '#0878f9', tint: '#e6f3ff' },
   { label: 'Capability building', title: 'People and technology', text: 'Trained manpower, in-house software and more than 15 years of utility IT experience.', Icon: Cpu, color: '#7456e8', tint: '#f0ecff' },
   { label: 'Utility operations', title: 'Field response at scale', text: 'FRT teams, line maintenance and support services connect consumer complaints to work in the field.', Icon: Truck, color: '#0f9e93', tint: '#e1f8f2' },
   { label: 'Today', title: 'Nationwide utility work', text: 'FRT and maintenance services for 11 DISCOMs, serving more than 20 million consumers.', Icon: Headset, color: '#e38630', tint: '#fff1dd' },

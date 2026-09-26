@@ -18,6 +18,7 @@ const LAYOUT = {
   'water-utility': { tone: 'rings', body: 'stack' },
   'trolley-mounted-lifters': { tone: 'soft', body: 'stack' },
   'sky-lifters': { tone: 'cyan', body: 'stack' },
+  'operations-maintenance': { tone: 'lines', body: 'stack' },
 }
 
 function Stack({ s }) {

@@ -11,7 +11,7 @@ const PHOTOS = [
   { src: '/photos/grid-network.webp', alt: 'Distribution transformer mounted on poles with overhead lines', caption: 'Grid, substation and AMC work', span: 'sm:col-span-2 lg:col-span-2 lg:row-span-2' },
   { src: '/photos/frt-lineman-pole.webp', alt: 'Lineman in safety gear working on an overhead line', caption: 'Fault rectification on LT lines' },
   { src: '/photos/frt-sky-lift.webp', alt: 'Technician in a sky-lift bucket beside a high tension line', caption: 'Sky lifters on HT lines' },
-  { src: '/photos/lifting-platforms.webp', alt: 'Lifting platforms raised for work at height', caption: 'Trolley-mounted lifters' },
+  { src: '/photos/trolley-mounted-lifter.webp', alt: 'Trolley-mounted lifter raising a lineman to an overhead line beside a pole', caption: 'Trolley-mounted lifters' },
   { src: '/photos/transformer-maintenance.webp', alt: 'Two technicians maintaining a distribution transformer', caption: 'Transformer maintenance' },
   { src: '/photos/live-line-crew.webp', alt: 'Two linemen working together at the top of a pole', caption: 'Line maintenance crews', span: 'lg:col-span-2' },
   { src: '/photos/safety-briefing.webp', alt: 'Field team in helmets and vests at a safety briefing', caption: 'Safety briefing before every shift', span: 'lg:col-span-2' },

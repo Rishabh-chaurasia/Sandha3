@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Headset, Truck, Code2, UsersRound, Droplets, Forklift } from 'lucide-react'
+import { Headset, Truck, Code2, UsersRound, Droplets, Forklift, Settings2 } from 'lucide-react'
 
 const services = [
   { name: 'Manpower & staffing', Icon: UsersRound, color: '#614ede' },
@@ -9,6 +9,7 @@ const services = [
   { name: 'Water utility', Icon: Droplets, color: '#159cbd' },
   { name: 'Trolley mounted lifters', Icon: Forklift, color: '#c9861a' },
   { name: 'Sky lifters', Icon: Truck, color: '#e0662f' },
+  { name: 'Operations & maintenance', Icon: Settings2, color: '#7c5cfc' },
 ]
 
 export default function ServicesConstellation({ className = '' }) {

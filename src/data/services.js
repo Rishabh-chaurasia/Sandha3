@@ -6,9 +6,9 @@ export const SERVICES = [
     summary: 'Our Fault Rectification Teams (FRT) keep electricity flowing. GPS-tracked vehicles, Hydra and trolley-mounted lifters and trained linemen attend no-current complaints, repair line and technical faults and maintain LT and HT lines, with every case tracked to consumer sign-off.',
     areas: [
       { title: 'Fault Rectification Teams (FRT)', text: 'GPS-equipped light commercial vehicles with tools, a lineman, technician and driver, deployed 24/7 to resolve no-current complaints within two hours of registration.' , short: '24/7 GPS-tracked crews fixing no-current faults in 2 hours.' },
-      { title: 'FRT and lifter fleet', text: 'FRT vehicles alongside Hydra lifters, trolley-mounted lifters, sky lifters and transformer replacement cranes, deployed under DISCOM tenders.' , short: 'FRT vehicles, Hydra, trolley and sky lifters, and cranes.' },
+      { title: 'FRT and lifter', text: 'FRT vehicles alongside Hydra lifters, trolley-mounted lifters, sky lifters and transformer replacement cranes, deployed under DISCOM tenders.' , short: 'FRT vehicles, Hydra, trolley and sky lifters, and cranes.' },
       { title: 'LT and HT line maintenance', text: 'Maintenance of low tension (LT, 440 V) and high tension (HT, 11 kV to 33 kV) lines after a proper shutdown, including sky-lift and trolley-mounted lifter work.' , short: 'LT (440 V) and HT (11–33 kV) lines, after proper shutdown.' },
-      { title: 'Other services: projects, AMC and MRBD', text: 'As part of operations and maintenance we also take up line and substation projects up to 33 kV, annual maintenance contracts (AMC), and meter reading and bill distribution (MRBD).' , short: 'Line and substation projects, AMC and MRBD.' },
+      { title: 'Operations and maintenance', text: 'Grid and substation maintenance, AMC, line projects up to 33 kV and MRBD are delivered through our Operations & Maintenance service.' , short: 'Grid, substation, AMC and MRBD work under our O&M service.' },
       { title: 'Safety on every job', text: 'Trained, ITI-qualified crews work with gloves, safety shoes, helmets, earthing rods and a defined shutdown procedure before touching any line.' , short: 'ITI-qualified crews with full safety gear, every time.' },
       { title: 'Vehicle tracking and escalation', text: 'A GPS/GIS vehicle tracking system finds the nearest FRT, consumers see the team approaching in real time, and out-of-scope cases are escalated to DISCOM officials.' , short: 'Live GPS tracking; out-of-scope cases escalated to DISCOM.' },
     ],
@@ -81,8 +81,8 @@ export const SERVICES = [
       { title: 'Trained operators', text: 'Operated by trained staff following the same safety and shutdown procedure as all our line work.' , short: 'Run by trained staff under our safety procedure.' },
     ],
     art: '/trolley-lifter-illustration.png',
-    photo: '/photos/lifting-platforms.webp',
-    photoAlt: 'Lifting platforms raised for work at height',
+    photo: '/photos/trolley-mounted-lifter.webp',
+    photoAlt: 'Trolley-mounted lifter raising a lineman to an overhead line beside a pole',
     seo: 'Trolley-mounted lifters for pole-top, overhead and height work by Sandha & Company.',
   },
   {
@@ -100,10 +100,27 @@ export const SERVICES = [
     art: '/sky-lifter-illustration.png',
     seo: 'Truck-mounted sky lifters with telescopic boom and bucket for HT line and high-reach work by Sandha & Company.',
   },
+  {
+    slug: 'operations-maintenance', n: '08', title: 'Operations & Maintenance', accent: '#7C5CFC', accent2: '#0878F9', tint: '#F1EEFF',
+    tagline: 'Grid, substation, AMC and MRBD work for DISCOMs',
+    summary: 'We run and maintain the distribution network for DISCOMs: grid and substation maintenance, annual maintenance contracts, line and substation projects up to 33 kV, and meter reading and bill distribution, delivered by trained crews under one operations and maintenance contract.',
+    areas: [
+      { title: 'Grid and substation maintenance', text: 'Routine and breakdown maintenance of grid substations, 33/11 kV substations, distribution transformers and switchgear, so the network stays available.' , short: 'Grid and 33/11 kV substations, transformers and switchgear.' },
+      { title: 'Annual maintenance contracts (AMC)', text: 'Scheduled preventive maintenance of lines, substations and equipment under an annual contract, with every visit recorded and reported to the DISCOM.' , short: 'Scheduled preventive maintenance under an annual contract.' },
+      { title: 'Meter reading and bill distribution (MRBD)', text: 'Trained field staff read meters and deliver bills across DISCOM circles, on schedule and with reports for every route.' , short: 'Meter reading and bill delivery across DISCOM circles.' },
+      { title: 'Line and substation projects', text: 'Construction and augmentation of LT and HT lines and substations up to 33 kV, from survey to commissioning.' , short: 'LT and HT line and substation works up to 33 kV.' },
+      { title: 'Transformer and equipment upkeep', text: 'Transformer repair and replacement using our cranes and lifters, plus maintenance of breakers, panels and earthing.' , short: 'Transformer replacement, breakers, panels and earthing.' },
+      { title: 'Safety and reporting', text: 'ITI-qualified crews follow a defined shutdown and safety procedure, and every job is logged in MIS reports for the DISCOM.' , short: 'Safe shutdown procedure and MIS reports on every job.' },
+    ],
+    art: '/grid-substation-illustration.png',
+    photo: '/photos/transformer-maintenance.webp',
+    photoAlt: 'Technicians maintaining a pole-mounted distribution transformer',
+    seo: 'Operations and maintenance for DISCOMs: grid and substation maintenance, AMC, MRBD and line projects up to 33 kV by Sandha & Company.',
+  },
 ]
 
 // Presentation order across navigation and the full services explorer.
-export const ORDERED_SERVICES = ['manpower-management', 'technology-services', 'utility-operations', 'contact-centre', 'water-utility', 'trolley-mounted-lifters', 'sky-lifters']
+export const ORDERED_SERVICES = ['manpower-management', 'technology-services', 'utility-operations', 'contact-centre', 'water-utility', 'trolley-mounted-lifters', 'sky-lifters', 'operations-maintenance']
   .map((slug) => SERVICES.find((service) => service.slug === slug))
 
 export const CALL_GROUPS = [

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Headset, Truck, MapPin, CheckCircle2, Smartphone, Gauge, ReceiptText, Wallet, Wrench, Droplets, UserPlus, HardHat, Building2, Zap, Landmark, Warehouse, Forklift, ArrowUpFromLine, ShieldCheck } from 'lucide-react'
+import { Headset, Truck, MapPin, CheckCircle2, Smartphone, Gauge, ReceiptText, Wallet, Wrench, Droplets, UserPlus, HardHat, Building2, Zap, Landmark, Warehouse, Forklift, ArrowUpFromLine, ShieldCheck, CalendarCheck, Cable, Settings2 } from 'lucide-react'
 import ITArchitecture from './ITArchitecture'
 import CallCentreNetwork from './CallCentreNetwork'
 
@@ -104,6 +104,20 @@ function SkyVisual() {
   </Shell>
 }
 
+function OMVisual() {
+  const items = [['Grid & substations', Zap], ['AMC visits', CalendarCheck], ['MRBD', ReceiptText], ['Line projects', Cable]]
+  return <Shell tint="#f1eeff" label="Operations and maintenance: grid and substations, AMC visits, meter reading and bill distribution, and line projects">
+    <div className="relative mx-auto grid size-72 place-items-center sm:size-80">
+      <motion.div animate={{ rotate: -360 }} transition={{ duration: 46, repeat: Infinity, ease: 'linear' }} aria-hidden className="absolute inset-8 rounded-full border-2 border-dashed border-[#7c5cfc]/45" />
+      <div className="z-10 grid size-28 place-content-center rounded-full bg-gradient-to-br from-[#7c5cfc] to-[#0878f9] text-center text-white shadow-xl"><Settings2 className="mx-auto size-9" /><span className="mt-1 px-2 text-[11px] font-black leading-tight">Operations &amp; maintenance</span></div>
+      {items.map(([label, Icon], i) => {
+        const angle = (i / items.length) * Math.PI * 2 - Math.PI / 4
+        return <motion.div key={label} animate={{ y: [0, -6, 0] }} transition={{ duration: 3.6 + i * 0.4, repeat: Infinity }} className="absolute grid w-[92px] place-content-center rounded-2xl border border-[#d9d0ff] bg-white px-1 py-2.5 text-center text-[#7c5cfc] shadow-md" style={{ left: `calc(50% + ${Math.cos(angle) * 40}% - 46px)`, top: `calc(50% + ${Math.sin(angle) * 40}% - 34px)` }}><Icon className="mx-auto size-6" /><span className="mt-1 text-[10px] font-extrabold leading-tight text-ink">{label}</span></motion.div>
+      })}
+    </div>
+  </Shell>
+}
+
 export default function ServiceVisual({ slug, className = '', inPanel = false }) {
   const visual = {
     'utility-operations': <FieldVisual />,
@@ -113,6 +127,7 @@ export default function ServiceVisual({ slug, className = '', inPanel = false })
     'water-utility': <WaterVisual />,
     'trolley-mounted-lifters': <LifterVisual />,
     'sky-lifters': <SkyVisual />,
+    'operations-maintenance': <OMVisual />,
   }[slug]
   return <div className={className}>{visual}</div>
 }
