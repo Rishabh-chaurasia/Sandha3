@@ -81,8 +81,8 @@ export const SERVICES = [
       { title: 'Trained operators', text: 'Operated by trained staff following the same safety and shutdown procedure as all our line work.' , short: 'Run by trained staff under our safety procedure.' },
     ],
     art: '/trolley-lifter-illustration.png',
-    photo: '/photos/trolley-mounted-lifter.webp',
-    photoAlt: 'Trolley-mounted lifter raising a lineman to an overhead line beside a pole',
+    photo: '/photos/trolley-lifter-detail.png',
+    photoAlt: 'Utility crew using a vehicle-mounted lifting platform for overhead-line maintenance',
     seo: 'Trolley-mounted lifters for pole-top, overhead and height work by Sandha & Company.',
   },
   {

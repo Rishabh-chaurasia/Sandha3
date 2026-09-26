@@ -10,7 +10,7 @@ import { Confetti, Chip, K } from './figures'
 const SLIDES = {
   all: { src: "/photos/hero/all-services.webp", label: 'All our services' },
   technology: { src: "/photos/hero/technology.webp", label: 'Technology' },
-  lifting: { src: "/photos/hero/lifting.webp", label: 'Lifting & Mounting' },
+  lifting: { src: "/photos/hero/lifting-utility-crew.png", label: 'Lifting & Mounting' },
   operations: { src: "/photos/hero/operations.webp", label: 'Operations & maintenance' },
   support: { src: "/photos/hero/support.webp", label: 'Service Support' },
   manpower: { src: "/photos/hero/manpower.webp", label: 'Manpower' },
