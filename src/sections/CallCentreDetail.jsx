@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Phone, Headset, Archive, MonitorSmartphone, Truck, Radar } from 'lucide-react'
 import Reveal from '../components/Reveal'
+import ComplaintLifecycle from './ComplaintLifecycle'
 import { CALL_GROUPS, SALES_NOTE, FIELD_OPS, FEEDBACK } from '../data/services'
 import { EASE, cn } from '../utils/motion'
 
@@ -95,17 +96,7 @@ export default function CallCentreDetail() {
             ))}
           </div>
 
-          <Reveal className="mt-12">
-            <h3 className="text-sm font-bold tracking-[0.18em] text-brand">CONSUMER COMPLAINT LIFECYCLE</h3>
-            <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {FIELD_OPS.lifecycle.map((step, i) => (
-                <li key={step} className="flex items-start gap-3 rounded-2xl border border-line bg-white p-4">
-                  <span className="grid size-8 shrink-0 place-items-center rounded-full bg-brand text-sm font-extrabold tabular-nums text-white">{i + 1}</span>
-                  <span className="pt-1 font-semibold leading-snug text-ink">{step}</span>
-                </li>
-              ))}
-            </ol>
-          </Reveal>
+          <ComplaintLifecycle />
         </div>
       </section>
 
