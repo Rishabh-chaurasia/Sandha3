@@ -19,7 +19,7 @@ export default function About() {
         tone="ultra"
         eyebrow="ABOUT COMPANY"
         title="People, processes and technology for essential services."
-        lead="Our skilled manpower, FRT and line maintenance teams, customer support and practical technology help utilities serve people reliably, every day."
+        lead="We help DISCOMs and utilities meet their service commitments with skilled manpower, FRT and line maintenance teams, responsive support services and practical technology."
         illustration="about-spectrum"
         sectionClassName="flex min-h-[88svh] items-center !pb-16 sm:!pb-20"
         illustrationClassName="lg:-ml-5 lg:w-[calc(100%+2.5rem)]"

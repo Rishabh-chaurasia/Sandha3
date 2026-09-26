@@ -16,6 +16,8 @@ const LAYOUT = {
   'contact-centre': { tone: 'dots', body: 'custom' },
   'technology-services': { tone: 'lines', body: 'stack' },
   'water-utility': { tone: 'rings', body: 'stack' },
+  'trolley-mounted-lifters': { tone: 'soft', body: 'stack' },
+  'sky-lifters': { tone: 'cyan', body: 'stack' },
 }
 
 function Stack({ s }) {

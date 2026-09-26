@@ -7,3 +7,4 @@ dist
 !public/official/clients/
 !public/official/clients/*.png
 !public/official/clients/*.jpg
+!public/official/clients/*.webp

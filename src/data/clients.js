@@ -7,6 +7,12 @@ export const CLIENTS = [
 
 const OFFICIAL = 'https://www.sandha-company.com/assets/img/clients/'
 // Logos marked png are bundled locally from the 2025 company profile.
+// Logos in public/official/clients/normalized are trimmed and scaled to the same
+// visual size on an identical 480x240 transparent canvas, so they line up evenly.
+const NORMALIZED = {
+  DHBVN: 'DHBVN.png', AVVNL: 'AVVNL.png', JDVVNL: 'JDVVNL.png', JVVNL: 'JVVNL.png', MGVCL: 'MGVCL.png', PGVCL: 'PGVCL.png',
+  PSPCL: 'PSPCL.png', BSES: 'bses.png', LLRU: 'luvas.png', TPCODL: 'TPCODL.png', TPSODL: 'TPSODL.png', TPWODL: 'TPWODL.png', TPNODL: 'TPNODL.png',
+}
 export const CLIENT_LOGOS = [
   { name: 'Dakshin Haryana Bijli Vitran Nigam', short: 'DHBVN', file: 'DHBVN.jpg', png: 'DHBVN.png' },
   { name: 'Ajmer Vidyut Vitran Nigam', short: 'AVVNL', file: 'AVVNL.jpg', png: 'AVVNL.png' },
@@ -15,7 +21,10 @@ export const CLIENT_LOGOS = [
   { name: 'Madhya Gujarat Vij Company', short: 'MGVCL', file: 'MGVCL.jpg', png: 'MGVCL.png' },
   { name: 'Paschim Gujarat Vij Company', short: 'PGVCL', file: 'PGVCL.jpg', png: 'PGVCL.png' },
   { name: 'Punjab State Power Corporation', short: 'PSPCL', file: 'PSPCL.jpg', png: 'PSPCL.png' },
-  { name: 'Tata Power', short: 'Tata Power', file: 'tata-power.jpg', png: 'tata-power.png' },
   { name: 'BSES Yamuna Power', short: 'BSES', file: 'bses.jpg', png: 'bses.png' },
-  { name: 'Lala Lajpat Rai University', short: 'LLRU', file: 'lala-lajpat-rai-university.jpg' },
-].map((client) => ({ ...client, local: `/official/clients/${client.png || client.file}`, remote: `${OFFICIAL}${client.file}` }))
+  { name: 'Lala Lajpat Rai University', short: 'LLRU', png: 'luvas-high-res.webp', file: 'lala-lajpat-rai-university.jpg' },
+  { name: 'TP Central Odisha Distribution', short: 'TPCODL', file: 'TPCODL.jpg' },
+  { name: 'TP Southern Odisha Distribution', short: 'TPSODL', png: 'TPSODL-transparent.png', file: 'TPSODL.jpg' },
+  { name: 'TP Western Odisha Distribution', short: 'TPWODL', file: 'TPWODL.jpg' },
+  { name: 'TP Northern Odisha Distribution', short: 'TPNODL', file: 'TPNODL.png' },
+].map((client) => ({ ...client, local: `/official/clients/normalized/${NORMALIZED[client.short]}`, remote: `${OFFICIAL}${client.file}` }))

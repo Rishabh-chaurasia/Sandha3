@@ -14,7 +14,7 @@ export const COMPANY = {
   vision:
     'To be the global leader in sustainable innovation by 2030, transforming industries and improving lives through ethical, technology-driven solutions.',
   mission:
-    'We connect skilled people, smart processes and modern technology to deliver world-class customer experiences for utilities and essential service providers.',
+    'We connect skilled people, smart processes and modern technology to deliver world-class customer experiences for utilities and essential services.',
   founderMessage:
     'Sandeep Sandha leads the company with a focus on innovation, quality and sustainable growth. His leadership prioritises operational excellence, talent development and value for stakeholders.',
 }
@@ -26,9 +26,9 @@ export const STATS = [
   { value: 20, suffix: 'm+', label: 'Consumers served', grad: 'grad-text-m' },
   { value: 2, suffix: 'k+', label: 'FRT and breakdown specialists', grad: 'grad-text-bp' },
   { value: 1000, suffix: '+', label: 'FRT vehicles and lifters', grad: 'grad-text-b' },
-  { value: 100, suffix: '+', label: 'Transformer replacement cranes', grad: 'grad-text-p' },
+  { value: 800, suffix: '+', label: 'Transformer replacement cranes', grad: 'grad-text-p' },
   { value: 97, suffix: '%', label: 'Consumers satisfied with resolution', grad: 'grad-text-m' },
-  { value: 10, suffix: '+', label: 'Years of utility IT', grad: 'grad-text-bp' },
+  { value: 15, suffix: '+', label: 'Years of ITI services', grad: 'grad-text-bp' },
 ]
 
 export const PRINCIPLES = [
@@ -58,9 +58,9 @@ export const LEADERS = [
 export const CAPABILITIES = ['Manpower and staffing', 'Information technology', 'FRT and line maintenance', 'Call centre', 'Water utility services']
 
 export const COMPLIANCE_RECORDS = [
-  { title: 'Quality management', text: 'The company profile lists ISO 9001:2015 certification and a Level 3 certification.' },
+  { title: 'Quality management', text: 'ISO 9001:2015 certified quality management, with a Level 3 certification.' },
   { title: 'Safety training', text: 'Every field worker is trained on the project EHS plan and issued personal protective equipment before deployment.' },
-  { title: 'ITI-qualified workforce', text: 'Technical staff hold the ITI certification required for work on live electrical networks.' },
+  { title: 'ITI-qualified workforce', text: 'Technical staff hold the ITI certification required for work on electrical networks.' },
   { title: 'PF and ESI', text: 'Registrations, monthly contributions and statutory filings are handled for every employee we deploy.' },
   { title: 'Accident insurance', text: 'Group accident cover is provided as specified in each work order, alongside statutory benefits.' },
   { title: 'Payroll and employee records', text: 'Attendance, leave, salary inputs, deductions and employee documents are checked and kept ready for audit.' },

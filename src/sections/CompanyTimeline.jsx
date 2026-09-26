@@ -4,17 +4,17 @@ import Reveal from '../components/Reveal'
 
 const milestones = [
   { label: 'December 2008', title: 'Operations begin', text: 'Sandha & Company formally started operations, building its work around client needs and trained people.', Icon: UsersRound, color: '#0878f9', tint: '#e6f3ff' },
-  { label: 'Capability building', title: 'People and technology', text: 'The company profile describes trained manpower, in-house software and more than 10 years of utility IT experience.', Icon: Cpu, color: '#7456e8', tint: '#f0ecff' },
-  { label: 'Utility operations', title: 'Field response at scale', text: 'FRT teams, line maintenance and call centre operations connect consumer complaints to work in the field.', Icon: Truck, color: '#0f9e93', tint: '#e1f8f2' },
-  { label: '2025 profile', title: 'Nationwide utility work', text: 'The company reports FRT and maintenance services for 11 DISCOMs and service to more than 20 million customers.', Icon: Headset, color: '#e38630', tint: '#fff1dd' },
-  { label: 'Broader scope', title: 'Water utility services', text: 'The profile also covers connections, metering, billing, consumer support and leak rectification for water utilities.', Icon: Droplets, color: '#e2607e', tint: '#ffe9ef' },
+  { label: 'Capability building', title: 'People and technology', text: 'Trained manpower, in-house software and more than 15 years of utility IT experience.', Icon: Cpu, color: '#7456e8', tint: '#f0ecff' },
+  { label: 'Utility operations', title: 'Field response at scale', text: 'FRT teams, line maintenance and support services connect consumer complaints to work in the field.', Icon: Truck, color: '#0f9e93', tint: '#e1f8f2' },
+  { label: 'Today', title: 'Nationwide utility work', text: 'FRT and maintenance services for 11 DISCOMs, serving more than 20 million consumers.', Icon: Headset, color: '#e38630', tint: '#fff1dd' },
+  { label: 'Broader scope', title: 'Water utility services', text: 'Connections, metering, billing, consumer support, repair and maintenance for water utilities.', Icon: Droplets, color: '#e2607e', tint: '#ffe9ef' },
 ]
 
 export default function CompanyTimeline() {
   const reduce = useReducedMotion()
   return <section className="section bg-gradient-to-br from-[#eff7ff] via-white to-[#e8faf4] !py-12 lg:!py-16" aria-labelledby="company-timeline-title">
     <div className="container-x">
-      <Reveal><p className="flex items-center gap-3 text-xs font-black uppercase tracking-[.2em] text-brand"><span aria-hidden className="h-0.5 w-9 rounded-full bg-gradient-to-r from-brand to-cyan" />Our journey</p><h2 id="company-timeline-title" className="mt-3 h-sub text-ink">From skilled teams to connected utility services.</h2><p className="mt-3 max-w-[65ch] text-muted">Capabilities from the 2025 company profile, alongside the company’s published operating start date.</p></Reveal>
+      <Reveal><p className="flex items-center gap-3 text-xs font-black uppercase tracking-[.2em] text-brand"><span aria-hidden className="h-0.5 w-9 rounded-full bg-gradient-to-r from-brand to-cyan" />Our journey</p><h2 id="company-timeline-title" className="mt-3 h-sub text-ink">From skilled teams to connected utility services.</h2><p className="mt-3 max-w-[65ch] text-muted">How Sandha &amp; Company has grown since operations began in December 2008.</p></Reveal>
       <div className="relative mt-10">
         <motion.span aria-hidden className="absolute bottom-5 left-[19px] top-5 w-0.5 origin-top bg-gradient-to-b from-brand via-cyan to-mint lg:hidden" initial={reduce ? false : { scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ duration: 1.5 }} />
         <svg aria-hidden viewBox="0 0 100 1000" preserveAspectRatio="none" className="pointer-events-none absolute inset-y-0 left-1/2 hidden h-full w-[28%] -translate-x-1/2 lg:block">

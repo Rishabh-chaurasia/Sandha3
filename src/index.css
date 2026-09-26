@@ -157,6 +157,28 @@
 .marquee-track { animation: marquee 28s linear infinite; width: max-content; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
+@media (max-width: 639px) {
+  .marquee {
+    overflow: visible;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .marquee-track {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    animation: none;
+    transform: none !important;
+  }
+
+  .marquee-track > li {
+    width: 100%;
+    margin: 0;
+  }
+}
+
 .link-underline { background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat; transition: background-size .3s ease; }
 .link-underline:hover, .link-underline:focus-visible { background-size: 100% 2px; }
 

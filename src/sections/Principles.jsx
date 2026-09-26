@@ -31,7 +31,8 @@ const VALUE_STYLES = [
 function Stage({ i, stage, p, last }) {
   const { Icon } = stage
   const at = i * 0.5
-  const act = useTransform(p, [Math.max(0, at - 0.04), at + 0.06], [0, 1])
+  // Keep every principle card fully legible; the connector still progresses with scroll.
+  const act = useMotionValue(1)
   const scale = useTransform(act, [0, 1], [1, 1.12])
   const seg = useTransform(p, [at, at + 0.5], [0, 1], { clamp: true })
   const segPct = useTransform(seg, (v) => `${v * 100}%`)

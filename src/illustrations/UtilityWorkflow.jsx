@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion'
 import { PhoneCall, ListFilter, MapPinned, Wrench, MessageSquareText, CheckCircle2 } from 'lucide-react'
 
+// Same sequence as the complaint management lifecycle in the company profile.
 const steps = [
-  ['Complaint registered', 'Consumer calls the DISCOM’s central call centre.', PhoneCall],
-  ['Control room reviews', 'The vendor control room sorts the case by circle and work type.', ListFilter],
-  ['Team dispatched', 'The case reaches field staff on a phone or tablet.', MapPinned],
-  ['Field visit tracked', 'The team visits the site while its GPS location remains visible.', Wrench],
-  ['Update and sign-off', 'Field staff record progress and seek consumer acknowledgement.', MessageSquareText],
-  ['Closure verified', 'The consumer receives an SMS; the control room confirms resolution.', CheckCircle2],
+  ['Consumer calls', 'The consumer calls the DISCOM’s centralised call centre.', PhoneCall],
+  ['Control room sorts', 'The vendor control room downloads the complaint and sorts it by circle and work type.', ListFilter],
+  ['Sent to the field', 'The system forwards the complaint to field staff on a mobile or tablet.', MapPinned],
+  ['Team on site', 'The team reaches the consumer, who can track the FRT live on GPS.', Wrench],
+  ['Status and sign-off', 'The FRT updates the status on the tab and takes the consumer’s signature.', MessageSquareText],
+  ['Resolution verified', 'An automated SMS updates the consumer, and the control room calls to verify.', CheckCircle2],
 ]
 
 export default function UtilityWorkflow() {

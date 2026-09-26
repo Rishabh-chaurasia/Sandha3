@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { Cpu, Truck, Users, Headset, Droplets } from 'lucide-react'
+import { Cpu, Truck, Users, Headset, Droplets, Forklift } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import { EASE } from '../utils/motion'
 
@@ -7,8 +7,10 @@ const STEPS = [
   { title: 'Manpower', text: 'ITI-qualified linemen, engineers and drivers', Icon: Users, grad: 'from-electric to-purple' },
   { title: 'Information technology', text: 'Servers, cloud data and complaint software', Icon: Cpu, grad: 'from-purple to-brand' },
   { title: 'FRT and line work', text: 'Fault rectification and LT/HT line maintenance', Icon: Truck, grad: 'from-brand to-cyan' },
-  { title: 'Call centre', text: '24/7 toll-free complaint registration', Icon: Headset, grad: 'from-cyan to-mint' },
-  { title: 'Water utility', text: 'Connections, metering, billing and leak repair', Icon: Droplets, grad: 'from-brand to-cyan' },
+  { title: 'Support services', text: 'Connecting consumers and clients, from complaint to field work', Icon: Headset, grad: 'from-cyan to-mint' },
+  { title: 'Water utility', text: 'Connections, metering, billing, repair and maintenance', Icon: Droplets, grad: 'from-brand to-cyan' },
+  { title: 'Trolley mounted lifters', text: 'Vehicle-mounted platforms for safe work at height', Icon: Forklift, grad: 'from-electric to-purple' },
+  { title: 'Sky lifters', text: 'Boom-mounted buckets for high-reach HT line work', Icon: Truck, grad: 'from-cyan to-mint' },
 ]
 
 export default function Journey({ id = 'journey' }) {
@@ -17,7 +19,7 @@ export default function Journey({ id = 'journey' }) {
     <section id={id} className="section relative overflow-hidden bg-white !pt-8 lg:!pt-12" aria-labelledby={`${id}-title`}>
       <div className="container-x">
         <SectionHeading label="Our capabilities" id={`${id}-title`} title="Connecting people, processes and technology.">
-          <p>Our five service areas connect the consumer's call with the team that fixes the fault.</p>
+          <p>Our services connect clients and consumers with the teams that resolve line and technical faults on the ground.</p>
         </SectionHeading>
 
         <div className="relative mt-16">
@@ -29,12 +31,12 @@ export default function Journey({ id = 'journey' }) {
           />
           <motion.span
             aria-hidden
-            className="absolute left-[36px] top-[36px] hidden h-1.5 origin-left -translate-y-1/2 rounded-full bg-gradient-to-r from-brand via-cyan via-60% to-mint shadow-[0_0_10px_rgba(8,120,249,.3)] lg:block"
-            style={{ right: 'calc(20% - 30px)' }}
+            className="absolute left-[36px] top-[36px] hidden h-1.5 origin-left -translate-y-1/2 rounded-full bg-gradient-to-r from-brand via-cyan via-60% to-mint shadow-[0_0_10px_rgba(8,120,249,.3)]"
+            style={{ right: 'calc(25% - 30px)' }}
             initial={reduce ? false : { scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 2, ease: EASE }}
           />
 
-          <ol className="relative grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5 xl:gap-7">
+          <ol className="relative grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-12">
             {STEPS.map((s, i) => (
               <motion.li
                 key={s.title}

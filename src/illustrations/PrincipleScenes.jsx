@@ -1,5 +1,5 @@
 import { Handshake, ShieldCheck } from 'lucide-react'
-import { Stage, G, Float } from './primitives'
+import { Stage, G, Float, Ripple } from './primitives'
 import { Figure, Confetti, Chip, K } from './figures'
 
 const BARS = [22, 38, 30, 52, 44]
@@ -31,11 +31,14 @@ export default function PrincipleScene({ kind, className = '', wide = false }) {
       {kind === 'trust' && (
         <>
           <Confetti items={[['plus', 34, 44, 6, K.cyan], ['tri', 226, 34, 7, K.amber], ['ring', 232, 170, 6, K.coral], ['dot', 30, 170, 5, K.mint]]} />
-          <G delay={0.2}>
-            <path d="M172 52L214 66V108C214 134 196 150 172 160C148 150 130 134 130 108V66Z" fill={K.mint} />
-            <path d="M172 52L214 66V108C214 134 196 150 172 160Z" fill={K.cyan} opacity=".55" />
-            <ShieldCheck x={150} y={78} size={44} color="#fff" strokeWidth={2} />
-          </G>
+          <Float amp={5} dur={3.8} delay={0.3}>
+            <Ripple cx={172} cy={106} r={33} color={K.mint} delay={0.8} dur={2.7} />
+            <G v="rise" delay={0.2}>
+              <path d="M172 52L214 66V108C214 134 196 150 172 160C148 150 130 134 130 108V66Z" fill={K.mint} />
+              <path d="M172 52L214 66V108C214 134 196 150 172 160Z" fill={K.cyan} opacity=".55" />
+              <ShieldCheck x={150} y={78} size={44} color="#fff" strokeWidth={2} />
+            </G>
+          </Float>
           <G v="enterL" delay={0.4}><Figure x={22} y={22} s={0.86} pose="celebrate" top={K.violet} skin="d" style="bun" bottom={K.navy} /></G>
         </>
       )}

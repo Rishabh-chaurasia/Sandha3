@@ -46,7 +46,6 @@ function Year() {
         <p className="grad-text font-display text-[clamp(4.5rem,12vw,7.5rem)] font-extrabold leading-none tracking-[-0.06em]">
           <Counter value={2008} from={1990} duration={2.2} />
         </p>
-        <p className="mt-1 text-sm font-bold text-muted">Built on practical delivery</p>
       </motion.div>
     </div>
   )

@@ -31,7 +31,7 @@ export default function Founder() {
             <h2 id="founder-title" className="mt-3 text-[clamp(2.2rem,1.3rem+3vw,4.4rem)] leading-tight tracking-tight text-ink">{founder.name}</h2>
             <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-muted">{COMPANY.founderMessage}</p>
             <p className="mt-4 max-w-[58ch] text-lg leading-relaxed text-muted">His strategic guidance connects customer needs with technology expertise. He focuses on developing capable teams and maintaining quality as the company grows.</p>
-            <p className="mt-4 max-w-[58ch] text-base leading-relaxed text-muted">The company profile also describes his support for environmental stewardship and social advancement. His long-term vision pairs business growth with responsible practices and value for stakeholders.</p>
+            <p className="mt-4 max-w-[58ch] text-base leading-relaxed text-muted">He actively supports environmental stewardship and social advancement. His long-term vision pairs business growth with responsible practices and value for stakeholders.</p>
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
               {[[UsersRound, 'People first', 'Build capable teams'], [Wrench, 'Practical solutions', 'Solve real service needs'], [Handshake, 'Long-term trust', 'Strengthen partnerships']].map(([Icon, title, detail], i) => <motion.div key={title} whileHover={{ y: -6 }} className="rounded-xl border border-line bg-gradient-to-br from-white to-soft p-3.5 shadow-sm">
                 <span className={`grid size-9 place-items-center rounded-lg text-white ${['bg-brand', 'bg-purple', 'bg-mint'][i]}`}><Icon className="size-4" /></span>

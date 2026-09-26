@@ -4,14 +4,15 @@ import OfficialImage from '../components/OfficialImage'
 
 function Logo({ client, duplicate }) {
   return (
-    <li aria-hidden={duplicate || undefined} className="mx-2 shrink-0 sm:mx-3">
+    <li aria-hidden={duplicate || undefined} className={`mx-2 shrink-0 sm:mx-3 ${duplicate ? 'hidden sm:list-item' : ''}`}>
       <motion.div
-        whileHover={{ width: 96, height: 96, scale: 1.08, borderRadius: '50%' }}
+        whileHover={{ scale: 1.06, y: -6 }}
         animate={{ y: [0, -5, 0] }}
-        transition={{ y: { duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: duplicate ? 0.7 : 0 }, width: { type: 'spring', stiffness: 300, damping: 24 }, height: { type: 'spring', stiffness: 300, damping: 24 }, scale: { type: 'spring', stiffness: 300, damping: 20 }, borderRadius: { duration: 0.35 } }}
-        className="flex h-20 w-36 items-center justify-center rounded-2xl border border-line bg-white px-5 opacity-90 shadow-sm transition-opacity duration-300 hover:opacity-100 sm:h-24 sm:w-44"
+        transition={{ y: { duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: duplicate ? 0.7 : 0 }, scale: { type: 'spring', stiffness: 300, damping: 18 }, rotate: { type: 'spring', stiffness: 300, damping: 18 } }}
+        className="flex h-[7.5rem] w-40 flex-col items-center justify-center gap-2 px-3 py-3 sm:h-[8.5rem] sm:w-48 sm:px-4"
       >
-        <OfficialImage local={client.local} remote={client.remote} alt={duplicate ? '' : client.name} loading="eager" fetchPriority="high" className="max-h-12 max-w-full object-contain sm:max-h-14" fallback={<span className="rounded-lg bg-soft px-3 py-2 text-sm font-extrabold text-brand-deep">{client.short}</span>} />
+        <span className="flex h-14 w-full items-center justify-center sm:h-16"><OfficialImage local={client.local} remote={client.remote} alt={duplicate ? '' : client.name} loading="eager" fetchPriority="high" className="h-full w-full object-contain" fallback={<span className="rounded-lg bg-soft px-3 py-2 text-sm font-extrabold text-brand-deep">{client.short}</span>} /></span>
+        <span aria-hidden className="line-clamp-2 min-h-[1.6rem] w-full text-center text-[0.65rem] font-bold leading-tight text-muted sm:text-[0.72rem]">{client.name}</span>
       </motion.div>
     </li>
   )
@@ -21,7 +22,7 @@ export default function ClientsMarquee() {
   return (
     <div className="min-w-0" aria-label="Client logo slideshow">
       <h3 className="mb-3 text-lg font-extrabold text-ink">Organisations we work with</h3>
-      <div className="marquee relative overflow-hidden py-2 [mask-image:linear-gradient(to_right,transparent,#000_8%,#000_92%,transparent)]">
+      <div className="marquee relative overflow-hidden pb-2 pt-4 [mask-image:linear-gradient(to_right,transparent,#000_8%,#000_92%,transparent)]">
         <ul className="marquee-track flex items-center" aria-label="Client logos">
           {CLIENT_LOGOS.map((client) => <Logo key={client.short} client={client} />)}
           {CLIENT_LOGOS.map((client) => <Logo key={client.short + '-dup'} client={client} duplicate />)}

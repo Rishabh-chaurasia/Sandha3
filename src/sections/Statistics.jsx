@@ -23,8 +23,7 @@ export default function Statistics() {
         </div>
         <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="Company scale">
           {STATS.slice(0, 4).map((stat, i) => (
-            <motion.div key={stat.label} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .09 }} className="flex min-h-[128px] flex-col rounded-2xl border border-line/70 p-3.5 shadow-sm sm:min-h-[144px] sm:p-4" style={{ backgroundColor: STYLE[i].surface }}>
-              <span className="text-xs font-semibold tracking-[.16em] text-muted">0{i + 1} / UTILITY REACH</span>
+            <motion.div key={stat.label} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .09 }} className="flex min-h-[104px] flex-col rounded-2xl border border-line/70 p-3 shadow-sm sm:min-h-[118px] sm:p-3.5" style={{ backgroundColor: STYLE[i].surface }}>
               <span className="mt-auto font-display text-[clamp(2.6rem,4vw,3.6rem)] font-bold leading-none" style={{ color: STYLE[i].color }}><Counter value={stat.value} suffix={stat.suffix} /></span>
               <span className="mt-2.5 max-w-[18ch] border-t border-ink/10 pt-2.5 text-sm font-semibold leading-snug text-ink">{stat.label}</span>
             </motion.div>

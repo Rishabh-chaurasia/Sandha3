@@ -1,4 +1,4 @@
-import { Zap, Truck, Construction, HardHat, ShieldCheck, Cable, TrafficCone, UsersRound } from 'lucide-react'
+import { Zap, Truck, Construction, HardHat, ShieldCheck, Cable, TrafficCone, UsersRound, Forklift } from 'lucide-react'
 import Reveal from '../components/Reveal'
 
 const LINES = [
@@ -7,9 +7,10 @@ const LINES = [
 ]
 
 const FLEET = [
-  { Icon: Truck, value: '1,000+', label: 'FRT vehicles and lifters', text: 'GPS-fitted light commercial vehicles carrying tools, a lineman, technician and driver, plus Hydra lifters for work at height.' },
-  { Icon: Construction, value: '100+', label: 'Transformer replacement cranes', text: 'Cranes for swapping failed distribution transformers without long outages.' },
-  { Icon: UsersRound, value: '2,000+', label: 'FRT and breakdown specialists', text: 'ITI-qualified linemen and technicians trained to work on live electrical networks.' },
+  { Icon: Truck, value: '1,000+', label: 'FRT vehicles and lifters', text: 'GPS-fitted FRT vehicles carrying tools, a lineman, technician and driver, alongside Hydra lifters for work at height.' },
+  { Icon: Construction, value: '800+', label: 'Transformer replacement cranes', text: 'Cranes for swapping failed distribution transformers without long outages.' },
+  { Icon: Forklift, value: null, label: 'Trolley-mounted lifters', text: 'Vehicle-mounted lifting platforms that raise crews safely to pole-top height, even in narrow lanes where larger lifts cannot reach.' },
+  { Icon: UsersRound, value: '2,000+', label: 'FRT and breakdown specialists', text: 'ITI-qualified linemen and technicians trained for LT and HT line work.' },
 ]
 
 const SAFETY = [
@@ -27,7 +28,7 @@ export default function FrtDetail() {
       <section className="section bg-ultra !py-9 lg:!py-12" aria-labelledby="frt-lines">
         <div className="container-x">
           <Reveal>
-            <p className="text-xs font-black uppercase tracking-[.2em] text-brand">Live-line operation and maintenance</p>
+            <p className="text-xs font-black uppercase tracking-[.2em] text-brand">LT and HT line maintenance</p>
             <h2 id="frt-lines" className="mt-3 max-w-[24ch] h-sub text-ink">We work on both LT and HT networks.</h2>
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -49,11 +50,11 @@ export default function FrtDetail() {
             <p className="text-xs font-black uppercase tracking-[.2em] text-brand">Fleet and crews</p>
             <h2 id="frt-fleet" className="mt-3 max-w-[24ch] h-sub text-ink">Vehicles, lifters and cranes on call.</h2>
           </Reveal>
-          <ul className="mt-10 grid gap-5 md:grid-cols-3">
+          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {FLEET.map(({ Icon, value, label, text }, i) => (
               <Reveal as="li" key={label} delay={i * 0.08} className="rounded-2xl border border-line bg-gradient-to-br from-white to-soft p-6">
                 <span className="grid size-12 place-items-center rounded-xl bg-[#0F9E93] text-white"><Icon aria-hidden className="size-6" /></span>
-                <p className="mt-5 font-display text-4xl font-extrabold tracking-tight text-ink tabular-nums">{value}</p>
+                {value ? <p className="mt-5 font-display text-4xl font-extrabold tracking-tight text-ink tabular-nums">{value}</p> : <p className="mt-5 flex h-10 items-end text-xs font-black uppercase tracking-[.16em] text-[#0F9E93]">Lifting equipment</p>}
                 <p className="mt-1 font-extrabold text-ink">{label}</p>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{text}</p>
               </Reveal>

@@ -17,7 +17,7 @@ const MAP = {
   contact: lazy(() => import('../illustrations/ContactMap')),
 }
 const ServiceVisual = lazy(() => import('../illustrations/ServiceVisual'))
-const SERVICE_SLUGS = new Set(['utility-operations', 'manpower-management', 'contact-centre', 'technology-services', 'water-utility'])
+const SERVICE_SLUGS = new Set(['utility-operations', 'manpower-management', 'contact-centre', 'technology-services', 'water-utility', 'trolley-mounted-lifters', 'sky-lifters'])
 
 // These ship their own mobile composition, so they keep their own label sizes.
 const HAS_MOBILE_LAYOUT = new Set(['hero', 'services'])
@@ -29,7 +29,7 @@ export default function AnimatedIllustration({ name, className = 'w-full h-auto'
   const cls = `${className} illus${HAS_MOBILE_LAYOUT.has(name) ? ' illus-fit' : ''}`
   return (
     <Suspense fallback={<div aria-hidden className={`${className} aspect-[4/3] animate-pulse rounded-3xl bg-soft/60`} />}>
-      {SERVICE_SLUGS.has(name) ? <ServiceVisual slug={name} className={cls} /> : <Comp className={cls} mobile={small} {...rest} />}
+      {SERVICE_SLUGS.has(name) ? <ServiceVisual slug={name} className={cls} inPanel={rest.inPanel} /> : <Comp className={cls} mobile={small} {...rest} />}
     </Suspense>
   )
 }

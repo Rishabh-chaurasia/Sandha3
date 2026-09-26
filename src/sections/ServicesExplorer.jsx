@@ -8,7 +8,8 @@ import SectionHeading from '../components/SectionHeading'
 import { EASE, cn } from '../utils/motion'
 
 function detailsFor(s) {
-  if (s.areas.length) return s.areas.map((a) => ({ title: a.title, text: a.text }))
+  // `short` is a one-line summary so every point shows in full here; the service page keeps the long text.
+  if (s.areas.length) return s.areas.map((a) => ({ title: a.title, text: a.short || a.text }))
   return CALL_GROUPS.flatMap((g) => g.items.map((i) => ({ title: i.title, text: i.points.join(', ') })))
 }
 
@@ -18,6 +19,18 @@ function FrtArtwork() {
 
 function WaterArtwork() {
   return <img aria-hidden src="/water-utility-illustration.png" alt="" className="pointer-events-none absolute bottom-0 right-0 z-10 h-32 w-48 object-contain mix-blend-multiply transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-105 sm:h-40 sm:w-56" style={{ maskImage: 'radial-gradient(ellipse 67% 66% at center,black 60%,transparent 100%)' }} />
+}
+
+// Same 3D illustration treatment as the FRT and water cards. Until the
+// illustration file exists in public/, the service photo is shown instead.
+function IllustrationArtwork({ src, fallback }) {
+  const [failed, setFailed] = useState(false)
+  if (failed) return <PhotoArtwork src={fallback} />
+  return <img aria-hidden src={src} alt="" onError={() => setFailed(true)} className="pointer-events-none absolute bottom-0 right-0 z-10 h-32 w-48 object-contain mix-blend-multiply transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-105 sm:h-40 sm:w-56" style={{ maskImage: 'radial-gradient(ellipse 67% 66% at center,black 60%,transparent 100%)' }} />
+}
+
+function PhotoArtwork({ src }) {
+  return <img aria-hidden src={src} alt="" loading="lazy" className="pointer-events-none absolute bottom-3 right-11 z-10 h-24 w-32 rounded-xl object-cover shadow-md ring-2 ring-white transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105 sm:h-28 sm:w-40" />
 }
 
 export default function ServicesExplorer({ heading = true, id = 'services', compact = false }) {
@@ -35,7 +48,7 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
   }
 
   const displayedServices = compact
-    ? [ORDERED_SERVICES[0], ORDERED_SERVICES[2], ORDERED_SERVICES[1], ORDERED_SERVICES[3], ORDERED_SERVICES[4]]
+    ? [ORDERED_SERVICES[0], ORDERED_SERVICES[2], ORDERED_SERVICES[1], ORDERED_SERVICES[3], ORDERED_SERVICES[4], ORDERED_SERVICES[5], ORDERED_SERVICES[6]]
     : ORDERED_SERVICES
   const cardColors = [
     ['#DDF6EA', '#18A882'],
@@ -43,9 +56,12 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
     ['#D7F8F0', '#0F9E93'],
     ['#FFE5DF', '#F05F42'],
     ['#E8EFFF', '#4266C9'],
+    ['#FFF0D8', '#C9861A'],
+    ['#FFE9DE', '#E0662F'],
   ]
   const spritePositions = { 'manpower-management': '100% 0%', 'technology-services': '0% 0%', 'contact-centre': '50% 100%' }
-  const cardSpan = ['lg:col-span-3', 'lg:col-span-3', 'lg:col-span-2', 'lg:col-span-2', 'sm:col-span-2 lg:col-span-2']
+  // 2 + 3 + 2 cards per row on desktop.
+  const cardSpan = ['lg:col-span-3', 'lg:col-span-3', 'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-3', 'sm:col-span-2 lg:col-span-3']
 
   if (compact) {
     return (
@@ -64,7 +80,7 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
                 const bullets = detailsFor(sv).slice(0, 2)
               return (
                 <motion.article key={sv.slug} whileHover={reduce ? undefined : { y: -5 }} transition={{ duration: 0.25 }} className={cn('group relative min-h-[190px] overflow-hidden rounded-2xl p-4 shadow-sm ring-1 ring-black/[0.04] lg:min-h-[180px]', cardSpan[i])} style={{ backgroundColor: bg, backgroundImage: sv.slug === 'utility-operations' ? 'linear-gradient(rgba(15,158,147,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(15,158,147,.12) 1px,transparent 1px)' : undefined, backgroundSize: sv.slug === 'utility-operations' ? '18px 18px' : undefined }}>
-                  {sv.slug === 'utility-operations' ? <FrtArtwork /> : sv.slug === 'water-utility' ? <WaterArtwork /> : <div aria-hidden className="pointer-events-none absolute bottom-0 right-0 z-10 size-36 bg-no-repeat opacity-85 mix-blend-multiply transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110" style={{ backgroundImage: 'url(/service-illustrations-v2.png)', backgroundSize: '300% 200%', backgroundPosition: spritePositions[sv.slug], maskImage: 'radial-gradient(ellipse 52% 52% at center,black 55%,transparent 100%)' }} />}
+                  {sv.slug === 'utility-operations' ? <FrtArtwork /> : sv.slug === 'water-utility' ? <WaterArtwork /> : sv.art ? <IllustrationArtwork src={sv.art} fallback={sv.photo} /> : <div aria-hidden className="pointer-events-none absolute bottom-0 right-0 z-10 size-36 bg-no-repeat opacity-85 mix-blend-multiply transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110" style={{ backgroundImage: 'url(/service-illustrations-v2.png)', backgroundSize: '300% 200%', backgroundPosition: spritePositions[sv.slug], maskImage: 'radial-gradient(ellipse 52% 52% at center,black 55%,transparent 100%)' }} />}
                   <div className="relative z-20 flex h-full flex-col">
                     <div className="max-w-[65%]">
                     <h3 className="text-base font-black leading-tight tracking-tight text-ink">{sv.title}</h3>
@@ -149,13 +165,13 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
               </div>
 
               <div
-                className={cn('relative grid items-center gap-4 overflow-hidden rounded-[1.5rem] border border-white bg-white/70 shadow-lift backdrop-blur-sm', compact ? 'mt-6 p-5 sm:p-6' : 'mt-2 p-4 lg:h-[440px] lg:min-h-[440px] lg:max-h-[440px] lg:grid-cols-12 lg:p-6')}
+                className={cn('relative grid items-center gap-4 overflow-hidden rounded-[1.5rem] border border-white bg-white/70 shadow-lift backdrop-blur-sm', compact ? 'mt-6 p-5 sm:p-6' : 'mt-2 p-4 lg:min-h-[440px] lg:grid-cols-12 lg:p-6')}
                 style={{ backgroundImage: `radial-gradient(760px 340px at 90% 0%, ${s.accent}26, transparent 70%), radial-gradient(600px 320px at 0% 100%, ${s.accent2}22, transparent 70%)` }}
               >
                 {!compact && <div className="relative min-w-0 lg:col-span-7">
-                  <AnimatedIllustration name={s.slug} className={cn('mx-auto h-auto max-h-[320px] w-full max-w-[500px]', s.slug === 'technology-services' && '-translate-y-8')} />
+                  <AnimatedIllustration name={s.slug} inPanel className={cn('mx-auto h-auto max-h-[320px] w-full max-w-[500px]', s.slug === 'technology-services' && '-translate-y-8')} />
                 </div>}
-                <ul className={cn(compact ? 'grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3' : 'lg:col-span-5 lg:max-h-[360px] lg:overflow-y-auto lg:pr-2')}>
+                <ul className={cn(compact ? 'grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3' : 'lg:col-span-5')}>
                   {detailsFor(s).map((d, i) => (
                     <motion.li
                       key={d.title}
@@ -166,7 +182,7 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
                       <span aria-hidden className="mt-2 size-2.5 shrink-0 rounded-full" style={{ background: i % 2 ? s.accent2 : s.accent }} />
                       <div>
                         <h4 className="text-base font-extrabold leading-snug text-ink">{d.title}</h4>
-                        <p className="mt-0.5 line-clamp-2 text-sm leading-snug text-muted">{d.text}</p>
+                        <p className="mt-0.5 text-sm leading-snug text-muted">{d.text}</p>
                       </div>
                     </motion.li>
                   ))}

@@ -12,9 +12,9 @@ export default function HeroEcosystem({ mobile = false, className = '' }) {
   const hub = [390, 400]
   const nodes = [
     { at: [120, 210], Icon: Cloud, label: 'Technology', color: K.blue },
-    { at: [270, 82], Icon: Compass, label: 'Field response', color: K.violet },
-    { at: [590, 76], Icon: Zap, label: 'Line maintenance', color: K.cyan },
-    { at: [672, 330], Icon: Headset, label: 'Call Centre', color: K.mint },
+    { at: [270, 82], Icon: Compass, label: 'Lifting & Mounting', color: K.violet },
+    { at: [590, 76], Icon: Zap, label: 'Operations & maintenance', color: K.cyan },
+    { at: [672, 330], Icon: Headset, label: 'Service Support', color: K.mint },
     { at: [96, 470], Icon: Users, label: 'Manpower', color: K.coral },
   ]
   return (
@@ -58,7 +58,7 @@ export default function HeroEcosystem({ mobile = false, className = '' }) {
       {/* floating nodes */}
       {nodes.map((n, i) => (
         <Float key={n.color} amp={4 + (i % 3) * 2} dur={5 + i} delay={i * 0.4}>
-          <Chip cx={n.at[0]} cy={n.at[1]} r={32} Icon={n.Icon} color={n.color} label={n.label} fs={15} delay={0.7 + i * 0.12} />
+          <Chip cx={n.at[0]} cy={n.at[1]} r={32} Icon={n.Icon} color={n.color} label={n.label} fs={n.fs || 15} delay={0.7 + i * 0.12} />
         </Float>
       ))}
 
@@ -70,9 +70,9 @@ function HeroMobile({ className }) {
   const hub = [210, 275]
   const nodes = [
     { at: [64, 66], Icon: Cloud, label: 'Technology', color: K.blue },
-    { at: [346, 66], Icon: Zap, label: 'Line work', color: K.cyan },
-    { at: [352, 372], Icon: Headset, label: 'Call centre', color: K.mint },
-    { at: [64, 380], Icon: Users, label: 'Field teams', color: K.coral },
+    { at: [315, 66], Icon: Zap, label: 'Operations & maintenance', color: K.cyan },
+    { at: [352, 372], Icon: Headset, label: 'Service Support', color: K.mint },
+    { at: [85, 380], Icon: Users, label: 'Lifting & Mounting', color: K.coral },
   ]
   return (
     <Stage viewBox="0 0 420 480" className={className} label="Connected technology, line maintenance, call centre and field teams">
@@ -92,7 +92,7 @@ function HeroMobile({ className }) {
       </G>
       {nodes.map((n, i) => (
         <Float key={n.label} amp={4} dur={5 + i} delay={i * 0.4}>
-          <Chip cx={n.at[0]} cy={n.at[1]} r={28} Icon={n.Icon} color={n.color} label={n.label} fs={16} delay={0.7 + i * 0.12} />
+          <Chip cx={n.at[0]} cy={n.at[1]} r={28} Icon={n.Icon} color={n.color} label={n.label} fs={n.fs || 16} delay={0.7 + i * 0.12} />
         </Float>
       ))}
     </Stage>

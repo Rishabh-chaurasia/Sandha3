@@ -12,7 +12,8 @@ const CHANNELS = [
 const YS = [50, 148, 246, 344, 442]
 const FLOW = ['Query', 'Communication', 'Support', 'Resolution']
 
-export default function CallCentreNetwork({ className = '' }) {
+// showFlow=false hides the bottom row of step pills; the drawing keeps its size.
+export default function CallCentreNetwork({ className = '', showFlow = true }) {
   return (
     <Stage viewBox="0 0 760 620" className={className} label="Customer communication network: a customer reaches a support agent through voice, chat, email, SMS and web, the agent uses the CRM, and the query ends in resolution">
       <G v="fade">
@@ -64,14 +65,14 @@ export default function CallCentreNetwork({ className = '' }) {
       </G>
 
       {/* query -> resolution */}
-      <G v="rise" delay={2} className="hide-sm">
+      {showFlow && <G v="rise" delay={2} className="hide-sm">
         {FLOW.map((f, i) => (
           <g key={f} transform={`translate(${112 + i * 128} 566)`}>
             <rect width="120" height="28" rx="14" fill={i === 3 ? K.mint : '#fff'} stroke={i === 3 ? '#fff' : K.violetSoft} strokeWidth="1.6" />
             <Txt x={60} y={19} fs={12.5} w={800} fill={i === 3 ? '#fff' : K.ink}>{f}</Txt>
           </g>
         ))}
-      </G>
+      </G>}
     </Stage>
   )
 }
