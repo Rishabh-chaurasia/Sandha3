@@ -36,8 +36,6 @@ function useSlides() {
 /** Circular photo that cross-fades between the service slides, with the current service named on a pill. */
 function PhotoCircle({ cx, cy, r, active, id, pillFs = 14 }) {
   const size = r * 2.1
-  const label = SLIDES[active].label
-  const pillW = label.length * pillFs * 0.58 + 34
   return (
     <g>
       <defs>
@@ -58,10 +56,6 @@ function PhotoCircle({ cx, cy, r, active, id, pillFs = 14 }) {
           />
         ))}
       </g>
-      <motion.g key={active} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-        <rect x={cx - pillW / 2} y={cy + r - pillFs * 3.3} width={pillW} height={pillFs * 2} rx={pillFs} fill="#fff" fillOpacity=".92" />
-        <text x={cx} y={cy + r - pillFs * 1.95} textAnchor="middle" fontSize={pillFs} fontWeight="800" fill="#0f2346" style={{ fontFamily: 'var(--font-sans)' }}>{label}</text>
-      </motion.g>
     </g>
   )
 }

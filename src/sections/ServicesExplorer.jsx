@@ -41,8 +41,8 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
   const focusTab = (i) => { setActive(i); document.getElementById(`svc-tab-${i}`)?.focus() }
   const onKey = (e) => {
     const n = ORDERED_SERVICES.length
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); focusTab((active + 1) % n) }
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); focusTab((active - 1 + n) % n) }
+    if (e.key === 'ArrowRight') { e.preventDefault(); focusTab((active + 1) % n) }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); focusTab((active - 1 + n) % n) }
     if (e.key === 'Home') focusTab(0)
     if (e.key === 'End') focusTab(n - 1)
   }
