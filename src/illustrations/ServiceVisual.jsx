@@ -71,7 +71,7 @@ function ManpowerDeployVisual() {
 }
 
 function LifterVisual() {
-  const points = [['Drive to site', Truck], ['Raise platform', ArrowUpFromLine], ['Work at height', Wrench], ['Safe descent', ShieldCheck]]
+  const points = [['Drive to site', Truck], ['Raise platform', ArrowUpFromLine], ['Perform line work', Wrench], ['Safe descent', ShieldCheck]]
   return <Shell tint="#fff6e6" label="Trolley-mounted lifter: drive to site, raise the platform, work at height and come down safely">
     <div className="grid items-center gap-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
       <div className="relative mx-auto flex h-56 w-44 flex-col items-center justify-end">
@@ -93,7 +93,7 @@ function LifterVisual() {
 }
 
 function SkyVisual() {
-  const points = [['Position truck', Truck], ['Extend boom', ArrowUpFromLine], ['Work at height', Zap], ['Safe descent', ShieldCheck]]
+  const points = [['Position truck', Truck], ['Extend boom', ArrowUpFromLine], ['Service overhead lines', Zap], ['Safe descent', ShieldCheck]]
   return <Shell tint="#fff0e8" label="Sky lifter: position the truck, extend the boom, work at height and come down safely">
     <ol className="mx-auto grid max-w-md grid-cols-2 gap-3">
       {points.map(([label, Icon], i) => <motion.li key={label} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .12 }} whileHover={{ y: -5 }} className="rounded-2xl border border-[#f6d2bf] bg-white p-4 shadow-md">

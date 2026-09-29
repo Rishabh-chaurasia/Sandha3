@@ -71,11 +71,11 @@ export const SERVICES = [
   },
   {
     slug: 'trolley-mounted-lifters', n: '06', title: 'Trolley Mounted Lifters', accent: '#C9861A', accent2: '#E06B4B', tint: '#FFF6E6',
-    tagline: 'Vehicle-mounted lifters for safe work at height',
-    summary: 'Trolley-mounted lifters carry crews and tools up to pole-top height on a stable platform. They reach narrow lanes and low-clearance sites where larger sky lifts cannot, so line work and repairs finish faster and more safely.',
+    tagline: 'Vehicle-mounted lifters for safe overhead work',
+    summary: 'Trolley-mounted lifters carry crews and tools to pole-top positions on a stable platform. They reach narrow lanes and low-clearance sites where larger sky lifts cannot, so line work and repairs finish faster and more safely.',
     areas: [
       { title: 'Vehicle-mounted platforms', text: 'Lifting platforms mounted on a vehicle, ready to move from one site to the next with the crew.' , short: 'Lifting platforms that move with the crew.' },
-      { title: 'Pole-top and height work', text: 'A stable, guarded platform for work on poles, lines, street lighting and overhead fittings.' , short: 'A stable, guarded platform for work on poles and lines.' },
+      { title: 'Pole-top and overhead work', text: 'A stable, guarded platform for work on poles, lines, street lighting and overhead fittings.' , short: 'A stable, guarded platform for work on poles and lines.' },
       { title: 'Narrow lanes and tight sites', text: 'Compact enough for crowded areas and low-clearance locations where larger sky lifts cannot reach.' , short: 'Reaches crowded, low-clearance sites sky lifts cannot.' },
       { title: 'Different from sky lifts', text: 'Used alongside our sky lifters and Hydra lifters, so each job gets the right lifting equipment.' , short: 'Works alongside our sky and Hydra lifters.' },
       { title: 'Trained operators', text: 'Operated by trained staff following the same safety and shutdown procedure as all our line work.' , short: 'Run by trained staff under our safety procedure.' },
@@ -83,7 +83,7 @@ export const SERVICES = [
     art: '/trolley-lifter-illustration.png',
     photo: '/photos/trolley-lifter-detail.png',
     photoAlt: 'Utility crew using a vehicle-mounted lifting platform for overhead-line maintenance',
-    seo: 'Trolley-mounted lifters for pole-top, overhead and height work by Sandha & Company.',
+    seo: 'Trolley-mounted lifters for pole-top and overhead work by Sandha & Company.',
   },
   {
     slug: 'sky-lifters', n: '07', title: 'Sky Lifters', accent: '#E0662F', accent2: '#0878F9', tint: '#FFF0E8',

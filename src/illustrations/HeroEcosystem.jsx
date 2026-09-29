@@ -89,9 +89,9 @@ export default function HeroEcosystem({ mobile = false, className = '' }) {
   const hub = [390, 400]
   const nodes = [
     { key: 'technology', at: [120, 210], Icon: Cloud, label: 'Technology', color: K.blue },
-    { key: 'lifting', at: [270, 82], Icon: Compass, label: 'Lifting & Mounting', color: K.violet },
+    { key: 'lifting', at: [242, 60], Icon: Compass, label: 'Lifting & Mounting', color: K.violet },
     { key: 'operations', at: [590, 76], Icon: Zap, label: 'Operations & maintenance', color: K.cyan },
-    { key: 'support', at: [680, 330], Icon: Headset, label: 'Service Support', color: K.mint },
+    { key: 'support', at: [680, 354], Icon: Headset, label: 'Service Support', color: K.mint },
     { key: 'manpower', at: [96, 470], Icon: Users, label: 'Manpower', color: K.coral },
   ]
   return (
