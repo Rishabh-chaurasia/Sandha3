@@ -166,7 +166,7 @@ export default function ServicesExplorer({ heading = true, id = 'services', comp
               </div>
 
               <div
-                className={cn('relative grid items-center gap-4 overflow-hidden rounded-[1.5rem] border border-white bg-white/70 shadow-lift backdrop-blur-sm', compact ? 'mt-6 p-5 sm:p-6' : 'mt-2 p-4 lg:min-h-[440px] lg:grid-cols-12 lg:p-6')}
+                className={cn('relative grid items-center gap-4 overflow-hidden rounded-[1.5rem] border border-white bg-white/70 shadow-lift backdrop-blur-sm', compact ? 'mt-6 p-5 sm:p-6' : 'mt-2 p-4 lg:min-h-[520px] lg:grid-cols-12 lg:p-6')}
                 style={{ backgroundImage: `radial-gradient(760px 340px at 90% 0%, ${s.accent}26, transparent 70%), radial-gradient(600px 320px at 0% 100%, ${s.accent2}22, transparent 70%)` }}
               >
                 {!compact && <div className="relative min-w-0 lg:col-span-7">
